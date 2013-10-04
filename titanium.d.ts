@@ -27,78 +27,15 @@ declare module Titanium {
 		export function removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 		export function serializeToString (node: Titanium.XML.Node) : string;
 		export function setBubbleParent (bubbleParent: boolean) : void;
-		export interface Entity {
-			ATTRIBUTE_NODE : number;
-			CDATA_SECTION_NODE : number;
-			COMMENT_NODE : number;
-			DOCUMENT_FRAGMENT_NODE : number;
-			DOCUMENT_NODE : number;
-			DOCUMENT_TYPE_NODE : number;
-			ELEMENT_NODE : number;
-			ENTITY_NODE : number;
-			ENTITY_REFERENCE_NODE : number;
-			NOTATION_NODE : number;
-			PROCESSING_INSTRUCTION_NODE : number;
-			TEXT_NODE : number;
-			attributes : Titanium.XML.NamedNodeMap;
-			bubbleParent : boolean;
-			childNodes : Titanium.XML.NodeList;
-			firstChild : Titanium.XML.Node;
-			lastChild : Titanium.XML.Node;
-			localName : string;
-			namespaceURI : string;
-			nextSibling : Titanium.XML.Node;
-			nodeName : string;
-			nodeType : number;
-			nodeValue : string;
+		export interface Entity extends Titanium.XML.Node {
 			notationName : string;
-			ownerDocument : Titanium.XML.Document;
-			parentNode : Titanium.XML.Node;
-			prefix : string;
-			previousSibling : Titanium.XML.Node;
 			publicId : string;
 			systemId : string;
-			text : string;
-			textContent : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			appendChild (newChild: Titanium.XML.Node) : Titanium.XML.Node;
-			applyProperties (props: Dictionary<Object>) : void;
-			cloneNode (deep: boolean) : Titanium.XML.Node;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAttributes () : Titanium.XML.NamedNodeMap;
-			getBubbleParent () : boolean;
-			getChildNodes () : Titanium.XML.NodeList;
-			getFirstChild () : Titanium.XML.Node;
-			getLastChild () : Titanium.XML.Node;
-			getLocalName () : string;
-			getNamespaceURI () : string;
-			getNextSibling () : Titanium.XML.Node;
-			getNodeName () : string;
-			getNodeType () : number;
-			getNodeValue () : string;
 			getNotationName () : string;
-			getOwnerDocument () : Titanium.XML.Document;
-			getParentNode () : Titanium.XML.Node;
-			getPrefix () : string;
-			getPreviousSibling () : Titanium.XML.Node;
 			getPublicId () : string;
 			getSystemId () : string;
-			getText () : string;
-			getTextContent () : string;
-			hasAttributes () : boolean;
-			hasChildNodes () : boolean;
-			insertBefore (newChild: Titanium.XML.Node, refChild: Titanium.XML.Node) : Titanium.XML.Node;
-			isSupported (feature: string, version: string) : boolean;
-			normalize () : void;
-			removeChild (oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			replaceChild (newChild: Titanium.XML.Node, oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setLocalName (localName: string) : void;
-			setNodeValue (nodeValue: string) : void;
-			setPrefix (prefix: string) : void;
 		}
-		export interface EntityReference {
+		export interface Node extends Titanium.Proxy {
 			ATTRIBUTE_NODE : number;
 			CDATA_SECTION_NODE : number;
 			COMMENT_NODE : number;
@@ -112,7 +49,6 @@ declare module Titanium {
 			PROCESSING_INSTRUCTION_NODE : number;
 			TEXT_NODE : number;
 			attributes : Titanium.XML.NamedNodeMap;
-			bubbleParent : boolean;
 			childNodes : Titanium.XML.NodeList;
 			firstChild : Titanium.XML.Node;
 			lastChild : Titanium.XML.Node;
@@ -128,13 +64,9 @@ declare module Titanium {
 			previousSibling : Titanium.XML.Node;
 			text : string;
 			textContent : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
 			appendChild (newChild: Titanium.XML.Node) : Titanium.XML.Node;
-			applyProperties (props: Dictionary<Object>) : void;
 			cloneNode (deep: boolean) : Titanium.XML.Node;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getAttributes () : Titanium.XML.NamedNodeMap;
-			getBubbleParent () : boolean;
 			getChildNodes () : Titanium.XML.NodeList;
 			getFirstChild () : Titanium.XML.Node;
 			getLastChild () : Titanium.XML.Node;
@@ -156,202 +88,35 @@ declare module Titanium {
 			isSupported (feature: string, version: string) : boolean;
 			normalize () : void;
 			removeChild (oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			replaceChild (newChild: Titanium.XML.Node, oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setLocalName (localName: string) : void;
 			setNodeValue (nodeValue: string) : void;
 			setPrefix (prefix: string) : void;
 		}
-		export interface Node {
-			ATTRIBUTE_NODE : number;
-			CDATA_SECTION_NODE : number;
-			COMMENT_NODE : number;
-			DOCUMENT_FRAGMENT_NODE : number;
-			DOCUMENT_NODE : number;
-			DOCUMENT_TYPE_NODE : number;
-			ELEMENT_NODE : number;
-			ENTITY_NODE : number;
-			ENTITY_REFERENCE_NODE : number;
-			NOTATION_NODE : number;
-			PROCESSING_INSTRUCTION_NODE : number;
-			TEXT_NODE : number;
-			attributes : Titanium.XML.NamedNodeMap;
-			bubbleParent : boolean;
-			childNodes : Titanium.XML.NodeList;
-			firstChild : Titanium.XML.Node;
-			lastChild : Titanium.XML.Node;
-			localName : string;
-			namespaceURI : string;
-			nextSibling : Titanium.XML.Node;
-			nodeName : string;
-			nodeType : number;
-			nodeValue : string;
-			ownerDocument : Titanium.XML.Document;
-			parentNode : Titanium.XML.Node;
-			prefix : string;
-			previousSibling : Titanium.XML.Node;
-			text : string;
-			textContent : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			appendChild (newChild: Titanium.XML.Node) : Titanium.XML.Node;
-			applyProperties (props: Dictionary<Object>) : void;
-			cloneNode (deep: boolean) : Titanium.XML.Node;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAttributes () : Titanium.XML.NamedNodeMap;
-			getBubbleParent () : boolean;
-			getChildNodes () : Titanium.XML.NodeList;
-			getFirstChild () : Titanium.XML.Node;
-			getLastChild () : Titanium.XML.Node;
-			getLocalName () : string;
-			getNamespaceURI () : string;
-			getNextSibling () : Titanium.XML.Node;
-			getNodeName () : string;
-			getNodeType () : number;
-			getNodeValue () : string;
-			getOwnerDocument () : Titanium.XML.Document;
-			getParentNode () : Titanium.XML.Node;
-			getPrefix () : string;
-			getPreviousSibling () : Titanium.XML.Node;
-			getText () : string;
-			getTextContent () : string;
-			hasAttributes () : boolean;
-			hasChildNodes () : boolean;
-			insertBefore (newChild: Titanium.XML.Node, refChild: Titanium.XML.Node) : Titanium.XML.Node;
-			isSupported (feature: string, version: string) : boolean;
-			normalize () : void;
-			removeChild (oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			replaceChild (newChild: Titanium.XML.Node, oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setLocalName (localName: string) : void;
-			setNodeValue (nodeValue: string) : void;
-			setPrefix (prefix: string) : void;
+		export enum EntityReference {
+
 		}
-		export interface CharacterData {
-			ATTRIBUTE_NODE : number;
-			CDATA_SECTION_NODE : number;
-			COMMENT_NODE : number;
-			DOCUMENT_FRAGMENT_NODE : number;
-			DOCUMENT_NODE : number;
-			DOCUMENT_TYPE_NODE : number;
-			ELEMENT_NODE : number;
-			ENTITY_NODE : number;
-			ENTITY_REFERENCE_NODE : number;
-			NOTATION_NODE : number;
-			PROCESSING_INSTRUCTION_NODE : number;
-			TEXT_NODE : number;
-			attributes : Titanium.XML.NamedNodeMap;
-			bubbleParent : boolean;
-			childNodes : Titanium.XML.NodeList;
+		export interface CharacterData extends Titanium.XML.Node {
 			data : string;
-			firstChild : Titanium.XML.Node;
-			lastChild : Titanium.XML.Node;
 			length : number;
-			localName : string;
-			namespaceURI : string;
-			nextSibling : Titanium.XML.Node;
-			nodeName : string;
-			nodeType : number;
-			nodeValue : string;
-			ownerDocument : Titanium.XML.Document;
-			parentNode : Titanium.XML.Node;
-			prefix : string;
-			previousSibling : Titanium.XML.Node;
-			text : string;
-			textContent : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			appendChild (newChild: Titanium.XML.Node) : Titanium.XML.Node;
 			appendData (arg: string) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			cloneNode (deep: boolean) : Titanium.XML.Node;
 			deleteData (offset: number, count: number) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAttributes () : Titanium.XML.NamedNodeMap;
-			getBubbleParent () : boolean;
-			getChildNodes () : Titanium.XML.NodeList;
 			getData () : string;
-			getFirstChild () : Titanium.XML.Node;
-			getLastChild () : Titanium.XML.Node;
 			getLength () : number;
-			getLocalName () : string;
-			getNamespaceURI () : string;
-			getNextSibling () : Titanium.XML.Node;
-			getNodeName () : string;
-			getNodeType () : number;
-			getNodeValue () : string;
-			getOwnerDocument () : Titanium.XML.Document;
-			getParentNode () : Titanium.XML.Node;
-			getPrefix () : string;
-			getPreviousSibling () : Titanium.XML.Node;
-			getText () : string;
-			getTextContent () : string;
-			hasAttributes () : boolean;
-			hasChildNodes () : boolean;
-			insertBefore (newChild: Titanium.XML.Node, refChild: Titanium.XML.Node) : Titanium.XML.Node;
 			insertData (offset: number, arg: string) : void;
-			isSupported (feature: string, version: string) : boolean;
-			normalize () : void;
-			removeChild (oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			replaceChild (newChild: Titanium.XML.Node, oldChild: Titanium.XML.Node) : Titanium.XML.Node;
 			replaceData (offset: number, count: number, arg: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setData (data: string) : void;
-			setLocalName (localName: string) : void;
-			setNodeValue (nodeValue: string) : void;
-			setPrefix (prefix: string) : void;
 			substringData (offset: number, count: number) : string;
 		}
-		export interface DOMImplementation {
-			bubbleParent : boolean;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
+		export interface DOMImplementation extends Titanium.Proxy {
 			createDocument (namespaceURI: string, qualifiedName: string, doctype: Titanium.XML.DocumentType) : Titanium.XML.Document;
 			createDocumentType (qualifiedName: string, publicId: string, systemId: string) : Titanium.XML.DocumentType;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			hasFeature (feature: string, version: string) : boolean;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 		}
-		export interface Document {
-			ATTRIBUTE_NODE : number;
-			CDATA_SECTION_NODE : number;
-			COMMENT_NODE : number;
-			DOCUMENT_FRAGMENT_NODE : number;
-			DOCUMENT_NODE : number;
-			DOCUMENT_TYPE_NODE : number;
-			ELEMENT_NODE : number;
-			ENTITY_NODE : number;
-			ENTITY_REFERENCE_NODE : number;
-			NOTATION_NODE : number;
-			PROCESSING_INSTRUCTION_NODE : number;
-			TEXT_NODE : number;
-			attributes : Titanium.XML.NamedNodeMap;
-			bubbleParent : boolean;
-			childNodes : Titanium.XML.NodeList;
+		export interface Document extends Titanium.XML.Node {
 			doctype : Titanium.XML.DocumentType;
 			documentElement : Titanium.XML.Element;
-			firstChild : Titanium.XML.Node;
 			implementation : Titanium.XML.DOMImplementation;
-			lastChild : Titanium.XML.Node;
-			localName : string;
-			namespaceURI : string;
-			nextSibling : Titanium.XML.Node;
-			nodeName : string;
-			nodeType : number;
-			nodeValue : string;
-			ownerDocument : Titanium.XML.Document;
-			parentNode : Titanium.XML.Node;
-			prefix : string;
-			previousSibling : Titanium.XML.Node;
-			text : string;
-			textContent : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			appendChild (newChild: Titanium.XML.Node) : Titanium.XML.Node;
-			applyProperties (props: Dictionary<Object>) : void;
-			cloneNode (deep: boolean) : Titanium.XML.Node;
 			createAttribute (name: string) : Titanium.XML.Attr;
 			createAttributeNS (namespaceURI: string, name: string) : Titanium.XML.Attr;
 			createCDATASection (data: string) : Titanium.XML.CDATASection;
@@ -362,639 +127,108 @@ declare module Titanium {
 			createEntityReference (name: string) : Titanium.XML.EntityReference;
 			createProcessingInstruction (target: string, data: string) : Titanium.XML.ProcessingInstruction;
 			createTextNode (data: string) : Titanium.XML.Text;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAttributes () : Titanium.XML.NamedNodeMap;
-			getBubbleParent () : boolean;
-			getChildNodes () : Titanium.XML.NodeList;
 			getDoctype () : Titanium.XML.DocumentType;
 			getDocumentElement () : Titanium.XML.Element;
 			getElementById (elementId: string) : Titanium.XML.Element;
 			getElementsByTagName (tagname: string) : Titanium.XML.NodeList;
 			getElementsByTagNameNS (namespaceURI: string, localname: string) : Titanium.XML.NodeList;
-			getFirstChild () : Titanium.XML.Node;
 			getImplementation () : Titanium.XML.DOMImplementation;
-			getLastChild () : Titanium.XML.Node;
-			getLocalName () : string;
-			getNamespaceURI () : string;
-			getNextSibling () : Titanium.XML.Node;
-			getNodeName () : string;
-			getNodeType () : number;
-			getNodeValue () : string;
-			getOwnerDocument () : Titanium.XML.Document;
-			getParentNode () : Titanium.XML.Node;
-			getPrefix () : string;
-			getPreviousSibling () : Titanium.XML.Node;
-			getText () : string;
-			getTextContent () : string;
-			hasAttributes () : boolean;
-			hasChildNodes () : boolean;
 			importNode (importedNode: Titanium.XML.Node, deep: boolean) : Titanium.XML.Node;
-			insertBefore (newChild: Titanium.XML.Node, refChild: Titanium.XML.Node) : Titanium.XML.Node;
-			isSupported (feature: string, version: string) : boolean;
-			normalize () : void;
-			removeChild (oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			replaceChild (newChild: Titanium.XML.Node, oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setLocalName (localName: string) : void;
-			setNodeValue (nodeValue: string) : void;
-			setPrefix (prefix: string) : void;
 		}
-		export interface Attr {
-			ATTRIBUTE_NODE : number;
-			CDATA_SECTION_NODE : number;
-			COMMENT_NODE : number;
-			DOCUMENT_FRAGMENT_NODE : number;
-			DOCUMENT_NODE : number;
-			DOCUMENT_TYPE_NODE : number;
-			ELEMENT_NODE : number;
-			ENTITY_NODE : number;
-			ENTITY_REFERENCE_NODE : number;
-			NOTATION_NODE : number;
-			PROCESSING_INSTRUCTION_NODE : number;
-			TEXT_NODE : number;
-			attributes : Titanium.XML.NamedNodeMap;
-			bubbleParent : boolean;
-			childNodes : Titanium.XML.NodeList;
-			firstChild : Titanium.XML.Node;
-			lastChild : Titanium.XML.Node;
-			localName : string;
+		export interface Attr extends Titanium.XML.Node {
 			name : string;
-			namespaceURI : string;
-			nextSibling : Titanium.XML.Node;
-			nodeName : string;
-			nodeType : number;
-			nodeValue : string;
-			ownerDocument : Titanium.XML.Document;
 			ownerElement : Titanium.XML.Element;
-			parentNode : Titanium.XML.Node;
-			prefix : string;
-			previousSibling : Titanium.XML.Node;
 			specified : boolean;
-			text : string;
-			textContent : string;
 			value : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			appendChild (newChild: Titanium.XML.Node) : Titanium.XML.Node;
-			applyProperties (props: Dictionary<Object>) : void;
-			cloneNode (deep: boolean) : Titanium.XML.Node;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAttributes () : Titanium.XML.NamedNodeMap;
-			getBubbleParent () : boolean;
-			getChildNodes () : Titanium.XML.NodeList;
-			getFirstChild () : Titanium.XML.Node;
-			getLastChild () : Titanium.XML.Node;
-			getLocalName () : string;
 			getName () : string;
-			getNamespaceURI () : string;
-			getNextSibling () : Titanium.XML.Node;
-			getNodeName () : string;
-			getNodeType () : number;
-			getNodeValue () : string;
-			getOwnerDocument () : Titanium.XML.Document;
 			getOwnerElement () : Titanium.XML.Element;
-			getParentNode () : Titanium.XML.Node;
-			getPrefix () : string;
-			getPreviousSibling () : Titanium.XML.Node;
 			getSpecified () : boolean;
-			getText () : string;
-			getTextContent () : string;
 			getValue () : string;
-			hasAttributes () : boolean;
-			hasChildNodes () : boolean;
-			insertBefore (newChild: Titanium.XML.Node, refChild: Titanium.XML.Node) : Titanium.XML.Node;
-			isSupported (feature: string, version: string) : boolean;
-			normalize () : void;
-			removeChild (oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			replaceChild (newChild: Titanium.XML.Node, oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setLocalName (localName: string) : void;
-			setNodeValue (nodeValue: string) : void;
-			setPrefix (prefix: string) : void;
 			setValue (value: string) : void;
 		}
-		export interface ProcessingInstruction {
-			bubbleParent : boolean;
+		export interface ProcessingInstruction extends Titanium.Proxy {
 			data : string;
 			target : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getData () : string;
 			getTarget () : string;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setData (data: string) : void;
 		}
-		export interface NamedNodeMap {
-			bubbleParent : boolean;
+		export interface NamedNodeMap extends Titanium.Proxy {
 			length : number;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getLength () : number;
 			getNamedItem (name: string) : Titanium.XML.Node;
 			getNamedItemNS (namespaceURI: string, localName: string) : Titanium.XML.Node;
 			item (index: number) : Titanium.XML.Node;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			removeNamedItem (name: string) : Titanium.XML.Node;
 			removeNamedItemNS (namespaceURI: string, localName: string) : Titanium.XML.Node;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setNamedItem (node: Titanium.XML.Node) : Titanium.XML.Node;
 			setNamedItemNS (node: Titanium.XML.Node) : Titanium.XML.Node;
 		}
-		export interface CDATASection {
-			ATTRIBUTE_NODE : number;
-			CDATA_SECTION_NODE : number;
-			COMMENT_NODE : number;
-			DOCUMENT_FRAGMENT_NODE : number;
-			DOCUMENT_NODE : number;
-			DOCUMENT_TYPE_NODE : number;
-			ELEMENT_NODE : number;
-			ENTITY_NODE : number;
-			ENTITY_REFERENCE_NODE : number;
-			NOTATION_NODE : number;
-			PROCESSING_INSTRUCTION_NODE : number;
-			TEXT_NODE : number;
-			attributes : Titanium.XML.NamedNodeMap;
-			bubbleParent : boolean;
-			childNodes : Titanium.XML.NodeList;
-			data : string;
-			firstChild : Titanium.XML.Node;
-			lastChild : Titanium.XML.Node;
-			length : number;
-			localName : string;
-			namespaceURI : string;
-			nextSibling : Titanium.XML.Node;
-			nodeName : string;
-			nodeType : number;
-			nodeValue : string;
-			ownerDocument : Titanium.XML.Document;
-			parentNode : Titanium.XML.Node;
-			prefix : string;
-			previousSibling : Titanium.XML.Node;
-			text : string;
-			textContent : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			appendChild (newChild: Titanium.XML.Node) : Titanium.XML.Node;
-			appendData (arg: string) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			cloneNode (deep: boolean) : Titanium.XML.Node;
-			deleteData (offset: number, count: number) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAttributes () : Titanium.XML.NamedNodeMap;
-			getBubbleParent () : boolean;
-			getChildNodes () : Titanium.XML.NodeList;
-			getData () : string;
-			getFirstChild () : Titanium.XML.Node;
-			getLastChild () : Titanium.XML.Node;
-			getLength () : number;
-			getLocalName () : string;
-			getNamespaceURI () : string;
-			getNextSibling () : Titanium.XML.Node;
-			getNodeName () : string;
-			getNodeType () : number;
-			getNodeValue () : string;
-			getOwnerDocument () : Titanium.XML.Document;
-			getParentNode () : Titanium.XML.Node;
-			getPrefix () : string;
-			getPreviousSibling () : Titanium.XML.Node;
-			getText () : string;
-			getTextContent () : string;
-			hasAttributes () : boolean;
-			hasChildNodes () : boolean;
-			insertBefore (newChild: Titanium.XML.Node, refChild: Titanium.XML.Node) : Titanium.XML.Node;
-			insertData (offset: number, arg: string) : void;
-			isSupported (feature: string, version: string) : boolean;
-			normalize () : void;
-			removeChild (oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			replaceChild (newChild: Titanium.XML.Node, oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			replaceData (offset: number, count: number, arg: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setData (data: string) : void;
-			setLocalName (localName: string) : void;
-			setNodeValue (nodeValue: string) : void;
-			setPrefix (prefix: string) : void;
+		export enum CDATASection {
+
+		}
+		export interface Text extends Titanium.XML.CharacterData {
 			splitText (offset: number) : Titanium.XML.Text;
-			substringData (offset: number, count: number) : string;
 		}
-		export interface DocumentFragment {
-			ATTRIBUTE_NODE : number;
-			CDATA_SECTION_NODE : number;
-			COMMENT_NODE : number;
-			DOCUMENT_FRAGMENT_NODE : number;
-			DOCUMENT_NODE : number;
-			DOCUMENT_TYPE_NODE : number;
-			ELEMENT_NODE : number;
-			ENTITY_NODE : number;
-			ENTITY_REFERENCE_NODE : number;
-			NOTATION_NODE : number;
-			PROCESSING_INSTRUCTION_NODE : number;
-			TEXT_NODE : number;
-			attributes : Titanium.XML.NamedNodeMap;
-			bubbleParent : boolean;
-			childNodes : Titanium.XML.NodeList;
-			firstChild : Titanium.XML.Node;
-			lastChild : Titanium.XML.Node;
-			localName : string;
-			namespaceURI : string;
-			nextSibling : Titanium.XML.Node;
-			nodeName : string;
-			nodeType : number;
-			nodeValue : string;
-			ownerDocument : Titanium.XML.Document;
-			parentNode : Titanium.XML.Node;
-			prefix : string;
-			previousSibling : Titanium.XML.Node;
-			text : string;
-			textContent : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			appendChild (newChild: Titanium.XML.Node) : Titanium.XML.Node;
-			applyProperties (props: Dictionary<Object>) : void;
-			cloneNode (deep: boolean) : Titanium.XML.Node;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAttributes () : Titanium.XML.NamedNodeMap;
-			getBubbleParent () : boolean;
-			getChildNodes () : Titanium.XML.NodeList;
-			getFirstChild () : Titanium.XML.Node;
-			getLastChild () : Titanium.XML.Node;
-			getLocalName () : string;
-			getNamespaceURI () : string;
-			getNextSibling () : Titanium.XML.Node;
-			getNodeName () : string;
-			getNodeType () : number;
-			getNodeValue () : string;
-			getOwnerDocument () : Titanium.XML.Document;
-			getParentNode () : Titanium.XML.Node;
-			getPrefix () : string;
-			getPreviousSibling () : Titanium.XML.Node;
-			getText () : string;
-			getTextContent () : string;
-			hasAttributes () : boolean;
-			hasChildNodes () : boolean;
-			insertBefore (newChild: Titanium.XML.Node, refChild: Titanium.XML.Node) : Titanium.XML.Node;
-			isSupported (feature: string, version: string) : boolean;
-			normalize () : void;
-			removeChild (oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			replaceChild (newChild: Titanium.XML.Node, oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setLocalName (localName: string) : void;
-			setNodeValue (nodeValue: string) : void;
-			setPrefix (prefix: string) : void;
+		export enum DocumentFragment {
+
 		}
-		export interface Notation {
-			bubbleParent : boolean;
+		export interface Notation extends Titanium.Proxy {
 			publicId : string;
 			systemId : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getPublicId () : string;
 			getSystemId () : string;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 		}
-		export interface Comment {
-			ATTRIBUTE_NODE : number;
-			CDATA_SECTION_NODE : number;
-			COMMENT_NODE : number;
-			DOCUMENT_FRAGMENT_NODE : number;
-			DOCUMENT_NODE : number;
-			DOCUMENT_TYPE_NODE : number;
-			ELEMENT_NODE : number;
-			ENTITY_NODE : number;
-			ENTITY_REFERENCE_NODE : number;
-			NOTATION_NODE : number;
-			PROCESSING_INSTRUCTION_NODE : number;
-			TEXT_NODE : number;
-			attributes : Titanium.XML.NamedNodeMap;
-			bubbleParent : boolean;
-			childNodes : Titanium.XML.NodeList;
-			data : string;
-			firstChild : Titanium.XML.Node;
-			lastChild : Titanium.XML.Node;
-			length : number;
-			localName : string;
-			namespaceURI : string;
-			nextSibling : Titanium.XML.Node;
-			nodeName : string;
-			nodeType : number;
-			nodeValue : string;
-			ownerDocument : Titanium.XML.Document;
-			parentNode : Titanium.XML.Node;
-			prefix : string;
-			previousSibling : Titanium.XML.Node;
-			text : string;
-			textContent : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			appendChild (newChild: Titanium.XML.Node) : Titanium.XML.Node;
-			appendData (arg: string) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			cloneNode (deep: boolean) : Titanium.XML.Node;
-			deleteData (offset: number, count: number) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAttributes () : Titanium.XML.NamedNodeMap;
-			getBubbleParent () : boolean;
-			getChildNodes () : Titanium.XML.NodeList;
-			getData () : string;
-			getFirstChild () : Titanium.XML.Node;
-			getLastChild () : Titanium.XML.Node;
-			getLength () : number;
-			getLocalName () : string;
-			getNamespaceURI () : string;
-			getNextSibling () : Titanium.XML.Node;
-			getNodeName () : string;
-			getNodeType () : number;
-			getNodeValue () : string;
-			getOwnerDocument () : Titanium.XML.Document;
-			getParentNode () : Titanium.XML.Node;
-			getPrefix () : string;
-			getPreviousSibling () : Titanium.XML.Node;
-			getText () : string;
-			getTextContent () : string;
-			hasAttributes () : boolean;
-			hasChildNodes () : boolean;
-			insertBefore (newChild: Titanium.XML.Node, refChild: Titanium.XML.Node) : Titanium.XML.Node;
-			insertData (offset: number, arg: string) : void;
-			isSupported (feature: string, version: string) : boolean;
-			normalize () : void;
-			removeChild (oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			replaceChild (newChild: Titanium.XML.Node, oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			replaceData (offset: number, count: number, arg: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setData (data: string) : void;
-			setLocalName (localName: string) : void;
-			setNodeValue (nodeValue: string) : void;
-			setPrefix (prefix: string) : void;
-			substringData (offset: number, count: number) : string;
+		export enum Comment {
+
 		}
-		export interface NodeList {
-			bubbleParent : boolean;
+		export interface NodeList extends Titanium.Proxy {
 			length : number;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getLength () : number;
 			item (index: number) : Titanium.XML.Node;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 		}
-		export interface DocumentType {
-			ATTRIBUTE_NODE : number;
-			CDATA_SECTION_NODE : number;
-			COMMENT_NODE : number;
-			DOCUMENT_FRAGMENT_NODE : number;
-			DOCUMENT_NODE : number;
-			DOCUMENT_TYPE_NODE : number;
-			ELEMENT_NODE : number;
-			ENTITY_NODE : number;
-			ENTITY_REFERENCE_NODE : number;
-			NOTATION_NODE : number;
-			PROCESSING_INSTRUCTION_NODE : number;
-			TEXT_NODE : number;
-			attributes : Titanium.XML.NamedNodeMap;
-			bubbleParent : boolean;
-			childNodes : Titanium.XML.NodeList;
+		export interface DocumentType extends Titanium.XML.Node {
 			entities : Titanium.XML.NamedNodeMap;
-			firstChild : Titanium.XML.Node;
 			internalSubset : string;
-			lastChild : Titanium.XML.Node;
-			localName : string;
 			name : string;
-			namespaceURI : string;
-			nextSibling : Titanium.XML.Node;
-			nodeName : string;
-			nodeType : number;
-			nodeValue : string;
 			notations : Titanium.XML.NamedNodeMap;
-			ownerDocument : Titanium.XML.Document;
-			parentNode : Titanium.XML.Node;
-			prefix : string;
-			previousSibling : Titanium.XML.Node;
 			publicId : string;
 			systemId : string;
-			text : string;
-			textContent : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			appendChild (newChild: Titanium.XML.Node) : Titanium.XML.Node;
-			applyProperties (props: Dictionary<Object>) : void;
-			cloneNode (deep: boolean) : Titanium.XML.Node;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAttributes () : Titanium.XML.NamedNodeMap;
-			getBubbleParent () : boolean;
-			getChildNodes () : Titanium.XML.NodeList;
 			getEntities () : Titanium.XML.NamedNodeMap;
-			getFirstChild () : Titanium.XML.Node;
 			getInternalSubset () : string;
-			getLastChild () : Titanium.XML.Node;
-			getLocalName () : string;
 			getName () : string;
-			getNamespaceURI () : string;
-			getNextSibling () : Titanium.XML.Node;
-			getNodeName () : string;
-			getNodeType () : number;
-			getNodeValue () : string;
 			getNotations () : Titanium.XML.NamedNodeMap;
-			getOwnerDocument () : Titanium.XML.Document;
-			getParentNode () : Titanium.XML.Node;
-			getPrefix () : string;
-			getPreviousSibling () : Titanium.XML.Node;
 			getPublicId () : string;
 			getSystemId () : string;
-			getText () : string;
-			getTextContent () : string;
-			hasAttributes () : boolean;
-			hasChildNodes () : boolean;
-			insertBefore (newChild: Titanium.XML.Node, refChild: Titanium.XML.Node) : Titanium.XML.Node;
-			isSupported (feature: string, version: string) : boolean;
-			normalize () : void;
-			removeChild (oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			replaceChild (newChild: Titanium.XML.Node, oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setLocalName (localName: string) : void;
-			setNodeValue (nodeValue: string) : void;
-			setPrefix (prefix: string) : void;
 		}
-		export interface Element {
-			ATTRIBUTE_NODE : number;
-			CDATA_SECTION_NODE : number;
-			COMMENT_NODE : number;
-			DOCUMENT_FRAGMENT_NODE : number;
-			DOCUMENT_NODE : number;
-			DOCUMENT_TYPE_NODE : number;
-			ELEMENT_NODE : number;
-			ENTITY_NODE : number;
-			ENTITY_REFERENCE_NODE : number;
-			NOTATION_NODE : number;
-			PROCESSING_INSTRUCTION_NODE : number;
-			TEXT_NODE : number;
-			attributes : Titanium.XML.NamedNodeMap;
-			bubbleParent : boolean;
-			childNodes : Titanium.XML.NodeList;
-			firstChild : Titanium.XML.Node;
-			lastChild : Titanium.XML.Node;
-			localName : string;
-			namespaceURI : string;
-			nextSibling : Titanium.XML.Node;
-			nodeName : string;
-			nodeType : number;
-			nodeValue : string;
-			ownerDocument : Titanium.XML.Document;
-			parentNode : Titanium.XML.Node;
-			prefix : string;
-			previousSibling : Titanium.XML.Node;
+		export interface Element extends Titanium.XML.Node {
 			tagName : string;
-			text : string;
-			textContent : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			appendChild (newChild: Titanium.XML.Node) : Titanium.XML.Node;
-			applyProperties (props: Dictionary<Object>) : void;
-			cloneNode (deep: boolean) : Titanium.XML.Node;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getAttribute (name: string) : string;
 			getAttributeNS (namespaceURI: string, localName: string) : string;
 			getAttributeNode (name: string) : Titanium.XML.Attr;
 			getAttributeNodeNS (namespaceURI: string, localName: string) : Titanium.XML.Attr;
-			getAttributes () : Titanium.XML.NamedNodeMap;
-			getBubbleParent () : boolean;
-			getChildNodes () : Titanium.XML.NodeList;
 			getElementsByTagName (name: string) : Titanium.XML.NodeList;
 			getElementsByTagNameNS (namespaceURI: string, localName: string) : Titanium.XML.NodeList;
-			getFirstChild () : Titanium.XML.Node;
-			getLastChild () : Titanium.XML.Node;
-			getLocalName () : string;
-			getNamespaceURI () : string;
-			getNextSibling () : Titanium.XML.Node;
-			getNodeName () : string;
-			getNodeType () : number;
-			getNodeValue () : string;
-			getOwnerDocument () : Titanium.XML.Document;
-			getParentNode () : Titanium.XML.Node;
-			getPrefix () : string;
-			getPreviousSibling () : Titanium.XML.Node;
 			getTagName () : string;
-			getText () : string;
-			getTextContent () : string;
 			hasAttribute (name: string) : boolean;
 			hasAttributeNS (namespaceURI: string, localName: string) : boolean;
-			hasAttributes () : boolean;
-			hasChildNodes () : boolean;
-			insertBefore (newChild: Titanium.XML.Node, refChild: Titanium.XML.Node) : Titanium.XML.Node;
-			isSupported (feature: string, version: string) : boolean;
-			normalize () : void;
 			removeAttribute (name: string) : void;
 			removeAttributeNS (namespaceURI: string, localName: string) : void;
 			removeAttributeNode (oldAttr: Titanium.XML.Attr) : void;
-			removeChild (oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			replaceChild (newChild: Titanium.XML.Node, oldChild: Titanium.XML.Node) : Titanium.XML.Node;
 			setAttribute (name: string, value: string) : void;
 			setAttributeNS (namespaceURI: string, qualifiedName: string, value: string) : void;
 			setAttributeNode (newAttr: Titanium.XML.Attr) : Titanium.XML.Attr;
 			setAttributeNodeNS (newAttr: Titanium.XML.Attr) : Titanium.XML.Attr;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setLocalName (localName: string) : void;
-			setNodeValue (nodeValue: string) : void;
-			setPrefix (prefix: string) : void;
-		}
-		export interface Text {
-			ATTRIBUTE_NODE : number;
-			CDATA_SECTION_NODE : number;
-			COMMENT_NODE : number;
-			DOCUMENT_FRAGMENT_NODE : number;
-			DOCUMENT_NODE : number;
-			DOCUMENT_TYPE_NODE : number;
-			ELEMENT_NODE : number;
-			ENTITY_NODE : number;
-			ENTITY_REFERENCE_NODE : number;
-			NOTATION_NODE : number;
-			PROCESSING_INSTRUCTION_NODE : number;
-			TEXT_NODE : number;
-			attributes : Titanium.XML.NamedNodeMap;
-			bubbleParent : boolean;
-			childNodes : Titanium.XML.NodeList;
-			data : string;
-			firstChild : Titanium.XML.Node;
-			lastChild : Titanium.XML.Node;
-			length : number;
-			localName : string;
-			namespaceURI : string;
-			nextSibling : Titanium.XML.Node;
-			nodeName : string;
-			nodeType : number;
-			nodeValue : string;
-			ownerDocument : Titanium.XML.Document;
-			parentNode : Titanium.XML.Node;
-			prefix : string;
-			previousSibling : Titanium.XML.Node;
-			text : string;
-			textContent : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			appendChild (newChild: Titanium.XML.Node) : Titanium.XML.Node;
-			appendData (arg: string) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			cloneNode (deep: boolean) : Titanium.XML.Node;
-			deleteData (offset: number, count: number) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAttributes () : Titanium.XML.NamedNodeMap;
-			getBubbleParent () : boolean;
-			getChildNodes () : Titanium.XML.NodeList;
-			getData () : string;
-			getFirstChild () : Titanium.XML.Node;
-			getLastChild () : Titanium.XML.Node;
-			getLength () : number;
-			getLocalName () : string;
-			getNamespaceURI () : string;
-			getNextSibling () : Titanium.XML.Node;
-			getNodeName () : string;
-			getNodeType () : number;
-			getNodeValue () : string;
-			getOwnerDocument () : Titanium.XML.Document;
-			getParentNode () : Titanium.XML.Node;
-			getPrefix () : string;
-			getPreviousSibling () : Titanium.XML.Node;
-			getText () : string;
-			getTextContent () : string;
-			hasAttributes () : boolean;
-			hasChildNodes () : boolean;
-			insertBefore (newChild: Titanium.XML.Node, refChild: Titanium.XML.Node) : Titanium.XML.Node;
-			insertData (offset: number, arg: string) : void;
-			isSupported (feature: string, version: string) : boolean;
-			normalize () : void;
-			removeChild (oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			replaceChild (newChild: Titanium.XML.Node, oldChild: Titanium.XML.Node) : Titanium.XML.Node;
-			replaceData (offset: number, count: number, arg: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setData (data: string) : void;
-			setLocalName (localName: string) : void;
-			setNodeValue (nodeValue: string) : void;
-			setPrefix (prefix: string) : void;
-			splitText (offset: number) : Titanium.XML.Text;
-			substringData (offset: number, count: number) : string;
 		}
 	}
-	export interface BlobStream {
-		bubbleParent : boolean;
-		addEventListener (name: string, callback: (...args : any[]) => any) : void;
-		applyProperties (props: Dictionary<Object>) : void;
+	export enum BlobStream {
+
+	}
+	export interface IOStream extends Titanium.Proxy {
 		close () : void;
-		fireEvent (name: string, event: Dictionary<Object>) : void;
-		getBubbleParent () : boolean;
 		isReadable () : boolean;
 		isWriteable () : boolean;
 		read (buffer: Titanium.Buffer, offset?: number, length?: number) : number;
-		removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-		setBubbleParent (bubbleParent: boolean) : void;
 		write (buffer: Titanium.Buffer, offset?: number, length?: number) : number;
 	}
 	export module UI {
@@ -1209,478 +443,87 @@ declare module Titanium {
 			export function getBubbleParent () : boolean;
 			export function removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			export function setBubbleParent (bubbleParent: boolean) : void;
-			export interface SplitWindow {
-				accessibilityHidden : boolean;
-				accessibilityHint : string;
-				accessibilityLabel : string;
-				accessibilityValue : string;
-				anchorPoint : Point;
-				animatedCenter : Point;
-				autoAdjustScrollViewInsets : boolean;
-				backButtonTitle : string;
-				backButtonTitleImage : any;
-				backgroundColor : string;
-				backgroundGradient : Gradient;
-				backgroundImage : string;
-				backgroundLeftCap : number;
-				backgroundRepeat : boolean;
-				backgroundTopCap : number;
-				barColor : string;
-				barImage : string;
-				borderColor : string;
-				borderRadius : number;
-				borderWidth : number;
-				bottom : any;
-				bubbleParent : boolean;
-				center : Point;
-				children : Array<Titanium.UI.View>;
+			export interface SplitWindow extends Titanium.UI.Window {
 				detailView : Titanium.UI.View;
-				extendEdges : Array<Number>;
-				fullscreen : boolean;
-				height : any;
-				horizontalWrap : boolean;
-				includeOpaqueBars : boolean;
-				layout : string;
-				left : any;
-				leftNavButton : Titanium.UI.View;
 				masterView : Titanium.UI.View;
-				modal : boolean;
-				navBarHidden : boolean;
-				navTintColor : any;
-				opacity : number;
-				orientation : number;
-				orientationModes : Array<Number>;
-				rect : Dimension;
-				right : any;
-				rightNavButton : Titanium.UI.View;
 				showMasterInPortrait : boolean;
-				size : Dimension;
-				statusBarStyle : any;
-				tabBarHidden : boolean;
-				tintColor : any;
-				title : string;
-				titleControl : Titanium.UI.View;
-				titleImage : string;
-				titlePrompt : string;
-				titleid : string;
-				titlepromptid : string;
-				toolbar : Array<Object>;
-				top : any;
-				touchEnabled : boolean;
-				transform : any;
-				translucent : boolean;
-				url : string;
-				visible : boolean;
-				width : any;
-				zIndex : number;
-				add (view: Titanium.UI.View) : void;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-				animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				close (params?: Dictionary<Titanium.UI.Animation>) : void;
-				close (params?: closeWindowParams) : void;
-				convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-				finishLayout () : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getAccessibilityHidden () : boolean;
-				getAccessibilityHint () : string;
-				getAccessibilityLabel () : string;
-				getAccessibilityValue () : string;
-				getAnchorPoint () : Point;
-				getAnimatedCenter () : Point;
-				getAutoAdjustScrollViewInsets () : boolean;
-				getBackButtonTitle () : string;
-				getBackButtonTitleImage () : any;
-				getBackgroundColor () : string;
-				getBackgroundGradient () : Gradient;
-				getBackgroundImage () : string;
-				getBackgroundLeftCap () : number;
-				getBackgroundRepeat () : boolean;
-				getBackgroundTopCap () : number;
-				getBarColor () : string;
-				getBarImage () : string;
-				getBorderColor () : string;
-				getBorderRadius () : number;
-				getBorderWidth () : number;
-				getBottom () : any;
-				getBubbleParent () : boolean;
-				getCenter () : Point;
-				getChildren () : Array<Titanium.UI.View>;
 				getDetailView () : Titanium.UI.View;
-				getExtendEdges () : Array<Number>;
-				getFullscreen () : boolean;
-				getHeight () : any;
-				getHorizontalWrap () : boolean;
-				getIncludeOpaqueBars () : boolean;
-				getLayout () : string;
-				getLeft () : any;
-				getLeftNavButton () : Titanium.UI.View;
 				getMasterView () : Titanium.UI.View;
-				getModal () : boolean;
-				getNavBarHidden () : boolean;
-				getNavTintColor () : string;
-				getOpacity () : number;
-				getOrientation () : number;
-				getOrientationModes () : Array<Number>;
-				getRect () : Dimension;
-				getRight () : any;
-				getRightNavButton () : Titanium.UI.View;
 				getShowMasterInPortrait () : boolean;
-				getSize () : Dimension;
-				getStatusBarStyle () : number;
-				getTabBarHidden () : boolean;
-				getTintColor () : string;
-				getTitle () : string;
-				getTitleControl () : Titanium.UI.View;
-				getTitleImage () : string;
-				getTitlePrompt () : string;
-				getTitleid () : string;
-				getTitlepromptid () : string;
-				getToolbar () : Array<Object>;
-				getTop () : any;
-				getTouchEnabled () : boolean;
-				getTransform () : any;
-				getTranslucent () : boolean;
-				getUrl () : string;
-				getVisible () : boolean;
-				getWidth () : any;
-				getZIndex () : number;
-				hide () : void;
-				hideTabBar () : void;
-				open (params?: openWindowParams) : void;
-				remove (view: Titanium.UI.View) : void;
-				removeAllChildren () : void;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setAccessibilityHidden (accessibilityHidden: boolean) : void;
-				setAccessibilityHint (accessibilityHint: string) : void;
-				setAccessibilityLabel (accessibilityLabel: string) : void;
-				setAccessibilityValue (accessibilityValue: string) : void;
-				setAnchorPoint (anchorPoint: Point) : void;
-				setAutoAdjustScrollViewInsets (autoAdjustScrollViewInsets: boolean) : void;
-				setBackButtonTitle (backButtonTitle: string) : void;
-				setBackButtonTitleImage (backButtonTitleImage: string) : void;
-				setBackButtonTitleImage (backButtonTitleImage: Titanium.Blob) : void;
-				setBackgroundColor (backgroundColor: string) : void;
-				setBackgroundGradient (backgroundGradient: Gradient) : void;
-				setBackgroundImage (backgroundImage: string) : void;
-				setBackgroundLeftCap (backgroundLeftCap: number) : void;
-				setBackgroundRepeat (backgroundRepeat: boolean) : void;
-				setBackgroundTopCap (backgroundTopCap: number) : void;
-				setBarColor (barColor: string) : void;
-				setBarImage (barImage: string) : void;
-				setBorderColor (borderColor: string) : void;
-				setBorderRadius (borderRadius: number) : void;
-				setBorderWidth (borderWidth: number) : void;
-				setBottom (bottom: number) : void;
-				setBottom (bottom: string) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
-				setCenter (center: Point) : void;
-				setExtendEdges (extendEdges: Array<Number>) : void;
-				setFullscreen (fullscreen: boolean) : void;
-				setHeight (height: number) : void;
-				setHeight (height: string) : void;
-				setHorizontalWrap (horizontalWrap: boolean) : void;
-				setIncludeOpaqueBars (includeOpaqueBars: boolean) : void;
-				setLayout (layout: string) : void;
-				setLeft (left: number) : void;
-				setLeft (left: string) : void;
-				setLeftNavButton (leftNavButton: Titanium.UI.View) : void;
-				setModal (modal: boolean) : void;
-				setNavBarHidden (navBarHidden: boolean) : void;
-				setNavTintColor (navTintColor: string) : void;
-				setOpacity (opacity: number) : void;
-				setOrientationModes (orientationModes: Array<Number>) : void;
-				setRight (right: number) : void;
-				setRight (right: string) : void;
-				setRightNavButton (rightNavButton: Titanium.UI.View) : void;
 				setShowMasterInPortrait (showMasterInPortrait: boolean) : void;
-				setStatusBarStyle (statusBarStyle: number) : void;
-				setTabBarHidden (tabBarHidden: boolean) : void;
-				setTintColor (tintColor: string) : void;
-				setTitle (title: string) : void;
-				setTitleControl (titleControl: Titanium.UI.View) : void;
-				setTitleImage (titleImage: string) : void;
-				setTitlePrompt (titlePrompt: string) : void;
-				setTitleid (titleid: string) : void;
-				setTitlepromptid (titlepromptid: string) : void;
-				setToolbar (items: Array<Object>, params?: windowToolbarParam) : void;
-				setTop (top: number) : void;
-				setTop (top: string) : void;
-				setTouchEnabled (touchEnabled: boolean) : void;
-				setTransform (transform: Titanium.UI._2DMatrix) : void;
-				setTransform (transform: Titanium.UI._3DMatrix) : void;
-				setTranslucent (translucent: boolean) : void;
-				setVisible (visible: boolean) : void;
-				setWidth (width: number) : void;
-				setWidth (width: string) : void;
-				setZIndex (zIndex: number) : void;
-				show () : void;
-				startLayout () : void;
-				toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-				updateLayout (params: Dictionary<Object>) : void;
 			}
-			export interface DocumentViewer {
-				accessibilityHidden : boolean;
-				accessibilityHint : string;
-				accessibilityLabel : string;
-				accessibilityValue : string;
-				anchorPoint : Point;
-				animatedCenter : Point;
-				backgroundColor : string;
-				backgroundGradient : Gradient;
-				backgroundImage : string;
-				backgroundLeftCap : number;
-				backgroundRepeat : boolean;
-				backgroundTopCap : number;
-				borderColor : string;
-				borderRadius : number;
-				borderWidth : number;
-				bottom : any;
-				bubbleParent : boolean;
-				center : Point;
-				children : Array<Titanium.UI.View>;
-				height : any;
-				horizontalWrap : boolean;
-				layout : string;
-				left : any;
-				opacity : number;
-				rect : Dimension;
-				right : any;
-				size : Dimension;
-				tintColor : any;
-				top : any;
-				touchEnabled : boolean;
-				transform : any;
-				visible : boolean;
-				width : any;
-				zIndex : number;
-				add (view: Titanium.UI.View) : void;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-				animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-				finishLayout () : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getAccessibilityHidden () : boolean;
-				getAccessibilityHint () : string;
-				getAccessibilityLabel () : string;
-				getAccessibilityValue () : string;
-				getAnchorPoint () : Point;
-				getAnimatedCenter () : Point;
-				getBackgroundColor () : string;
-				getBackgroundGradient () : Gradient;
-				getBackgroundImage () : string;
-				getBackgroundLeftCap () : number;
-				getBackgroundRepeat () : boolean;
-				getBackgroundTopCap () : number;
-				getBorderColor () : string;
-				getBorderRadius () : number;
-				getBorderWidth () : number;
-				getBottom () : any;
-				getBubbleParent () : boolean;
-				getCenter () : Point;
-				getChildren () : Array<Titanium.UI.View>;
-				getHeight () : any;
-				getHorizontalWrap () : boolean;
-				getLayout () : string;
-				getLeft () : any;
-				getOpacity () : number;
-				getRect () : Dimension;
-				getRight () : any;
-				getSize () : Dimension;
-				getTintColor () : string;
-				getTop () : any;
-				getTouchEnabled () : boolean;
-				getTransform () : any;
-				getVisible () : boolean;
-				getWidth () : any;
-				getZIndex () : number;
-				hide () : void;
-				remove (view: Titanium.UI.View) : void;
-				removeAllChildren () : void;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setAccessibilityHidden (accessibilityHidden: boolean) : void;
-				setAccessibilityHint (accessibilityHint: string) : void;
-				setAccessibilityLabel (accessibilityLabel: string) : void;
-				setAccessibilityValue (accessibilityValue: string) : void;
-				setAnchorPoint (anchorPoint: Point) : void;
-				setBackgroundColor (backgroundColor: string) : void;
-				setBackgroundGradient (backgroundGradient: Gradient) : void;
-				setBackgroundImage (backgroundImage: string) : void;
-				setBackgroundLeftCap (backgroundLeftCap: number) : void;
-				setBackgroundRepeat (backgroundRepeat: boolean) : void;
-				setBackgroundTopCap (backgroundTopCap: number) : void;
-				setBorderColor (borderColor: string) : void;
-				setBorderRadius (borderRadius: number) : void;
-				setBorderWidth (borderWidth: number) : void;
-				setBottom (bottom: number) : void;
-				setBottom (bottom: string) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
-				setCenter (center: Point) : void;
-				setHeight (height: number) : void;
-				setHeight (height: string) : void;
-				setHorizontalWrap (horizontalWrap: boolean) : void;
-				setLayout (layout: string) : void;
-				setLeft (left: number) : void;
-				setLeft (left: string) : void;
-				setOpacity (opacity: number) : void;
-				setRight (right: number) : void;
-				setRight (right: string) : void;
-				setTintColor (tintColor: string) : void;
-				setTop (top: number) : void;
-				setTop (top: string) : void;
-				setTouchEnabled (touchEnabled: boolean) : void;
-				setTransform (transform: Titanium.UI._2DMatrix) : void;
-				setTransform (transform: Titanium.UI._3DMatrix) : void;
+			export interface DocumentViewer extends Titanium.UI.View {
 				setUrl (url: string) : void;
-				setVisible (visible: boolean) : void;
-				setWidth (width: number) : void;
-				setWidth (width: string) : void;
-				setZIndex (zIndex: number) : void;
 				show (animated: boolean, view: any) : void;
-				startLayout () : void;
-				toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-				updateLayout (params: Dictionary<Object>) : void;
 			}
-			export interface Popover {
-				accessibilityHidden : boolean;
-				accessibilityHint : string;
-				accessibilityLabel : string;
-				accessibilityValue : string;
-				anchorPoint : Point;
-				animatedCenter : Point;
+			export interface Popover extends Titanium.UI.View {
 				arrowDirection : number;
-				backgroundColor : string;
-				backgroundGradient : Gradient;
-				backgroundImage : string;
-				backgroundLeftCap : number;
-				backgroundRepeat : boolean;
-				backgroundTopCap : number;
-				borderColor : string;
-				borderRadius : number;
-				borderWidth : number;
-				bottom : any;
-				bubbleParent : boolean;
-				center : Point;
-				children : Array<Titanium.UI.View>;
-				height : any;
-				horizontalWrap : boolean;
-				layout : string;
-				left : any;
 				leftNavButton : any;
-				opacity : number;
-				rect : Dimension;
-				right : any;
 				rightNavButton : any;
-				size : Dimension;
-				tintColor : any;
 				title : string;
-				top : any;
-				touchEnabled : boolean;
-				transform : any;
-				visible : boolean;
-				width : any;
-				zIndex : number;
-				add (view: Titanium.UI.View) : void;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-				animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-				finishLayout () : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getAccessibilityHidden () : boolean;
-				getAccessibilityHint () : string;
-				getAccessibilityLabel () : string;
-				getAccessibilityValue () : string;
-				getAnchorPoint () : Point;
-				getAnimatedCenter () : Point;
 				getArrowDirection () : number;
-				getBackgroundColor () : string;
-				getBackgroundGradient () : Gradient;
-				getBackgroundImage () : string;
-				getBackgroundLeftCap () : number;
-				getBackgroundRepeat () : boolean;
-				getBackgroundTopCap () : number;
-				getBorderColor () : string;
-				getBorderRadius () : number;
-				getBorderWidth () : number;
-				getBottom () : any;
-				getBubbleParent () : boolean;
-				getCenter () : Point;
-				getChildren () : Array<Titanium.UI.View>;
-				getHeight () : any;
-				getHorizontalWrap () : boolean;
-				getLayout () : string;
-				getLeft () : any;
 				getLeftNavButton () : any;
-				getOpacity () : number;
-				getRect () : Dimension;
-				getRight () : any;
 				getRightNavButton () : any;
-				getSize () : Dimension;
-				getTintColor () : string;
 				getTitle () : string;
-				getTop () : any;
-				getTouchEnabled () : boolean;
-				getTransform () : any;
-				getVisible () : boolean;
-				getWidth () : any;
-				getZIndex () : number;
-				hide () : void;
-				remove (view: Titanium.UI.View) : void;
-				removeAllChildren () : void;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setAccessibilityHidden (accessibilityHidden: boolean) : void;
-				setAccessibilityHint (accessibilityHint: string) : void;
-				setAccessibilityLabel (accessibilityLabel: string) : void;
-				setAccessibilityValue (accessibilityValue: string) : void;
-				setAnchorPoint (anchorPoint: Point) : void;
-				setBackgroundColor (backgroundColor: string) : void;
-				setBackgroundGradient (backgroundGradient: Gradient) : void;
-				setBackgroundImage (backgroundImage: string) : void;
-				setBackgroundLeftCap (backgroundLeftCap: number) : void;
-				setBackgroundRepeat (backgroundRepeat: boolean) : void;
-				setBackgroundTopCap (backgroundTopCap: number) : void;
-				setBorderColor (borderColor: string) : void;
-				setBorderRadius (borderRadius: number) : void;
-				setBorderWidth (borderWidth: number) : void;
-				setBottom (bottom: number) : void;
-				setBottom (bottom: string) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
-				setCenter (center: Point) : void;
-				setHeight (height: number) : void;
-				setHeight (height: string) : void;
-				setHorizontalWrap (horizontalWrap: boolean) : void;
-				setLayout (layout: string) : void;
-				setLeft (left: number) : void;
-				setLeft (left: string) : void;
 				setLeftNavButton (leftNavButton: any) : void;
-				setOpacity (opacity: number) : void;
 				setPassthroughViews (passthroughViews: Array<Titanium.UI.View>) : void;
-				setRight (right: number) : void;
-				setRight (right: string) : void;
 				setRightNavButton (rightNavButton: any) : void;
-				setTintColor (tintColor: string) : void;
 				setTitle (title: string) : void;
-				setTop (top: number) : void;
-				setTop (top: string) : void;
-				setTouchEnabled (touchEnabled: boolean) : void;
-				setTransform (transform: Titanium.UI._2DMatrix) : void;
-				setTransform (transform: Titanium.UI._3DMatrix) : void;
-				setVisible (visible: boolean) : void;
-				setWidth (width: number) : void;
-				setWidth (width: string) : void;
-				setZIndex (zIndex: number) : void;
-				show () : void;
-				startLayout () : void;
-				toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-				updateLayout (params: Dictionary<Object>) : void;
 			}
 		}
-		export interface ScrollableView {
+		export interface ScrollableView extends Titanium.UI.View {
+			cacheSize : number;
+			clipViews : boolean;
+			currentPage : number;
+			disableBounce : boolean;
+			hitRect : Dimension;
+			overScrollMode : number;
+			overlayEnabled : boolean;
+			pagingControlAlpha : number;
+			pagingControlColor : string;
+			pagingControlHeight : number;
+			pagingControlOnTop : boolean;
+			pagingControlTimeout : number;
+			scrollingEnabled : boolean;
+			showPagingControl : boolean;
+			views : Array<Titanium.UI.View>;
+			addView (view: Titanium.UI.View) : void;
+			getCacheSize () : number;
+			getClipViews () : boolean;
+			getCurrentPage () : number;
+			getDisableBounce () : boolean;
+			getHitRect () : Dimension;
+			getOverScrollMode () : number;
+			getOverlayEnabled () : boolean;
+			getPagingControlAlpha () : number;
+			getPagingControlColor () : string;
+			getPagingControlHeight () : number;
+			getPagingControlOnTop () : boolean;
+			getPagingControlTimeout () : number;
+			getScrollingEnabled () : boolean;
+			getShowPagingControl () : boolean;
+			getViews () : Array<Titanium.UI.View>;
+			moveNext () : void;
+			movePrevious () : void;
+			removeView (view: number) : void;
+			removeView (view: Titanium.UI.View) : void;
+			scrollToView (view: number) : void;
+			scrollToView (view: Titanium.UI.View) : void;
+			setCacheSize (cacheSize: number) : void;
+			setCurrentPage (currentPage: number) : void;
+			setDisableBounce (disableBounce: boolean) : void;
+			setHitRect (hitRect: Dimension) : void;
+			setOverScrollMode (overScrollMode: number) : void;
+			setOverlayEnabled (overlayEnabled: boolean) : void;
+			setPagingControlAlpha (pagingControlAlpha: number) : void;
+			setPagingControlColor (pagingControlColor: string) : void;
+			setPagingControlHeight (pagingControlHeight: number) : void;
+			setPagingControlOnTop (pagingControlOnTop: boolean) : void;
+			setScrollingEnabled (scrollingEnabled: boolean) : void;
+			setShowPagingControl (showPagingControl: boolean) : void;
+			setViews (views: Array<Titanium.UI.View>) : void;
+		}
+		export interface View extends Titanium.Proxy {
 			accessibilityHidden : boolean;
 			accessibilityHint : string;
 			accessibilityLabel : string;
@@ -1703,51 +546,32 @@ declare module Titanium {
 			borderRadius : number;
 			borderWidth : number;
 			bottom : any;
-			bubbleParent : boolean;
-			cacheSize : number;
 			center : Point;
 			children : Array<Titanium.UI.View>;
-			clipViews : boolean;
-			currentPage : number;
-			disableBounce : boolean;
+			enabled : boolean;
 			focusable : boolean;
 			height : any;
-			hitRect : Dimension;
 			horizontalWrap : boolean;
 			keepScreenOn : boolean;
 			layout : string;
 			left : any;
 			opacity : number;
-			overScrollMode : number;
-			overlayEnabled : boolean;
-			pagingControlAlpha : number;
-			pagingControlColor : string;
-			pagingControlHeight : number;
-			pagingControlOnTop : boolean;
-			pagingControlTimeout : number;
 			rect : Dimension;
 			right : any;
-			scrollingEnabled : boolean;
-			showPagingControl : boolean;
 			size : Dimension;
 			softKeyboardOnFocus : number;
 			tintColor : any;
 			top : any;
 			touchEnabled : boolean;
 			transform : any;
-			views : Array<Titanium.UI.View>;
 			visible : boolean;
 			width : any;
 			zIndex : number;
 			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			addView (view: Titanium.UI.View) : void;
 			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
 			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
 			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getAccessibilityHidden () : boolean;
 			getAccessibilityHint () : string;
 			getAccessibilityLabel () : string;
@@ -1770,52 +594,30 @@ declare module Titanium {
 			getBorderRadius () : number;
 			getBorderWidth () : number;
 			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCacheSize () : number;
 			getCenter () : Point;
 			getChildren () : Array<Titanium.UI.View>;
-			getClipViews () : boolean;
-			getCurrentPage () : number;
-			getDisableBounce () : boolean;
+			getEnabled () : boolean;
 			getFocusable () : boolean;
 			getHeight () : any;
-			getHitRect () : Dimension;
 			getHorizontalWrap () : boolean;
 			getKeepScreenOn () : boolean;
 			getLayout () : string;
 			getLeft () : any;
 			getOpacity () : number;
-			getOverScrollMode () : number;
-			getOverlayEnabled () : boolean;
-			getPagingControlAlpha () : number;
-			getPagingControlColor () : string;
-			getPagingControlHeight () : number;
-			getPagingControlOnTop () : boolean;
-			getPagingControlTimeout () : number;
 			getRect () : Dimension;
 			getRight () : any;
-			getScrollingEnabled () : boolean;
-			getShowPagingControl () : boolean;
 			getSize () : Dimension;
 			getSoftKeyboardOnFocus () : number;
 			getTintColor () : string;
 			getTop () : any;
 			getTouchEnabled () : boolean;
 			getTransform () : any;
-			getViews () : Array<Titanium.UI.View>;
 			getVisible () : boolean;
 			getWidth () : any;
 			getZIndex () : number;
 			hide () : void;
-			moveNext () : void;
-			movePrevious () : void;
 			remove (view: Titanium.UI.View) : void;
 			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			removeView (view: number) : void;
-			removeView (view: Titanium.UI.View) : void;
-			scrollToView (view: number) : void;
-			scrollToView (view: Titanium.UI.View) : void;
 			setAccessibilityHidden (accessibilityHidden: boolean) : void;
 			setAccessibilityHint (accessibilityHint: string) : void;
 			setAccessibilityLabel (accessibilityLabel: string) : void;
@@ -1838,31 +640,19 @@ declare module Titanium {
 			setBorderWidth (borderWidth: number) : void;
 			setBottom (bottom: number) : void;
 			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCacheSize (cacheSize: number) : void;
 			setCenter (center: Point) : void;
-			setCurrentPage (currentPage: number) : void;
-			setDisableBounce (disableBounce: boolean) : void;
+			setEnabled (enabled: boolean) : void;
 			setFocusable (focusable: boolean) : void;
 			setHeight (height: number) : void;
 			setHeight (height: string) : void;
-			setHitRect (hitRect: Dimension) : void;
 			setHorizontalWrap (horizontalWrap: boolean) : void;
 			setKeepScreenOn (keepScreenOn: boolean) : void;
 			setLayout (layout: string) : void;
 			setLeft (left: number) : void;
 			setLeft (left: string) : void;
 			setOpacity (opacity: number) : void;
-			setOverScrollMode (overScrollMode: number) : void;
-			setOverlayEnabled (overlayEnabled: boolean) : void;
-			setPagingControlAlpha (pagingControlAlpha: number) : void;
-			setPagingControlColor (pagingControlColor: string) : void;
-			setPagingControlHeight (pagingControlHeight: number) : void;
-			setPagingControlOnTop (pagingControlOnTop: boolean) : void;
 			setRight (right: number) : void;
 			setRight (right: string) : void;
-			setScrollingEnabled (scrollingEnabled: boolean) : void;
-			setShowPagingControl (showPagingControl: boolean) : void;
 			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
 			setTintColor (tintColor: string) : void;
 			setTop (top: number) : void;
@@ -1870,12 +660,11 @@ declare module Titanium {
 			setTouchEnabled (touchEnabled: boolean) : void;
 			setTransform (transform: Titanium.UI._2DMatrix) : void;
 			setTransform (transform: Titanium.UI._3DMatrix) : void;
-			setViews (views: Array<Titanium.UI.View>) : void;
 			setVisible (visible: boolean) : void;
 			setWidth (width: number) : void;
 			setWidth (width: string) : void;
 			setZIndex (zIndex: number) : void;
-			show () : void;
+			show (...args: Array<any>) : void;
 			startLayout () : void;
 			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
 			updateLayout (params: Dictionary<Object>) : void;
@@ -1911,1265 +700,363 @@ declare module Titanium {
 			export function setStatusBarHidden (statusBarHidden: boolean) : void;
 			export function setStatusBarStyle (statusBarStyle: number) : void;
 			export function showStatusBar (params?: showStatusBarParams) : void;
-			export interface ScrollIndicatorStyle {
-				BLACK : number;
-				DEFAULT : number;
-				WHITE : number;
-				bubbleParent : boolean;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
+			export enum ScrollIndicatorStyle {
+				BLACK,
+				DEFAULT,
+				WHITE
 			}
-			export interface SystemButtonStyle {
-				BAR : number;
-				BORDERED : number;
-				DONE : number;
-				PLAIN : number;
-				bubbleParent : boolean;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
+			export enum SystemButtonStyle {
+				BAR,
+				BORDERED,
+				DONE,
+				PLAIN
 			}
-			export interface ListViewStyle {
-				GROUPED : number;
-				PLAIN : number;
+			export enum ListViewStyle {
+				GROUPED,
+				PLAIN
 			}
-			export interface StatusBar {
-				ANIMATION_STYLE_FADE : number;
-				ANIMATION_STYLE_NONE : number;
-				ANIMATION_STYLE_SLIDE : number;
-				DEFAULT : number;
-				GRAY : number;
-				GREY : number;
-				LIGHT_CONTENT : number;
-				OPAQUE_BLACK : number;
-				TRANSLUCENT_BLACK : number;
-				bubbleParent : boolean;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
+			export enum StatusBar {
+				ANIMATION_STYLE_FADE,
+				ANIMATION_STYLE_NONE,
+				ANIMATION_STYLE_SLIDE,
+				DEFAULT,
+				GRAY,
+				GREY,
+				LIGHT_CONTENT,
+				OPAQUE_BLACK,
+				TRANSLUCENT_BLACK
 			}
-			export interface SystemButton {
-				ACTION : number;
-				ACTIVITY : number;
-				ADD : number;
-				BOOKMARKS : number;
-				CAMERA : number;
-				CANCEL : number;
-				COMPOSE : number;
-				CONTACT_ADD : number;
-				DISCLOSURE : number;
-				DONE : number;
-				EDIT : number;
-				FAST_FORWARD : number;
-				FIXED_SPACE : number;
-				FLEXIBLE_SPACE : number;
-				INFO_DARK : number;
-				INFO_LIGHT : number;
-				ORGANIZE : number;
-				PAUSE : number;
-				PLAY : number;
-				REFRESH : number;
-				REPLY : number;
-				REWIND : number;
-				SAVE : number;
-				SPINNER : number;
-				STOP : number;
-				TRASH : number;
-				bubbleParent : boolean;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
+			export enum SystemButton {
+				ACTION,
+				ACTIVITY,
+				ADD,
+				BOOKMARKS,
+				CAMERA,
+				CANCEL,
+				COMPOSE,
+				CONTACT_ADD,
+				DISCLOSURE,
+				DONE,
+				EDIT,
+				FAST_FORWARD,
+				FIXED_SPACE,
+				FLEXIBLE_SPACE,
+				INFO_DARK,
+				INFO_LIGHT,
+				ORGANIZE,
+				PAUSE,
+				PLAY,
+				REFRESH,
+				REPLY,
+				REWIND,
+				SAVE,
+				SPINNER,
+				STOP,
+				TRASH
 			}
-			export interface TableViewStyle {
-				GROUPED : number;
-				PLAIN : number;
-				bubbleParent : boolean;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
+			export enum TableViewStyle {
+				GROUPED,
+				PLAIN
 			}
-			export interface SystemIcon {
-				BOOKMARKS : number;
-				CONTACTS : number;
-				DOWNLOADS : number;
-				FAVORITES : number;
-				FEATURED : number;
-				HISTORY : number;
-				MORE : number;
-				MOST_RECENT : number;
-				MOST_VIEWED : number;
-				RECENTS : number;
-				SEARCH : number;
-				TOP_RATED : number;
-				bubbleParent : boolean;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
+			export enum SystemIcon {
+				BOOKMARKS,
+				CONTACTS,
+				DOWNLOADS,
+				FAVORITES,
+				FEATURED,
+				HISTORY,
+				MORE,
+				MOST_RECENT,
+				MOST_VIEWED,
+				RECENTS,
+				SEARCH,
+				TOP_RATED
 			}
-			export interface ActivityIndicatorStyle {
-				BIG : number;
-				DARK : number;
-				PLAIN : number;
-				bubbleParent : boolean;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
+			export enum ActivityIndicatorStyle {
+				BIG,
+				DARK,
+				PLAIN
 			}
-			export interface ProgressBarStyle {
-				BAR : number;
-				DEFAULT : number;
-				PLAIN : number;
-				bubbleParent : boolean;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
+			export enum ProgressBarStyle {
+				BAR,
+				DEFAULT,
+				PLAIN
 			}
-			export interface ListViewSeparatorStyle {
-				NONE : number;
-				SINGLE_LINE : number;
-				bubbleParent : boolean;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
+			export enum ListViewSeparatorStyle {
+				NONE,
+				SINGLE_LINE
 			}
-			export interface RowAnimationStyle {
-				BOTTOM : number;
-				FADE : number;
-				LEFT : number;
-				NONE : number;
-				RIGHT : number;
-				TOP : number;
-				bubbleParent : boolean;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
+			export enum RowAnimationStyle {
+				BOTTOM,
+				FADE,
+				LEFT,
+				NONE,
+				RIGHT,
+				TOP
 			}
-			export interface AnimationStyle {
-				CURL_DOWN : number;
-				CURL_UP : number;
-				FLIP_FROM_LEFT : number;
-				FLIP_FROM_RIGHT : number;
-				NONE : number;
-				bubbleParent : boolean;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
+			export enum AnimationStyle {
+				CURL_DOWN,
+				CURL_UP,
+				FLIP_FROM_LEFT,
+				FLIP_FROM_RIGHT,
+				NONE
 			}
-			export interface NavigationGroup {
-				accessibilityHidden : boolean;
-				accessibilityHint : string;
-				accessibilityLabel : string;
-				accessibilityValue : string;
-				anchorPoint : Point;
-				animatedCenter : Point;
-				backgroundColor : string;
-				backgroundGradient : Gradient;
-				backgroundImage : string;
-				backgroundLeftCap : number;
-				backgroundRepeat : boolean;
-				backgroundTopCap : number;
-				borderColor : string;
-				borderRadius : number;
-				borderWidth : number;
-				bottom : any;
-				bubbleParent : boolean;
-				center : Point;
-				children : Array<Titanium.UI.View>;
-				height : any;
-				horizontalWrap : boolean;
-				layout : string;
-				left : any;
-				opacity : number;
-				rect : Dimension;
-				right : any;
-				size : Dimension;
-				tintColor : any;
-				top : any;
-				touchEnabled : boolean;
-				transform : any;
-				visible : boolean;
-				width : any;
+			export interface NavigationGroup extends Titanium.UI.View {
 				window : Titanium.UI.Window;
-				zIndex : number;
-				add (view: Titanium.UI.View) : void;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-				animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
 				close (window: Titanium.UI.Window, options: Dictionary<Object>) : void;
-				convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-				finishLayout () : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getAccessibilityHidden () : boolean;
-				getAccessibilityHint () : string;
-				getAccessibilityLabel () : string;
-				getAccessibilityValue () : string;
-				getAnchorPoint () : Point;
-				getAnimatedCenter () : Point;
-				getBackgroundColor () : string;
-				getBackgroundGradient () : Gradient;
-				getBackgroundImage () : string;
-				getBackgroundLeftCap () : number;
-				getBackgroundRepeat () : boolean;
-				getBackgroundTopCap () : number;
-				getBorderColor () : string;
-				getBorderRadius () : number;
-				getBorderWidth () : number;
-				getBottom () : any;
-				getBubbleParent () : boolean;
-				getCenter () : Point;
-				getChildren () : Array<Titanium.UI.View>;
-				getHeight () : any;
-				getHorizontalWrap () : boolean;
-				getLayout () : string;
-				getLeft () : any;
-				getOpacity () : number;
-				getRect () : Dimension;
-				getRight () : any;
-				getSize () : Dimension;
-				getTintColor () : string;
-				getTop () : any;
-				getTouchEnabled () : boolean;
-				getTransform () : any;
-				getVisible () : boolean;
-				getWidth () : any;
 				getWindow () : Titanium.UI.Window;
-				getZIndex () : number;
-				hide () : void;
 				open (window: Titanium.UI.Window, options: Dictionary<Object>) : void;
-				remove (view: Titanium.UI.View) : void;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setAccessibilityHidden (accessibilityHidden: boolean) : void;
-				setAccessibilityHint (accessibilityHint: string) : void;
-				setAccessibilityLabel (accessibilityLabel: string) : void;
-				setAccessibilityValue (accessibilityValue: string) : void;
-				setAnchorPoint (anchorPoint: Point) : void;
-				setBackgroundColor (backgroundColor: string) : void;
-				setBackgroundGradient (backgroundGradient: Gradient) : void;
-				setBackgroundImage (backgroundImage: string) : void;
-				setBackgroundLeftCap (backgroundLeftCap: number) : void;
-				setBackgroundRepeat (backgroundRepeat: boolean) : void;
-				setBackgroundTopCap (backgroundTopCap: number) : void;
-				setBorderColor (borderColor: string) : void;
-				setBorderRadius (borderRadius: number) : void;
-				setBorderWidth (borderWidth: number) : void;
-				setBottom (bottom: number) : void;
-				setBottom (bottom: string) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
-				setCenter (center: Point) : void;
-				setHeight (height: number) : void;
-				setHeight (height: string) : void;
-				setHorizontalWrap (horizontalWrap: boolean) : void;
-				setLayout (layout: string) : void;
-				setLeft (left: number) : void;
-				setLeft (left: string) : void;
-				setOpacity (opacity: number) : void;
-				setRight (right: number) : void;
-				setRight (right: string) : void;
-				setTintColor (tintColor: string) : void;
-				setTop (top: number) : void;
-				setTop (top: string) : void;
-				setTouchEnabled (touchEnabled: boolean) : void;
-				setTransform (transform: Titanium.UI._2DMatrix) : void;
-				setTransform (transform: Titanium.UI._3DMatrix) : void;
-				setVisible (visible: boolean) : void;
-				setWidth (width: number) : void;
-				setWidth (width: string) : void;
-				setZIndex (zIndex: number) : void;
-				show () : void;
-				startLayout () : void;
-				toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-				updateLayout (params: Dictionary<Object>) : void;
 			}
-			export interface TableViewScrollPosition {
-				BOTTOM : number;
-				MIDDLE : number;
-				NONE : number;
-				TOP : number;
-				bubbleParent : boolean;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
+			export enum TableViewScrollPosition {
+				BOTTOM,
+				MIDDLE,
+				NONE,
+				TOP
 			}
-			export interface AlertDialogStyle {
-				DEFAULT : number;
-				LOGIN_AND_PASSWORD_INPUT : number;
-				PLAIN_TEXT_INPUT : number;
-				SECURE_TEXT_INPUT : number;
-				bubbleParent : boolean;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
+			export enum AlertDialogStyle {
+				DEFAULT,
+				LOGIN_AND_PASSWORD_INPUT,
+				PLAIN_TEXT_INPUT,
+				SECURE_TEXT_INPUT
 			}
-			export interface ListViewScrollPosition {
-				BOTTOM : number;
-				MIDDLE : number;
-				NONE : number;
-				TOP : number;
+			export enum ListViewScrollPosition {
+				BOTTOM,
+				MIDDLE,
+				NONE,
+				TOP
 			}
-			export interface TableViewCellSelectionStyle {
-				BLUE : number;
-				GRAY : number;
-				NONE : number;
-				bubbleParent : boolean;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
+			export enum TableViewCellSelectionStyle {
+				BLUE,
+				GRAY,
+				NONE
 			}
-			export interface ListViewCellSelectionStyle {
-				BLUE : number;
-				GRAY : number;
-				NONE : number;
+			export enum ListViewCellSelectionStyle {
+				BLUE,
+				GRAY,
+				NONE
 			}
-			export interface TableViewSeparatorStyle {
-				NONE : number;
-				SINGLE_LINE : number;
-				bubbleParent : boolean;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
+			export enum TableViewSeparatorStyle {
+				NONE,
+				SINGLE_LINE
 			}
 		}
-		export interface TextArea {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
+		export interface TextArea extends Titanium.UI.View {
 			appearance : number;
 			autoLink : number;
 			autocapitalization : number;
 			autocorrect : boolean;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
 			clearOnEdit : boolean;
 			color : string;
 			editable : boolean;
 			ellipsize : boolean;
 			enableReturnKey : boolean;
-			enabled : boolean;
-			focusable : boolean;
 			font : Font;
-			height : any;
 			hintText : string;
-			horizontalWrap : boolean;
-			keepScreenOn : boolean;
 			keyboardToolbar : any;
 			keyboardToolbarColor : string;
 			keyboardToolbarHeight : number;
 			keyboardType : number;
-			layout : string;
-			left : any;
 			maxLength : number;
-			opacity : number;
-			rect : Dimension;
 			returnKeyType : number;
-			right : any;
 			scrollable : boolean;
 			scrollsToTop : boolean;
-			size : Dimension;
-			softKeyboardOnFocus : number;
 			suppressReturn : boolean;
 			textAlign : any;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
 			value : string;
 			verticalAlign : any;
-			visible : boolean;
-			width : any;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			blur () : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			focus () : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
 			getAppearance () : number;
 			getAutoLink () : number;
 			getAutocapitalization () : number;
 			getAutocorrect () : boolean;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
 			getClearOnEdit () : boolean;
 			getColor () : string;
 			getEditable () : boolean;
 			getEllipsize () : boolean;
 			getEnableReturnKey () : boolean;
-			getEnabled () : boolean;
-			getFocusable () : boolean;
 			getFont () : Font;
-			getHeight () : any;
 			getHintText () : string;
-			getHorizontalWrap () : boolean;
-			getKeepScreenOn () : boolean;
 			getKeyboardToolbar () : any;
 			getKeyboardToolbarColor () : string;
 			getKeyboardToolbarHeight () : number;
 			getKeyboardType () : number;
-			getLayout () : string;
-			getLeft () : any;
 			getMaxLength () : number;
-			getOpacity () : number;
-			getRect () : Dimension;
 			getReturnKeyType () : number;
-			getRight () : any;
 			getScrollable () : boolean;
 			getScrollsToTop () : boolean;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
 			getSuppressReturn () : boolean;
 			getTextAlign () : any;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
 			getValue () : string;
 			getVerticalAlign () : any;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
 			hasText () : boolean;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
 			setAppearance (appearance: number) : void;
 			setAutoLink (autoLink: number) : void;
 			setAutocapitalization (autocapitalization: number) : void;
 			setAutocorrect (autocorrect: boolean) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
 			setClearOnEdit (clearOnEdit: boolean) : void;
 			setColor (color: string) : void;
 			setEditable (editable: boolean) : void;
 			setEllipsize (ellipsize: boolean) : void;
 			setEnableReturnKey (enableReturnKey: boolean) : void;
-			setEnabled (enabled: boolean) : void;
-			setFocusable (focusable: boolean) : void;
 			setFont (font: Font) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
 			setHintText (hintText: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
 			setKeyboardToolbar (keyboardToolbar: Array<Titanium.UI.View>) : void;
 			setKeyboardToolbar (keyboardToolbar: Titanium.UI.iOS.Toolbar) : void;
 			setKeyboardToolbarColor (keyboardToolbarColor: string) : void;
 			setKeyboardToolbarHeight (keyboardToolbarHeight: number) : void;
 			setKeyboardType (keyboardType: number) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
 			setMaxLength (maxLength: number) : void;
-			setOpacity (opacity: number) : void;
 			setReturnKeyType (returnKeyType: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
 			setScrollable (scrollable: boolean) : void;
 			setScrollsToTop (scrollsToTop: boolean) : void;
 			setSelection (start: number, end: number) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
 			setSuppressReturn (suppressReturn: boolean) : void;
 			setTextAlign (textAlign: string) : void;
 			setTextAlign (textAlign: number) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
 			setValue (value: string) : void;
 			setVerticalAlign (verticalAlign: number) : void;
 			setVerticalAlign (verticalAlign: string) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface ActivityIndicatorStyle {
-			BIG : number;
-			BIG_DARK : number;
-			DARK : number;
-			PLAIN : number;
-			bubbleParent : boolean;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
+		export enum ActivityIndicatorStyle {
+			BIG,
+			BIG_DARK,
+			DARK,
+			PLAIN
 		}
-		export interface Switch {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
+		export interface Switch extends Titanium.UI.View {
 			color : string;
-			enabled : boolean;
-			focusable : boolean;
 			font : Font;
-			height : any;
-			horizontalWrap : boolean;
-			keepScreenOn : boolean;
-			layout : string;
-			left : any;
-			opacity : number;
-			rect : Dimension;
-			right : any;
-			size : Dimension;
-			softKeyboardOnFocus : number;
 			style : number;
 			textAlign : any;
-			tintColor : any;
 			title : string;
 			titleOff : string;
 			titleOn : string;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
 			value : boolean;
 			verticalAlign : any;
-			visible : boolean;
-			width : any;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
 			getColor () : string;
-			getEnabled () : boolean;
-			getFocusable () : boolean;
 			getFont () : Font;
-			getHeight () : any;
-			getHorizontalWrap () : boolean;
-			getKeepScreenOn () : boolean;
-			getLayout () : string;
-			getLeft () : any;
-			getOpacity () : number;
-			getRect () : Dimension;
-			getRight () : any;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
 			getStyle () : number;
 			getTextAlign () : any;
-			getTintColor () : string;
 			getTitle () : string;
 			getTitleOff () : string;
 			getTitleOn () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
 			getValue () : boolean;
 			getVerticalAlign () : any;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
 			setColor (color: string) : void;
-			setEnabled (enabled: boolean) : void;
-			setFocusable (focusable: boolean) : void;
 			setFont (font: Font) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
-			setOpacity (opacity: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
 			setStyle (style: number) : void;
 			setTextAlign (textAlign: string) : void;
 			setTextAlign (textAlign: number) : void;
-			setTintColor (tintColor: string) : void;
 			setTitle (title: string) : void;
 			setTitleOff (titleOff: string) : void;
 			setTitleOn (titleOn: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
 			setValue (value: boolean) : void;
 			setVerticalAlign (verticalAlign: number) : void;
 			setVerticalAlign (verticalAlign: string) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface Tab {
+		export interface Tab extends Titanium.UI.View {
 			active : boolean;
 			activeIcon : string;
 			activeIconIsMask : any;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundImage : string;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
 			badge : string;
-			bubbleParent : boolean;
 			icon : string;
 			iconIsmask : any;
-			tintColor : any;
 			title : string;
 			titleid : string;
-			touchEnabled : boolean;
 			window : Titanium.UI.Window;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			close (window: Titanium.UI.Window, options?: any) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getActive () : boolean;
 			getActiveIcon () : string;
 			getActiveIconIsMask () : boolean;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundImage () : string;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
 			getBadge () : string;
-			getBubbleParent () : boolean;
 			getIcon () : string;
 			getIconIsmask () : boolean;
-			getTintColor () : string;
 			getTitle () : string;
 			getTitleid () : string;
-			getTouchEnabled () : boolean;
 			getWindow () : Titanium.UI.Window;
 			open (window: Titanium.UI.Window, options: any) : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			setActive (active: boolean) : void;
 			setActiveIcon (activeIcon: string) : void;
 			setActiveIconIsMask (activeIconIsMask: boolean) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
 			setBadge (badge: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setIcon (icon: string) : void;
 			setIconIsmask (iconIsmask: boolean) : void;
-			setTintColor (tintColor: string) : void;
 			setTitle (title: string) : void;
 			setTitleid (titleid: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
 			setWindow (window: Titanium.UI.Window) : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface TableViewRow {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
+		export interface TableViewRow extends Titanium.UI.View {
 			className : string;
 			color : string;
 			editable : boolean;
-			focusable : boolean;
 			font : Font;
 			hasCheck : boolean;
 			hasChild : boolean;
 			hasDetail : boolean;
-			height : any;
-			horizontalWrap : boolean;
 			indentionLevel : number;
-			keepScreenOn : boolean;
-			layout : string;
-			left : any;
 			leftImage : string;
 			moveable : boolean;
-			opacity : number;
-			rect : Dimension;
-			right : any;
 			rightImage : string;
 			selectedBackgroundColor : string;
 			selectedBackgroundImage : string;
 			selectedColor : string;
 			selectionStyle : number;
-			size : Dimension;
-			softKeyboardOnFocus : number;
-			tintColor : any;
 			title : string;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
-			visible : boolean;
-			width : any;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
 			getClassName () : string;
 			getColor () : string;
 			getEditable () : boolean;
-			getFocusable () : boolean;
 			getFont () : Font;
 			getHasCheck () : boolean;
 			getHasChild () : boolean;
 			getHasDetail () : boolean;
-			getHeight () : any;
-			getHorizontalWrap () : boolean;
 			getIndentionLevel () : number;
-			getKeepScreenOn () : boolean;
-			getLayout () : string;
-			getLeft () : any;
 			getLeftImage () : string;
 			getMoveable () : boolean;
-			getOpacity () : number;
-			getRect () : Dimension;
-			getRight () : any;
 			getRightImage () : string;
 			getSelectedBackgroundColor () : string;
 			getSelectedBackgroundImage () : string;
 			getSelectedColor () : string;
 			getSelectionStyle () : number;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
-			getTintColor () : string;
 			getTitle () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
 			setClassName (className: string) : void;
 			setColor (color: string) : void;
 			setEditable (editable: boolean) : void;
-			setFocusable (focusable: boolean) : void;
 			setFont (font: Font) : void;
 			setHasCheck (hasCheck: boolean) : void;
 			setHasChild (hasChild: boolean) : void;
 			setHasDetail (hasDetail: boolean) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
 			setIndentionLevel (indentionLevel: number) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
 			setLeftImage (leftImage: string) : void;
 			setMoveable (moveable: boolean) : void;
-			setOpacity (opacity: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
 			setRightImage (rightImage: string) : void;
 			setSelectedBackgroundColor (selectedBackgroundColor: string) : void;
 			setSelectedBackgroundImage (selectedBackgroundImage: string) : void;
 			setSelectedColor (selectedColor: string) : void;
 			setSelectionStyle (selectionStyle: number) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
-			setTintColor (tintColor: string) : void;
 			setTitle (title: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface PickerRow {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
+		export interface PickerRow extends Titanium.UI.View {
 			color : string;
-			focusable : boolean;
 			font : Font;
 			fontSize : number;
-			height : any;
-			horizontalWrap : boolean;
-			keepScreenOn : boolean;
-			layout : string;
-			left : any;
-			opacity : number;
-			rect : Dimension;
-			right : any;
-			size : Dimension;
-			softKeyboardOnFocus : number;
-			tintColor : any;
 			title : string;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
-			visible : boolean;
-			width : any;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
 			getColor () : string;
-			getFocusable () : boolean;
 			getFont () : Font;
 			getFontSize () : number;
-			getHeight () : any;
-			getHorizontalWrap () : boolean;
-			getKeepScreenOn () : boolean;
-			getLayout () : string;
-			getLeft () : any;
-			getOpacity () : number;
-			getRect () : Dimension;
-			getRight () : any;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
-			getTintColor () : string;
 			getTitle () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
 			setColor (color: string) : void;
-			setFocusable (focusable: boolean) : void;
 			setFont (font: Font) : void;
 			setFontSize (fontSize: number) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
-			setOpacity (opacity: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
-			setTintColor (tintColor: string) : void;
 			setTitle (title: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface Slider {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
+		export interface Slider extends Titanium.UI.View {
 			disabledLeftTrackImage : string;
 			disabledRightTrackImage : string;
 			disabledThumbImage : string;
-			enabled : boolean;
-			focusable : boolean;
-			height : any;
 			highlightedLeftTrackImage : string;
 			highlightedRightTrackImage : string;
 			highlightedThumbImage : string;
-			horizontalWrap : boolean;
-			keepScreenOn : boolean;
-			layout : string;
-			left : any;
 			leftTrackImage : string;
 			leftTrackLeftCap : number;
 			leftTrackTopCap : number;
@@ -3177,72 +1064,20 @@ declare module Titanium {
 			maxRange : number;
 			min : number;
 			minRange : number;
-			opacity : number;
-			rect : Dimension;
-			right : any;
 			rightTrackImage : string;
 			rightTrackLeftCap : number;
 			rightTrackTopCap : number;
 			selectedLeftTrackImage : string;
 			selectedRightTrackImage : string;
 			selectedThumbImage : string;
-			size : Dimension;
-			softKeyboardOnFocus : number;
 			thumbImage : any;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
 			value : string;
-			visible : boolean;
-			width : any;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
 			getDisabledLeftTrackImage () : string;
 			getDisabledRightTrackImage () : string;
 			getDisabledThumbImage () : string;
-			getEnabled () : boolean;
-			getFocusable () : boolean;
-			getHeight () : any;
 			getHighlightedLeftTrackImage () : string;
 			getHighlightedRightTrackImage () : string;
 			getHighlightedThumbImage () : string;
-			getHorizontalWrap () : boolean;
-			getKeepScreenOn () : boolean;
-			getLayout () : string;
-			getLeft () : any;
 			getLeftTrackImage () : string;
 			getLeftTrackLeftCap () : number;
 			getLeftTrackTopCap () : number;
@@ -3250,69 +1085,20 @@ declare module Titanium {
 			getMaxRange () : number;
 			getMin () : number;
 			getMinRange () : number;
-			getOpacity () : number;
-			getRect () : Dimension;
-			getRight () : any;
 			getRightTrackImage () : string;
 			getRightTrackLeftCap () : number;
 			getRightTrackTopCap () : number;
 			getSelectedLeftTrackImage () : string;
 			getSelectedRightTrackImage () : string;
 			getSelectedThumbImage () : string;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
 			getThumbImage () : any;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
 			getValue () : string;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
 			setDisabledLeftTrackImage (disabledLeftTrackImage: string) : void;
 			setDisabledRightTrackImage (disabledRightTrackImage: string) : void;
 			setDisabledThumbImage (disabledThumbImage: string) : void;
-			setEnabled (enabled: boolean) : void;
-			setFocusable (focusable: boolean) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
 			setHighlightedLeftTrackImage (highlightedLeftTrackImage: string) : void;
 			setHighlightedRightTrackImage (highlightedRightTrackImage: string) : void;
 			setHighlightedThumbImage (highlightedThumbImage: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
 			setLeftTrackImage (leftTrackImage: string) : void;
 			setLeftTrackLeftCap (leftTrackLeftCap: number) : void;
 			setLeftTrackTopCap (leftTrackTopCap: number) : void;
@@ -3320,33 +1106,15 @@ declare module Titanium {
 			setMaxRange (maxRange: number) : void;
 			setMin (min: number) : void;
 			setMinRange (minRange: number) : void;
-			setOpacity (opacity: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
 			setRightTrackImage (rightTrackImage: string) : void;
 			setRightTrackLeftCap (rightTrackLeftCap: number) : void;
 			setRightTrackTopCap (rightTrackTopCap: number) : void;
 			setSelectedLeftTrackImage (selectedLeftTrackImage: string) : void;
 			setSelectedRightTrackImage (selectedRightTrackImage: string) : void;
 			setSelectedThumbImage (selectedThumbImage: string) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
 			setThumbImage (thumbImage: string) : void;
 			setThumbImage (thumbImage: Titanium.Blob) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
 			setValue (value: number, options?: Dictionary<Object>) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
 		export module Android {
 			export var LINKIFY_ALL : number;
@@ -3406,163 +1174,26 @@ declare module Titanium {
 			export function openPreferences () : void;
 			export function removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			export function setBubbleParent (bubbleParent: boolean) : void;
-			export interface SearchView {
-				accessibilityHidden : boolean;
-				accessibilityHint : string;
-				accessibilityLabel : string;
-				accessibilityValue : string;
-				backgroundColor : string;
-				backgroundDisabledColor : string;
-				backgroundDisabledImage : string;
-				backgroundFocusedColor : string;
-				backgroundFocusedImage : string;
-				backgroundGradient : Gradient;
-				backgroundImage : string;
-				backgroundRepeat : boolean;
-				backgroundSelectedColor : string;
-				backgroundSelectedImage : string;
-				borderColor : string;
-				borderRadius : number;
-				borderWidth : number;
-				bottom : any;
-				bubbleParent : boolean;
-				center : Point;
-				children : Array<Titanium.UI.View>;
-				enabled : boolean;
-				focusable : boolean;
-				height : any;
+			export interface SearchView extends Titanium.UI.View {
 				hintText : string;
-				horizontalWrap : boolean;
 				iconified : boolean;
 				iconifiedByDefault : boolean;
-				keepScreenOn : boolean;
-				layout : string;
-				left : any;
-				opacity : number;
-				rect : Dimension;
-				right : any;
-				size : Dimension;
-				softKeyboardOnFocus : number;
 				submitEnabled : boolean;
-				top : any;
-				touchEnabled : boolean;
-				transform : any;
 				value : string;
-				visible : boolean;
-				width : any;
-				zIndex : number;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-				animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
 				blur () : void;
-				convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-				finishLayout () : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
 				focus () : void;
-				getAccessibilityHidden () : boolean;
-				getAccessibilityHint () : string;
-				getAccessibilityLabel () : string;
-				getAccessibilityValue () : string;
-				getBackgroundColor () : string;
-				getBackgroundDisabledColor () : string;
-				getBackgroundDisabledImage () : string;
-				getBackgroundFocusedColor () : string;
-				getBackgroundFocusedImage () : string;
-				getBackgroundGradient () : Gradient;
-				getBackgroundImage () : string;
-				getBackgroundRepeat () : boolean;
-				getBackgroundSelectedColor () : string;
-				getBackgroundSelectedImage () : string;
-				getBorderColor () : string;
-				getBorderRadius () : number;
-				getBorderWidth () : number;
-				getBottom () : any;
-				getBubbleParent () : boolean;
-				getCenter () : Point;
-				getChildren () : Array<Titanium.UI.View>;
-				getEnabled () : boolean;
-				getFocusable () : boolean;
-				getHeight () : any;
 				getHintText () : string;
-				getHorizontalWrap () : boolean;
 				getIconified () : boolean;
 				getIconifiedByDefault () : boolean;
-				getKeepScreenOn () : boolean;
-				getLayout () : string;
-				getLeft () : any;
-				getOpacity () : number;
-				getRect () : Dimension;
-				getRight () : any;
-				getSize () : Dimension;
-				getSoftKeyboardOnFocus () : number;
 				getSubmitEnabled () : boolean;
-				getTop () : any;
-				getTouchEnabled () : boolean;
-				getTransform () : any;
 				getValue () : string;
-				getVisible () : boolean;
-				getWidth () : any;
-				getZIndex () : number;
-				hide () : void;
-				remove (view: Titanium.UI.View) : void;
-				removeAllChildren () : void;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setAccessibilityHidden (accessibilityHidden: boolean) : void;
-				setAccessibilityHint (accessibilityHint: string) : void;
-				setAccessibilityLabel (accessibilityLabel: string) : void;
-				setAccessibilityValue (accessibilityValue: string) : void;
-				setBackgroundColor (backgroundColor: string) : void;
-				setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-				setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-				setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-				setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-				setBackgroundGradient (backgroundGradient: Gradient) : void;
-				setBackgroundImage (backgroundImage: string) : void;
-				setBackgroundRepeat (backgroundRepeat: boolean) : void;
-				setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-				setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-				setBorderColor (borderColor: string) : void;
-				setBorderRadius (borderRadius: number) : void;
-				setBorderWidth (borderWidth: number) : void;
-				setBottom (bottom: number) : void;
-				setBottom (bottom: string) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
-				setCenter (center: Point) : void;
-				setEnabled (enabled: boolean) : void;
-				setFocusable (focusable: boolean) : void;
-				setHeight (height: number) : void;
-				setHeight (height: string) : void;
 				setHintText (hintText: string) : void;
-				setHorizontalWrap (horizontalWrap: boolean) : void;
 				setIconified (iconified: boolean) : void;
 				setIconifiedByDefault (iconifiedByDefault: boolean) : void;
-				setKeepScreenOn (keepScreenOn: boolean) : void;
-				setLayout (layout: string) : void;
-				setLeft (left: number) : void;
-				setLeft (left: string) : void;
-				setOpacity (opacity: number) : void;
-				setRight (right: number) : void;
-				setRight (right: string) : void;
-				setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
 				setSubmitEnabled (submitEnabled: boolean) : void;
-				setTop (top: number) : void;
-				setTop (top: string) : void;
-				setTouchEnabled (touchEnabled: boolean) : void;
-				setTransform (transform: Titanium.UI._2DMatrix) : void;
-				setTransform (transform: Titanium.UI._3DMatrix) : void;
 				setValue (value: string) : void;
-				setVisible (visible: boolean) : void;
-				setWidth (width: number) : void;
-				setWidth (width: string) : void;
-				setZIndex (zIndex: number) : void;
-				show () : void;
-				startLayout () : void;
-				toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-				updateLayout (params: Dictionary<Object>) : void;
 			}
-			export interface ProgressIndicator {
-				bubbleParent : boolean;
+			export interface ProgressIndicator extends Titanium.Proxy {
 				cancelable : boolean;
 				location : number;
 				max : number;
@@ -3570,10 +1201,6 @@ declare module Titanium {
 				messageid : string;
 				min : number;
 				type : number;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
 				getCancelable () : boolean;
 				getLocation () : number;
 				getMax () : number;
@@ -3582,8 +1209,6 @@ declare module Titanium {
 				getMin () : number;
 				getType () : number;
 				hide () : void;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
 				setCancelable (cancelable: boolean) : void;
 				setLocation (location: number) : void;
 				setMax (max: number) : void;
@@ -3594,168 +1219,40 @@ declare module Titanium {
 				show () : void;
 			}
 		}
-		export interface DashboardItem {
+		export interface DashboardItem extends Titanium.Proxy {
 			badge : number;
-			bubbleParent : boolean;
 			canDelete : boolean;
 			image : any;
 			selectedImage : any;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getBadge () : number;
-			getBubbleParent () : boolean;
 			getCanDelete () : boolean;
 			getImage () : any;
 			getSelectedImage () : any;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			setBadge (badge: number) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setCanDelete (canDelete: boolean) : void;
 			setImage (image: string) : void;
 			setImage (image: Titanium.Blob) : void;
 			setSelectedImage (selectedImage: string) : void;
 			setSelectedImage (selectedImage: Titanium.Blob) : void;
 		}
-		export interface DashboardView {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
-			backgroundColor : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
+		export interface DashboardView extends Titanium.UI.View {
 			columnCount : number;
 			data : Array<Titanium.UI.DashboardItem>;
 			editable : boolean;
-			height : any;
-			horizontalWrap : boolean;
-			layout : string;
-			left : any;
-			opacity : number;
-			rect : Dimension;
-			right : any;
 			rowCount : number;
-			size : Dimension;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
-			visible : boolean;
-			width : any;
 			wobble : boolean;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
-			getBackgroundColor () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
 			getColumnCount () : number;
 			getData () : Array<Titanium.UI.DashboardItem>;
 			getEditable () : boolean;
-			getHeight () : any;
-			getHorizontalWrap () : boolean;
-			getLayout () : string;
-			getLeft () : any;
-			getOpacity () : number;
-			getRect () : Dimension;
-			getRight () : any;
 			getRowCount () : number;
-			getSize () : Dimension;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
-			getVisible () : boolean;
-			getWidth () : any;
 			getWobble () : boolean;
-			getZIndex () : number;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
 			setData (data: Array<Titanium.UI.DashboardItem>) : void;
 			setEditable (editable: boolean) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
-			setOpacity (opacity: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
 			setWobble (wobble: boolean) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
 			startEditing () : void;
-			startLayout () : void;
 			stopEditing () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface ListItem {
+		export interface ListItem extends Titanium.Proxy {
 			accessoryType : number;
 			backgroundColor : string;
 			backgroundGradient : Gradient;
@@ -3775,9 +1272,8 @@ declare module Titanium {
 			subtitle : string;
 			title : string;
 		}
-		export interface AlertDialog {
+		export interface AlertDialog extends Titanium.Proxy {
 			androidView : Titanium.UI.View;
-			bubbleParent : boolean;
 			buttonNames : Array<String>;
 			cancel : number;
 			message : string;
@@ -3788,11 +1284,7 @@ declare module Titanium {
 			style : number;
 			title : string;
 			titleid : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getAndroidView () : Titanium.UI.View;
-			getBubbleParent () : boolean;
 			getButtonNames () : Array<String>;
 			getCancel () : number;
 			getMessage () : string;
@@ -3801,9 +1293,7 @@ declare module Titanium {
 			getStyle () : number;
 			getTitle () : string;
 			hide () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			setAndroidView (androidView: Titanium.UI.View) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setCancel (cancel: number) : void;
 			setMessage (message: string) : void;
 			setOk (ok: string) : void;
@@ -3877,235 +1367,28 @@ declare module Titanium {
 			export function getBubbleParent () : boolean;
 			export function removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			export function setBubbleParent (bubbleParent: boolean) : void;
-			export interface Toolbar {
-				accessibilityHidden : boolean;
-				accessibilityHint : string;
-				accessibilityLabel : string;
-				accessibilityValue : string;
-				anchorPoint : Point;
-				animatedCenter : Point;
-				backgroundGradient : Gradient;
-				backgroundImage : string;
+			export interface Toolbar extends Titanium.UI.View {
 				barColor : string;
 				borderBottom : boolean;
-				borderColor : string;
-				borderRadius : number;
 				borderTop : boolean;
-				borderWidth : number;
-				bottom : any;
-				bubbleParent : boolean;
-				center : Point;
-				children : Array<Titanium.UI.View>;
-				height : any;
-				horizontalWrap : boolean;
 				items : Array<Titanium.UI.View>;
-				left : any;
-				opacity : number;
-				rect : Dimension;
-				right : any;
-				size : Dimension;
-				tintColor : any;
-				top : any;
-				touchEnabled : boolean;
-				transform : any;
 				translucent : boolean;
-				visible : boolean;
-				width : any;
-				zIndex : number;
-				add (view: Titanium.UI.View) : void;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-				animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-				finishLayout () : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getAccessibilityHidden () : boolean;
-				getAccessibilityHint () : string;
-				getAccessibilityLabel () : string;
-				getAccessibilityValue () : string;
-				getAnchorPoint () : Point;
-				getAnimatedCenter () : Point;
-				getBackgroundGradient () : Gradient;
-				getBackgroundImage () : string;
 				getBarColor () : string;
 				getBorderBottom () : boolean;
-				getBorderColor () : string;
-				getBorderRadius () : number;
 				getBorderTop () : boolean;
-				getBorderWidth () : number;
-				getBottom () : any;
-				getBubbleParent () : boolean;
-				getCenter () : Point;
-				getChildren () : Array<Titanium.UI.View>;
-				getHeight () : any;
-				getHorizontalWrap () : boolean;
 				getItems () : Array<Titanium.UI.View>;
-				getLeft () : any;
-				getOpacity () : number;
-				getRect () : Dimension;
-				getRight () : any;
-				getSize () : Dimension;
-				getTintColor () : string;
-				getTop () : any;
-				getTouchEnabled () : boolean;
-				getTransform () : any;
 				getTranslucent () : boolean;
-				getVisible () : boolean;
-				getWidth () : any;
-				getZIndex () : number;
-				hide () : void;
-				remove (view: Titanium.UI.View) : void;
-				removeAllChildren () : void;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setAccessibilityHidden (accessibilityHidden: boolean) : void;
-				setAccessibilityHint (accessibilityHint: string) : void;
-				setAccessibilityLabel (accessibilityLabel: string) : void;
-				setAccessibilityValue (accessibilityValue: string) : void;
-				setAnchorPoint (anchorPoint: Point) : void;
-				setBackgroundGradient (backgroundGradient: Gradient) : void;
-				setBackgroundImage (backgroundImage: string) : void;
 				setBarColor (barColor: string) : void;
 				setBorderBottom (borderBottom: boolean) : void;
-				setBorderColor (borderColor: string) : void;
-				setBorderRadius (borderRadius: number) : void;
 				setBorderTop (borderTop: boolean) : void;
-				setBorderWidth (borderWidth: number) : void;
-				setBottom (bottom: number) : void;
-				setBottom (bottom: string) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
-				setCenter (center: Point) : void;
-				setHeight (height: number) : void;
-				setHeight (height: string) : void;
-				setHorizontalWrap (horizontalWrap: boolean) : void;
 				setItems (items: Array<Titanium.UI.View>) : void;
-				setLeft (left: number) : void;
-				setLeft (left: string) : void;
-				setOpacity (opacity: number) : void;
-				setRight (right: number) : void;
-				setRight (right: string) : void;
-				setTintColor (tintColor: string) : void;
-				setTop (top: number) : void;
-				setTop (top: string) : void;
-				setTouchEnabled (touchEnabled: boolean) : void;
-				setTransform (transform: Titanium.UI._2DMatrix) : void;
-				setTransform (transform: Titanium.UI._3DMatrix) : void;
 				setTranslucent (translucent: boolean) : void;
-				setVisible (visible: boolean) : void;
-				setWidth (width: number) : void;
-				setWidth (width: string) : void;
-				setZIndex (zIndex: number) : void;
-				show () : void;
-				startLayout () : void;
-				toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-				updateLayout (params: Dictionary<Object>) : void;
 			}
-			export interface CoverFlowView {
-				accessibilityHidden : boolean;
-				accessibilityHint : string;
-				accessibilityLabel : string;
-				accessibilityValue : string;
-				anchorPoint : Point;
-				animatedCenter : Point;
-				backgroundColor : string;
-				backgroundGradient : Gradient;
-				backgroundImage : string;
-				backgroundLeftCap : number;
-				backgroundRepeat : boolean;
-				backgroundTopCap : number;
-				borderColor : string;
-				borderRadius : number;
-				borderWidth : number;
-				bottom : any;
-				bubbleParent : boolean;
-				center : Point;
-				children : Array<Titanium.UI.View>;
-				height : any;
-				horizontalWrap : boolean;
+			export interface CoverFlowView extends Titanium.UI.View {
 				images : any;
-				layout : string;
-				left : any;
-				opacity : number;
-				rect : Dimension;
-				right : any;
 				selected : number;
-				size : Dimension;
-				tintColor : any;
-				top : any;
-				touchEnabled : boolean;
-				transform : any;
-				visible : boolean;
-				width : any;
-				zIndex : number;
-				add (view: Titanium.UI.View) : void;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-				animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-				finishLayout () : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getAccessibilityHidden () : boolean;
-				getAccessibilityHint () : string;
-				getAccessibilityLabel () : string;
-				getAccessibilityValue () : string;
-				getAnchorPoint () : Point;
-				getAnimatedCenter () : Point;
-				getBackgroundColor () : string;
-				getBackgroundGradient () : Gradient;
-				getBackgroundImage () : string;
-				getBackgroundLeftCap () : number;
-				getBackgroundRepeat () : boolean;
-				getBackgroundTopCap () : number;
-				getBorderColor () : string;
-				getBorderRadius () : number;
-				getBorderWidth () : number;
-				getBottom () : any;
-				getBubbleParent () : boolean;
-				getCenter () : Point;
-				getChildren () : Array<Titanium.UI.View>;
-				getHeight () : any;
-				getHorizontalWrap () : boolean;
 				getImages () : any;
-				getLayout () : string;
-				getLeft () : any;
-				getOpacity () : number;
-				getRect () : Dimension;
-				getRight () : any;
 				getSelected () : number;
-				getSize () : Dimension;
-				getTintColor () : string;
-				getTop () : any;
-				getTouchEnabled () : boolean;
-				getTransform () : any;
-				getVisible () : boolean;
-				getWidth () : any;
-				getZIndex () : number;
-				hide () : void;
-				remove (view: Titanium.UI.View) : void;
-				removeAllChildren () : void;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setAccessibilityHidden (accessibilityHidden: boolean) : void;
-				setAccessibilityHint (accessibilityHint: string) : void;
-				setAccessibilityLabel (accessibilityLabel: string) : void;
-				setAccessibilityValue (accessibilityValue: string) : void;
-				setAnchorPoint (anchorPoint: Point) : void;
-				setBackgroundColor (backgroundColor: string) : void;
-				setBackgroundGradient (backgroundGradient: Gradient) : void;
-				setBackgroundImage (backgroundImage: string) : void;
-				setBackgroundLeftCap (backgroundLeftCap: number) : void;
-				setBackgroundRepeat (backgroundRepeat: boolean) : void;
-				setBackgroundTopCap (backgroundTopCap: number) : void;
-				setBorderColor (borderColor: string) : void;
-				setBorderRadius (borderRadius: number) : void;
-				setBorderWidth (borderWidth: number) : void;
-				setBottom (bottom: number) : void;
-				setBottom (bottom: string) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
-				setCenter (center: Point) : void;
-				setHeight (height: number) : void;
-				setHeight (height: string) : void;
-				setHorizontalWrap (horizontalWrap: boolean) : void;
 				setImage (index: number, image: string) : void;
 				setImage (image: Titanium.Blob) : void;
 				setImage (image: Titanium.Filesystem.File) : void;
@@ -4114,443 +1397,36 @@ declare module Titanium {
 				setImages (images: Array<Titanium.Blob>) : void;
 				setImages (images: Array<Titanium.Filesystem.File>) : void;
 				setImages (images: Array<CoverFlowImageType>) : void;
-				setLayout (layout: string) : void;
-				setLeft (left: number) : void;
-				setLeft (left: string) : void;
-				setOpacity (opacity: number) : void;
-				setRight (right: number) : void;
-				setRight (right: string) : void;
 				setSelected (selected: number) : void;
-				setTintColor (tintColor: string) : void;
-				setTop (top: number) : void;
-				setTop (top: string) : void;
-				setTouchEnabled (touchEnabled: boolean) : void;
-				setTransform (transform: Titanium.UI._2DMatrix) : void;
-				setTransform (transform: Titanium.UI._3DMatrix) : void;
-				setVisible (visible: boolean) : void;
-				setWidth (width: number) : void;
-				setWidth (width: string) : void;
-				setZIndex (zIndex: number) : void;
-				show () : void;
-				startLayout () : void;
-				toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-				updateLayout (params: Dictionary<Object>) : void;
 			}
-			export interface DocumentViewer {
-				accessibilityHidden : boolean;
-				accessibilityHint : string;
-				accessibilityLabel : string;
-				accessibilityValue : string;
-				anchorPoint : Point;
-				animatedCenter : Point;
-				backgroundColor : string;
-				backgroundGradient : Gradient;
-				backgroundImage : string;
-				backgroundLeftCap : number;
-				backgroundRepeat : boolean;
-				backgroundTopCap : number;
-				borderColor : string;
-				borderRadius : number;
-				borderWidth : number;
-				bottom : any;
-				bubbleParent : boolean;
-				center : Point;
-				children : Array<Titanium.UI.View>;
-				height : any;
-				horizontalWrap : boolean;
-				layout : string;
-				left : any;
+			export interface DocumentViewer extends Titanium.UI.View {
 				name : string;
-				opacity : number;
-				rect : Dimension;
-				right : any;
-				size : Dimension;
-				tintColor : any;
-				top : any;
-				touchEnabled : boolean;
-				transform : any;
 				url : string;
-				visible : boolean;
-				width : any;
-				zIndex : number;
-				add (view: Titanium.UI.View) : void;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-				animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-				finishLayout () : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getAccessibilityHidden () : boolean;
-				getAccessibilityHint () : string;
-				getAccessibilityLabel () : string;
-				getAccessibilityValue () : string;
-				getAnchorPoint () : Point;
-				getAnimatedCenter () : Point;
-				getBackgroundColor () : string;
-				getBackgroundGradient () : Gradient;
-				getBackgroundImage () : string;
-				getBackgroundLeftCap () : number;
-				getBackgroundRepeat () : boolean;
-				getBackgroundTopCap () : number;
-				getBorderColor () : string;
-				getBorderRadius () : number;
-				getBorderWidth () : number;
-				getBottom () : any;
-				getBubbleParent () : boolean;
-				getCenter () : Point;
-				getChildren () : Array<Titanium.UI.View>;
-				getHeight () : any;
-				getHorizontalWrap () : boolean;
-				getLayout () : string;
-				getLeft () : any;
 				getName () : string;
-				getOpacity () : number;
-				getRect () : Dimension;
-				getRight () : any;
-				getSize () : Dimension;
-				getTintColor () : string;
-				getTop () : any;
-				getTouchEnabled () : boolean;
-				getTransform () : any;
 				getUrl () : string;
-				getVisible () : boolean;
-				getWidth () : any;
-				getZIndex () : number;
 				hide (options?: DocumentViewerOptions) : void;
-				remove (view: Titanium.UI.View) : void;
-				removeAllChildren () : void;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setAccessibilityHidden (accessibilityHidden: boolean) : void;
-				setAccessibilityHint (accessibilityHint: string) : void;
-				setAccessibilityLabel (accessibilityLabel: string) : void;
-				setAccessibilityValue (accessibilityValue: string) : void;
-				setAnchorPoint (anchorPoint: Point) : void;
-				setBackgroundColor (backgroundColor: string) : void;
-				setBackgroundGradient (backgroundGradient: Gradient) : void;
-				setBackgroundImage (backgroundImage: string) : void;
-				setBackgroundLeftCap (backgroundLeftCap: number) : void;
-				setBackgroundRepeat (backgroundRepeat: boolean) : void;
-				setBackgroundTopCap (backgroundTopCap: number) : void;
-				setBorderColor (borderColor: string) : void;
-				setBorderRadius (borderRadius: number) : void;
-				setBorderWidth (borderWidth: number) : void;
-				setBottom (bottom: number) : void;
-				setBottom (bottom: string) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
-				setCenter (center: Point) : void;
-				setHeight (height: number) : void;
-				setHeight (height: string) : void;
-				setHorizontalWrap (horizontalWrap: boolean) : void;
-				setLayout (layout: string) : void;
-				setLeft (left: number) : void;
-				setLeft (left: string) : void;
-				setOpacity (opacity: number) : void;
-				setRight (right: number) : void;
-				setRight (right: string) : void;
-				setTintColor (tintColor: string) : void;
-				setTop (top: number) : void;
-				setTop (top: string) : void;
-				setTouchEnabled (touchEnabled: boolean) : void;
-				setTransform (transform: Titanium.UI._2DMatrix) : void;
-				setTransform (transform: Titanium.UI._3DMatrix) : void;
 				setUrl (url: string) : void;
-				setVisible (visible: boolean) : void;
-				setWidth (width: number) : void;
-				setWidth (width: string) : void;
-				setZIndex (zIndex: number) : void;
 				show (options?: DocumentViewerOptions) : void;
-				startLayout () : void;
-				toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-				updateLayout (params: Dictionary<Object>) : void;
 			}
-			export interface NavigationWindow {
-				accessibilityHidden : boolean;
-				accessibilityHint : string;
-				accessibilityLabel : string;
-				accessibilityValue : string;
-				anchorPoint : Point;
-				animatedCenter : Point;
-				autoAdjustScrollViewInsets : boolean;
-				backgroundColor : string;
-				backgroundGradient : Gradient;
-				backgroundImage : string;
-				backgroundLeftCap : number;
-				backgroundRepeat : boolean;
-				backgroundTopCap : number;
-				borderColor : string;
-				borderRadius : number;
-				borderWidth : number;
-				bottom : any;
-				bubbleParent : boolean;
-				center : Point;
-				children : Array<Titanium.UI.View>;
-				extendEdges : Array<Number>;
-				fullscreen : boolean;
-				height : any;
-				horizontalWrap : boolean;
-				includeOpaqueBars : boolean;
-				layout : string;
-				left : any;
-				modal : boolean;
-				opacity : number;
-				orientation : number;
-				orientationModes : Array<Number>;
-				rect : Dimension;
-				right : any;
-				size : Dimension;
-				statusBarStyle : any;
-				tintColor : any;
-				top : any;
-				touchEnabled : boolean;
-				transform : any;
-				visible : boolean;
-				width : any;
+			export interface NavigationWindow extends Titanium.UI.Window {
 				window : Titanium.UI.Window;
-				zIndex : number;
-				add (view: Titanium.UI.View) : void;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-				animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				close (params?: Dictionary<Titanium.UI.Animation>) : void;
-				close (params?: closeWindowParams) : void;
 				closeWindow (window: Titanium.UI.Window, options: Dictionary<Object>) : void;
-				convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-				finishLayout () : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getAccessibilityHidden () : boolean;
-				getAccessibilityHint () : string;
-				getAccessibilityLabel () : string;
-				getAccessibilityValue () : string;
-				getAnchorPoint () : Point;
-				getAnimatedCenter () : Point;
-				getAutoAdjustScrollViewInsets () : boolean;
-				getBackgroundColor () : string;
-				getBackgroundGradient () : Gradient;
-				getBackgroundImage () : string;
-				getBackgroundLeftCap () : number;
-				getBackgroundRepeat () : boolean;
-				getBackgroundTopCap () : number;
-				getBorderColor () : string;
-				getBorderRadius () : number;
-				getBorderWidth () : number;
-				getBottom () : any;
-				getBubbleParent () : boolean;
-				getCenter () : Point;
-				getChildren () : Array<Titanium.UI.View>;
-				getExtendEdges () : Array<Number>;
-				getFullscreen () : boolean;
-				getHeight () : any;
-				getHorizontalWrap () : boolean;
-				getIncludeOpaqueBars () : boolean;
-				getLayout () : string;
-				getLeft () : any;
-				getModal () : boolean;
-				getOpacity () : number;
-				getOrientation () : number;
-				getOrientationModes () : Array<Number>;
-				getRect () : Dimension;
-				getRight () : any;
-				getSize () : Dimension;
-				getStatusBarStyle () : number;
-				getTintColor () : string;
-				getTop () : any;
-				getTouchEnabled () : boolean;
-				getTransform () : any;
-				getVisible () : boolean;
-				getWidth () : any;
 				getWindow () : Titanium.UI.Window;
-				getZIndex () : number;
-				hide () : void;
-				open (params?: openWindowParams) : void;
 				openWindow (window: Titanium.UI.Window, options: Dictionary<Object>) : void;
-				remove (view: Titanium.UI.View) : void;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setAccessibilityHidden (accessibilityHidden: boolean) : void;
-				setAccessibilityHint (accessibilityHint: string) : void;
-				setAccessibilityLabel (accessibilityLabel: string) : void;
-				setAccessibilityValue (accessibilityValue: string) : void;
-				setAnchorPoint (anchorPoint: Point) : void;
-				setAutoAdjustScrollViewInsets (autoAdjustScrollViewInsets: boolean) : void;
-				setBackgroundColor (backgroundColor: string) : void;
-				setBackgroundGradient (backgroundGradient: Gradient) : void;
-				setBackgroundImage (backgroundImage: string) : void;
-				setBackgroundLeftCap (backgroundLeftCap: number) : void;
-				setBackgroundRepeat (backgroundRepeat: boolean) : void;
-				setBackgroundTopCap (backgroundTopCap: number) : void;
-				setBorderColor (borderColor: string) : void;
-				setBorderRadius (borderRadius: number) : void;
-				setBorderWidth (borderWidth: number) : void;
-				setBottom (bottom: number) : void;
-				setBottom (bottom: string) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
-				setCenter (center: Point) : void;
-				setExtendEdges (extendEdges: Array<Number>) : void;
-				setFullscreen (fullscreen: boolean) : void;
-				setHeight (height: number) : void;
-				setHeight (height: string) : void;
-				setHorizontalWrap (horizontalWrap: boolean) : void;
-				setIncludeOpaqueBars (includeOpaqueBars: boolean) : void;
-				setLayout (layout: string) : void;
-				setLeft (left: number) : void;
-				setLeft (left: string) : void;
-				setModal (modal: boolean) : void;
-				setOpacity (opacity: number) : void;
-				setOrientationModes (orientationModes: Array<Number>) : void;
-				setRight (right: number) : void;
-				setRight (right: string) : void;
-				setStatusBarStyle (statusBarStyle: number) : void;
-				setTintColor (tintColor: string) : void;
-				setTop (top: number) : void;
-				setTop (top: string) : void;
-				setTouchEnabled (touchEnabled: boolean) : void;
-				setTransform (transform: Titanium.UI._2DMatrix) : void;
-				setTransform (transform: Titanium.UI._3DMatrix) : void;
-				setVisible (visible: boolean) : void;
-				setWidth (width: number) : void;
-				setWidth (width: string) : void;
-				setZIndex (zIndex: number) : void;
-				show () : void;
-				startLayout () : void;
-				toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-				updateLayout (params: Dictionary<Object>) : void;
 			}
-			export interface TabbedBar {
-				accessibilityHidden : boolean;
-				accessibilityHint : string;
-				accessibilityLabel : string;
-				accessibilityValue : string;
-				anchorPoint : Point;
-				animatedCenter : Point;
-				backgroundColor : string;
-				backgroundGradient : Gradient;
-				backgroundImage : string;
-				backgroundLeftCap : number;
-				backgroundRepeat : boolean;
-				backgroundTopCap : number;
-				borderColor : string;
-				borderRadius : number;
-				borderWidth : number;
-				bottom : any;
-				bubbleParent : boolean;
-				center : Point;
-				children : Array<Titanium.UI.View>;
-				height : any;
-				horizontalWrap : boolean;
+			export interface TabbedBar extends Titanium.UI.View {
 				index : number;
 				labels : any;
-				layout : string;
-				left : any;
-				opacity : number;
-				rect : Dimension;
-				right : any;
-				size : Dimension;
 				style : number;
-				tintColor : any;
-				top : any;
-				touchEnabled : boolean;
-				transform : any;
-				visible : boolean;
-				width : any;
-				zIndex : number;
-				add (view: Titanium.UI.View) : void;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-				animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-				finishLayout () : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getAccessibilityHidden () : boolean;
-				getAccessibilityHint () : string;
-				getAccessibilityLabel () : string;
-				getAccessibilityValue () : string;
-				getAnchorPoint () : Point;
-				getAnimatedCenter () : Point;
-				getBackgroundColor () : string;
-				getBackgroundGradient () : Gradient;
-				getBackgroundImage () : string;
-				getBackgroundLeftCap () : number;
-				getBackgroundRepeat () : boolean;
-				getBackgroundTopCap () : number;
-				getBorderColor () : string;
-				getBorderRadius () : number;
-				getBorderWidth () : number;
-				getBottom () : any;
-				getBubbleParent () : boolean;
-				getCenter () : Point;
-				getChildren () : Array<Titanium.UI.View>;
-				getHeight () : any;
-				getHorizontalWrap () : boolean;
 				getIndex () : number;
 				getLabels () : any;
-				getLayout () : string;
-				getLeft () : any;
-				getOpacity () : number;
-				getRect () : Dimension;
-				getRight () : any;
-				getSize () : Dimension;
 				getStyle () : number;
-				getTintColor () : string;
-				getTop () : any;
-				getTouchEnabled () : boolean;
-				getTransform () : any;
-				getVisible () : boolean;
-				getWidth () : any;
-				getZIndex () : number;
-				hide () : void;
-				remove (view: Titanium.UI.View) : void;
-				removeAllChildren () : void;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setAccessibilityHidden (accessibilityHidden: boolean) : void;
-				setAccessibilityHint (accessibilityHint: string) : void;
-				setAccessibilityLabel (accessibilityLabel: string) : void;
-				setAccessibilityValue (accessibilityValue: string) : void;
-				setAnchorPoint (anchorPoint: Point) : void;
-				setBackgroundColor (backgroundColor: string) : void;
-				setBackgroundGradient (backgroundGradient: Gradient) : void;
-				setBackgroundImage (backgroundImage: string) : void;
-				setBackgroundLeftCap (backgroundLeftCap: number) : void;
-				setBackgroundRepeat (backgroundRepeat: boolean) : void;
-				setBackgroundTopCap (backgroundTopCap: number) : void;
-				setBorderColor (borderColor: string) : void;
-				setBorderRadius (borderRadius: number) : void;
-				setBorderWidth (borderWidth: number) : void;
-				setBottom (bottom: number) : void;
-				setBottom (bottom: string) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
-				setCenter (center: Point) : void;
-				setHeight (height: number) : void;
-				setHeight (height: string) : void;
-				setHorizontalWrap (horizontalWrap: boolean) : void;
 				setIndex (index: number) : void;
 				setLabels (labels: Array<String>) : void;
 				setLabels (labels: Array<BarItemType>) : void;
-				setLayout (layout: string) : void;
-				setLeft (left: number) : void;
-				setLeft (left: string) : void;
-				setOpacity (opacity: number) : void;
-				setRight (right: number) : void;
-				setRight (right: string) : void;
 				setStyle (style: number) : void;
-				setTintColor (tintColor: string) : void;
-				setTop (top: number) : void;
-				setTop (top: string) : void;
-				setTouchEnabled (touchEnabled: boolean) : void;
-				setTransform (transform: Titanium.UI._2DMatrix) : void;
-				setTransform (transform: Titanium.UI._3DMatrix) : void;
-				setVisible (visible: boolean) : void;
-				setWidth (width: number) : void;
-				setWidth (width: string) : void;
-				setZIndex (zIndex: number) : void;
-				show () : void;
-				startLayout () : void;
-				toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-				updateLayout (params: Dictionary<Object>) : void;
 			}
-			export interface _3DMatrix {
-				bubbleParent : boolean;
+			export interface _3DMatrix extends Titanium.Proxy {
 				m11 : number;
 				m12 : number;
 				m13 : number;
@@ -4567,10 +1443,6 @@ declare module Titanium {
 				m42 : number;
 				m43 : number;
 				m44 : number;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
 				getM11 () : number;
 				getM12 () : number;
 				getM13 () : number;
@@ -4589,10 +1461,8 @@ declare module Titanium {
 				getM44 () : number;
 				invert () : Titanium.UI._3DMatrix;
 				multiply (t2: Titanium.UI._3DMatrix) : Titanium.UI._3DMatrix;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 				rotate (angle: number, x: number, y: number, z: number) : Titanium.UI._3DMatrix;
 				scale (sx: number, sy: number, sz: number) : Titanium.UI._3DMatrix;
-				setBubbleParent (bubbleParent: boolean) : void;
 				setM11 (m11: number) : void;
 				setM12 (m12: number) : void;
 				setM13 (m13: number) : void;
@@ -4611,357 +1481,70 @@ declare module Titanium {
 				setM44 (m44: number) : void;
 				translate (tx: number, ty: number, tz: number) : Titanium.UI._3DMatrix;
 			}
-			export interface AdView {
-				accessibilityHidden : boolean;
-				accessibilityHint : string;
-				accessibilityLabel : string;
-				accessibilityValue : string;
+			export interface AdView extends Titanium.UI.View {
 				adSize : string;
-				anchorPoint : Point;
-				animatedCenter : Point;
-				backgroundColor : string;
-				backgroundGradient : Gradient;
-				backgroundImage : string;
-				backgroundLeftCap : number;
-				backgroundRepeat : boolean;
-				backgroundTopCap : number;
-				borderColor : string;
-				borderRadius : number;
-				borderWidth : number;
-				bottom : any;
-				bubbleParent : boolean;
-				center : Point;
-				children : Array<Titanium.UI.View>;
-				height : any;
-				horizontalWrap : boolean;
-				layout : string;
-				left : any;
-				opacity : number;
-				rect : Dimension;
-				right : any;
-				size : Dimension;
-				tintColor : any;
-				top : any;
-				touchEnabled : boolean;
-				transform : any;
-				visible : boolean;
-				width : any;
-				zIndex : number;
-				add (view: Titanium.UI.View) : void;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-				animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
 				cancelAction () : void;
-				convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-				finishLayout () : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getAccessibilityHidden () : boolean;
-				getAccessibilityHint () : string;
-				getAccessibilityLabel () : string;
-				getAccessibilityValue () : string;
 				getAdSize () : string;
-				getAnchorPoint () : Point;
-				getAnimatedCenter () : Point;
-				getBackgroundColor () : string;
-				getBackgroundGradient () : Gradient;
-				getBackgroundImage () : string;
-				getBackgroundLeftCap () : number;
-				getBackgroundRepeat () : boolean;
-				getBackgroundTopCap () : number;
-				getBorderColor () : string;
-				getBorderRadius () : number;
-				getBorderWidth () : number;
-				getBottom () : any;
-				getBubbleParent () : boolean;
-				getCenter () : Point;
-				getChildren () : Array<Titanium.UI.View>;
-				getHeight () : any;
-				getHorizontalWrap () : boolean;
-				getLayout () : string;
-				getLeft () : any;
-				getOpacity () : number;
-				getRect () : Dimension;
-				getRight () : any;
-				getSize () : Dimension;
-				getTintColor () : string;
-				getTop () : any;
-				getTouchEnabled () : boolean;
-				getTransform () : any;
-				getVisible () : boolean;
-				getWidth () : any;
-				getZIndex () : number;
-				hide () : void;
-				remove (view: Titanium.UI.View) : void;
-				removeAllChildren () : void;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setAccessibilityHidden (accessibilityHidden: boolean) : void;
-				setAccessibilityHint (accessibilityHint: string) : void;
-				setAccessibilityLabel (accessibilityLabel: string) : void;
-				setAccessibilityValue (accessibilityValue: string) : void;
 				setAdSize (adSize: string) : void;
-				setAnchorPoint (anchorPoint: Point) : void;
-				setBackgroundColor (backgroundColor: string) : void;
-				setBackgroundGradient (backgroundGradient: Gradient) : void;
-				setBackgroundImage (backgroundImage: string) : void;
-				setBackgroundLeftCap (backgroundLeftCap: number) : void;
-				setBackgroundRepeat (backgroundRepeat: boolean) : void;
-				setBackgroundTopCap (backgroundTopCap: number) : void;
-				setBorderColor (borderColor: string) : void;
-				setBorderRadius (borderRadius: number) : void;
-				setBorderWidth (borderWidth: number) : void;
-				setBottom (bottom: number) : void;
-				setBottom (bottom: string) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
-				setCenter (center: Point) : void;
-				setHeight (height: number) : void;
-				setHeight (height: string) : void;
-				setHorizontalWrap (horizontalWrap: boolean) : void;
-				setLayout (layout: string) : void;
-				setLeft (left: number) : void;
-				setLeft (left: string) : void;
-				setOpacity (opacity: number) : void;
-				setRight (right: number) : void;
-				setRight (right: string) : void;
-				setTintColor (tintColor: string) : void;
-				setTop (top: number) : void;
-				setTop (top: string) : void;
-				setTouchEnabled (touchEnabled: boolean) : void;
-				setTransform (transform: Titanium.UI._2DMatrix) : void;
-				setTransform (transform: Titanium.UI._3DMatrix) : void;
-				setVisible (visible: boolean) : void;
-				setWidth (width: number) : void;
-				setWidth (width: string) : void;
-				setZIndex (zIndex: number) : void;
-				show () : void;
-				startLayout () : void;
-				toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-				updateLayout (params: Dictionary<Object>) : void;
 			}
 		}
-		export interface _2DMatrix {
+		export interface _2DMatrix extends Titanium.Proxy {
 			a : number;
 			b : number;
-			bubbleParent : boolean;
 			c : number;
 			d : number;
 			tx : number;
 			ty : number;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getA () : number;
 			getB () : number;
-			getBubbleParent () : boolean;
 			getC () : number;
 			getD () : number;
 			getTx () : number;
 			getTy () : number;
 			invert () : Titanium.UI._2DMatrix;
 			multiply (t2: Titanium.UI._2DMatrix) : Titanium.UI._2DMatrix;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			rotate (angle: number, toAngle?: number) : Titanium.UI._2DMatrix;
 			scale (sx: number, sy: number, toSx?: number, toSy?: number) : Titanium.UI._2DMatrix;
 			setA (a: number) : void;
 			setB (b: number) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setC (c: number) : void;
 			setD (d: number) : void;
 			setTx (tx: number) : void;
 			setTy (ty: number) : void;
 			translate (tx: number, ty: number) : Titanium.UI._2DMatrix;
 		}
-		export interface TabbedBar {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
-			backgroundColor : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
-			height : any;
-			horizontalWrap : boolean;
+		export interface TabbedBar extends Titanium.UI.View {
 			index : number;
 			labels : any;
-			layout : string;
-			left : any;
-			opacity : number;
-			rect : Dimension;
-			right : any;
-			size : Dimension;
 			style : number;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
-			visible : boolean;
-			width : any;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
-			getBackgroundColor () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
-			getHeight () : any;
-			getHorizontalWrap () : boolean;
 			getIndex () : number;
 			getLabels () : any;
-			getLayout () : string;
-			getLeft () : any;
-			getOpacity () : number;
-			getRect () : Dimension;
-			getRight () : any;
-			getSize () : Dimension;
 			getStyle () : number;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
 			setIndex (index: number) : void;
 			setLabels (labels: Array<String>) : void;
 			setLabels (labels: Array<BarItemType>) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
-			setOpacity (opacity: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
 			setStyle (style: number) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface Window {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
+		export interface Window extends Titanium.UI.View {
 			activity : Titanium.Android.Activity;
-			anchorPoint : Point;
-			animatedCenter : Point;
 			autoAdjustScrollViewInsets : boolean;
 			backButtonTitle : string;
 			backButtonTitleImage : any;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
-			backgroundTopCap : number;
 			barColor : string;
 			barImage : string;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
-			enabled : boolean;
 			exitOnClose : boolean;
 			extendEdges : Array<Number>;
-			focusable : boolean;
 			fullscreen : boolean;
-			height : any;
-			horizontalWrap : boolean;
 			includeOpaqueBars : boolean;
-			keepScreenOn : boolean;
-			layout : string;
-			left : any;
 			leftNavButton : Titanium.UI.View;
 			modal : boolean;
 			navBarHidden : boolean;
 			navTintColor : any;
-			opacity : number;
 			orientation : number;
 			orientationModes : Array<Number>;
-			rect : Dimension;
-			right : any;
 			rightNavButton : Titanium.UI.View;
-			size : Dimension;
-			softKeyboardOnFocus : number;
 			statusBarStyle : any;
 			tabBarHidden : boolean;
-			tintColor : any;
 			title : string;
 			titleControl : Titanium.UI.View;
 			titleImage : string;
@@ -4969,83 +1552,31 @@ declare module Titanium {
 			titleid : string;
 			titlepromptid : string;
 			toolbar : Array<Object>;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
 			translucent : boolean;
 			url : string;
-			visible : boolean;
-			width : any;
 			windowPixelFormat : number;
 			windowSoftInputMode : number;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			close (params?: Dictionary<Titanium.UI.Animation>) : void;
 			close (params?: closeWindowParams) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
 			getActivity () : Titanium.Android.Activity;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
 			getAutoAdjustScrollViewInsets () : boolean;
 			getBackButtonTitle () : string;
 			getBackButtonTitleImage () : any;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
-			getBackgroundTopCap () : number;
 			getBarColor () : string;
 			getBarImage () : string;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
-			getEnabled () : boolean;
 			getExitOnClose () : boolean;
 			getExtendEdges () : Array<Number>;
-			getFocusable () : boolean;
 			getFullscreen () : boolean;
-			getHeight () : any;
-			getHorizontalWrap () : boolean;
 			getIncludeOpaqueBars () : boolean;
-			getKeepScreenOn () : boolean;
-			getLayout () : string;
-			getLeft () : any;
 			getLeftNavButton () : Titanium.UI.View;
 			getModal () : boolean;
 			getNavBarHidden () : boolean;
 			getNavTintColor () : string;
-			getOpacity () : number;
 			getOrientation () : number;
 			getOrientationModes () : Array<Number>;
-			getRect () : Dimension;
-			getRight () : any;
 			getRightNavButton () : Titanium.UI.View;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
 			getStatusBarStyle () : number;
 			getTabBarHidden () : boolean;
-			getTintColor () : string;
 			getTitle () : string;
 			getTitleControl () : Titanium.UI.View;
 			getTitleImage () : string;
@@ -5053,76 +1584,29 @@ declare module Titanium {
 			getTitleid () : string;
 			getTitlepromptid () : string;
 			getToolbar () : Array<Object>;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
 			getTranslucent () : boolean;
 			getUrl () : string;
-			getVisible () : boolean;
-			getWidth () : any;
 			getWindowPixelFormat () : number;
 			getWindowSoftInputMode () : number;
-			getZIndex () : number;
-			hide () : void;
 			hideTabBar () : void;
 			open (params?: openWindowParams) : void;
-			remove (view: Titanium.UI.View) : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
 			setAutoAdjustScrollViewInsets (autoAdjustScrollViewInsets: boolean) : void;
 			setBackButtonTitle (backButtonTitle: string) : void;
 			setBackButtonTitleImage (backButtonTitleImage: string) : void;
 			setBackButtonTitleImage (backButtonTitleImage: Titanium.Blob) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
 			setBarColor (barColor: string) : void;
 			setBarImage (barImage: string) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
-			setEnabled (enabled: boolean) : void;
 			setExtendEdges (extendEdges: Array<Number>) : void;
-			setFocusable (focusable: boolean) : void;
 			setFullscreen (fullscreen: boolean) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
 			setIncludeOpaqueBars (includeOpaqueBars: boolean) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
 			setLeftNavButton (leftNavButton: Titanium.UI.View) : void;
 			setModal (modal: boolean) : void;
 			setNavBarHidden (navBarHidden: boolean) : void;
 			setNavTintColor (navTintColor: string) : void;
-			setOpacity (opacity: number) : void;
 			setOrientationModes (orientationModes: Array<Number>) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
 			setRightNavButton (rightNavButton: Titanium.UI.View) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
 			setStatusBarStyle (statusBarStyle: number) : void;
 			setTabBarHidden (tabBarHidden: boolean) : void;
-			setTintColor (tintColor: string) : void;
 			setTitle (title: string) : void;
 			setTitleControl (titleControl: Titanium.UI.View) : void;
 			setTitleImage (titleImage: string) : void;
@@ -5130,283 +1614,118 @@ declare module Titanium {
 			setTitleid (titleid: string) : void;
 			setTitlepromptid (titlepromptid: string) : void;
 			setToolbar (items: Array<Object>, params?: windowToolbarParam) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
 			setTranslucent (translucent: boolean) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
 			setWindowPixelFormat (windowPixelFormat: number) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface TextField {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
+		export interface TextField extends Titanium.UI.View {
 			appearance : number;
 			autoLink : number;
 			autocapitalization : number;
 			autocorrect : boolean;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
 			borderStyle : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
 			clearButtonMode : number;
 			clearOnEdit : boolean;
 			color : string;
 			editable : boolean;
 			ellipsize : boolean;
 			enableReturnKey : boolean;
-			enabled : boolean;
-			focusable : boolean;
 			font : Font;
-			height : any;
 			hintText : string;
-			horizontalWrap : boolean;
-			keepScreenOn : boolean;
 			keyboardToolbar : any;
 			keyboardToolbarColor : string;
 			keyboardToolbarHeight : number;
 			keyboardType : number;
-			layout : string;
-			left : any;
 			leftButton : any;
 			leftButtonMode : number;
 			leftButtonPadding : number;
 			maxLength : number;
 			minimumFontSize : number;
-			opacity : number;
 			paddingLeft : number;
 			paddingRight : number;
 			passwordMask : boolean;
-			rect : Dimension;
 			returnKeyType : number;
-			right : any;
 			rightButton : any;
 			rightButtonMode : number;
 			rightButtonPadding : number;
-			size : Dimension;
-			softKeyboardOnFocus : number;
 			suppressReturn : boolean;
 			textAlign : any;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
 			value : string;
 			verticalAlign : any;
-			visible : boolean;
-			width : any;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			blur () : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			focus () : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
 			getAppearance () : number;
 			getAutoLink () : number;
 			getAutocapitalization () : number;
 			getAutocorrect () : boolean;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
 			getBorderStyle () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
 			getClearButtonMode () : number;
 			getClearOnEdit () : boolean;
 			getColor () : string;
 			getEditable () : boolean;
 			getEllipsize () : boolean;
 			getEnableReturnKey () : boolean;
-			getEnabled () : boolean;
-			getFocusable () : boolean;
 			getFont () : Font;
-			getHeight () : any;
 			getHintText () : string;
-			getHorizontalWrap () : boolean;
-			getKeepScreenOn () : boolean;
 			getKeyboardToolbar () : any;
 			getKeyboardToolbarColor () : string;
 			getKeyboardToolbarHeight () : number;
 			getKeyboardType () : number;
-			getLayout () : string;
-			getLeft () : any;
 			getLeftButton () : any;
 			getLeftButtonMode () : number;
 			getLeftButtonPadding () : number;
 			getMaxLength () : number;
 			getMinimumFontSize () : number;
-			getOpacity () : number;
 			getPaddingLeft () : number;
 			getPaddingRight () : number;
 			getPasswordMask () : boolean;
-			getRect () : Dimension;
 			getReturnKeyType () : number;
-			getRight () : any;
 			getRightButton () : any;
 			getRightButtonMode () : number;
 			getRightButtonPadding () : number;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
 			getSuppressReturn () : boolean;
 			getTextAlign () : any;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
 			getValue () : string;
 			getVerticalAlign () : any;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
 			hasText () : boolean;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
 			setAppearance (appearance: number) : void;
 			setAutoLink (autoLink: number) : void;
 			setAutocapitalization (autocapitalization: number) : void;
 			setAutocorrect (autocorrect: boolean) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
 			setBorderStyle (borderStyle: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
 			setClearButtonMode (clearButtonMode: number) : void;
 			setClearOnEdit (clearOnEdit: boolean) : void;
 			setColor (color: string) : void;
 			setEditable (editable: boolean) : void;
 			setEllipsize (ellipsize: boolean) : void;
 			setEnableReturnKey (enableReturnKey: boolean) : void;
-			setEnabled (enabled: boolean) : void;
-			setFocusable (focusable: boolean) : void;
 			setFont (font: Font) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
 			setHintText (hintText: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
 			setKeyboardToolbar (keyboardToolbar: Array<Titanium.UI.View>) : void;
 			setKeyboardToolbar (keyboardToolbar: Titanium.UI.iOS.Toolbar) : void;
 			setKeyboardToolbarColor (keyboardToolbarColor: string) : void;
 			setKeyboardToolbarHeight (keyboardToolbarHeight: number) : void;
 			setKeyboardType (keyboardType: number) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
 			setLeftButton (leftButton: any) : void;
 			setLeftButtonMode (leftButtonMode: number) : void;
 			setLeftButtonPadding (leftButtonPadding: number) : void;
 			setMaxLength (maxLength: number) : void;
 			setMinimumFontSize (minimumFontSize: number) : void;
-			setOpacity (opacity: number) : void;
 			setPaddingLeft (paddingLeft: number) : void;
 			setPaddingRight (paddingRight: number) : void;
 			setPasswordMask (passwordMask: boolean) : void;
 			setReturnKeyType (returnKeyType: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
 			setRightButton (rightButton: any) : void;
 			setRightButtonMode (rightButtonMode: number) : void;
 			setRightButtonPadding (rightButtonPadding: number) : void;
 			setSelection (start: number, end: number) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
 			setSuppressReturn (suppressReturn: boolean) : void;
 			setTextAlign (textAlign: string) : void;
 			setTextAlign (textAlign: number) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
 			setValue (value: string) : void;
 			setVerticalAlign (verticalAlign: number) : void;
 			setVerticalAlign (verticalAlign: string) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface _3DMatrix {
-			bubbleParent : boolean;
+		export interface _3DMatrix extends Titanium.Proxy {
 			m11 : number;
 			m12 : number;
 			m13 : number;
@@ -5423,10 +1742,6 @@ declare module Titanium {
 			m42 : number;
 			m43 : number;
 			m44 : number;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getM11 () : number;
 			getM12 () : number;
 			getM13 () : number;
@@ -5445,10 +1760,8 @@ declare module Titanium {
 			getM44 () : number;
 			invert () : Titanium.UI._3DMatrix;
 			multiply (t2: Titanium.UI._3DMatrix) : Titanium.UI._3DMatrix;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			rotate (angle: number, x: number, y: number, z: number) : Titanium.UI._3DMatrix;
 			scale (sx: number, sy: number, sz: number) : Titanium.UI._3DMatrix;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setM11 (m11: number) : void;
 			setM12 (m12: number) : void;
 			setM13 (m13: number) : void;
@@ -5467,243 +1780,89 @@ declare module Titanium {
 			setM44 (m44: number) : void;
 			translate (tx: number, ty: number, tz: number) : Titanium.UI._3DMatrix;
 		}
-		export interface WebView {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
+		export interface WebView extends Titanium.UI.View {
 			cacheMode : number;
-			center : Point;
-			children : Array<Titanium.UI.View>;
 			data : any;
 			disableBounce : boolean;
 			enableZoomControls : boolean;
-			focusable : boolean;
-			height : any;
 			hideLoadIndicator : boolean;
-			horizontalWrap : boolean;
 			html : string;
 			ignoreSslError : boolean;
-			keepScreenOn : boolean;
-			layout : string;
-			left : any;
 			lightTouchEnabled : boolean;
 			loading : boolean;
-			opacity : number;
 			overScrollMode : number;
 			pluginState : number;
-			rect : Dimension;
-			right : any;
 			scalesPageToFit : boolean;
 			scrollsToTop : boolean;
 			showScrollbars : boolean;
-			size : Dimension;
-			softKeyboardOnFocus : number;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
 			url : string;
 			userAgent : string;
-			visible : boolean;
-			width : any;
 			willHandleTouches : boolean;
-			zIndex : number;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			canGoBack () : boolean;
 			canGoForward () : boolean;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
 			evalJS (code: string) : string;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
 			getCacheMode () : number;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
 			getData () : any;
 			getDisableBounce () : boolean;
 			getEnableZoomControls () : boolean;
-			getFocusable () : boolean;
-			getHeight () : any;
 			getHideLoadIndicator () : boolean;
-			getHorizontalWrap () : boolean;
 			getHtml () : string;
 			getIgnoreSslError () : boolean;
-			getKeepScreenOn () : boolean;
-			getLayout () : string;
-			getLeft () : any;
 			getLightTouchEnabled () : boolean;
 			getLoading () : boolean;
-			getOpacity () : number;
 			getOverScrollMode () : number;
 			getPluginState () : number;
-			getRect () : Dimension;
-			getRight () : any;
 			getScalesPageToFit () : boolean;
 			getScrollsToTop () : boolean;
 			getShowScrollbars () : boolean;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
 			getUrl () : string;
 			getUserAgent () : string;
-			getVisible () : boolean;
-			getWidth () : any;
 			getWillHandleTouches () : boolean;
-			getZIndex () : number;
 			goBack () : void;
 			goForward () : void;
-			hide () : void;
 			pause () : void;
 			release () : void;
 			reload () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			repaint () : void;
 			resume () : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
 			setBasicAuthentication (username: string, password: string) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setCacheMode (cacheMode: number) : void;
-			setCenter (center: Point) : void;
 			setData (data: Titanium.Blob) : void;
 			setData (data: Titanium.Filesystem.File) : void;
 			setDisableBounce (disableBounce: boolean) : void;
 			setEnableZoomControls (enableZoomControls: boolean) : void;
-			setFocusable (focusable: boolean) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
 			setHideLoadIndicator (hideLoadIndicator: boolean) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
 			setHtml (html: any, options?: Dictionary<Object>) : void;
 			setIgnoreSslError (ignoreSslError: boolean) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
 			setLightTouchEnabled (lightTouchEnabled: boolean) : void;
 			setLoading (loading: boolean) : void;
-			setOpacity (opacity: number) : void;
 			setOverScrollMode (overScrollMode: number) : void;
 			setPluginState (pluginState: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
 			setScalesPageToFit (scalesPageToFit: boolean) : void;
 			setScrollsToTop (scrollsToTop: boolean) : void;
 			setShowScrollbars (showScrollbars: boolean) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
 			setUrl (url: string) : void;
 			setUserAgent (userAgent: string) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
 			setWillHandleTouches (willHandleTouches: boolean) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
 			stopLoading (hardStop: boolean) : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface Clipboard {
-			bubbleParent : boolean;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
+		export interface Clipboard  {
 			clearData (type?: string) : void;
 			clearText () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getData (type: string) : any;
 			getText () : string;
 			hasData (type: string) : boolean;
 			hasText () : any;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setData (type: string, data: any) : void;
 			setText (text: string) : void;
 		}
-		export interface ListSection {
+		export interface ListSection extends Titanium.Proxy {
 			footerTitle : string;
 			footerView : Titanium.UI.View;
 			headerTitle : string;
 			headerView : Titanium.UI.View;
 			items : Array<ListDataItem>;
 			appendItems (dataItems: Array<ListDataItem>, animation?: ListViewAnimationProperties) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			deleteItemsAt (itemIndex: number, count: number, animation?: ListViewAnimationProperties) : void;
 			getFooterTitle () : string;
 			getFooterView () : Titanium.UI.View;
@@ -5720,255 +1879,75 @@ declare module Titanium {
 			setItems (dataItems: Array<ListDataItem>, animation?: ListViewAnimationProperties) : void;
 			updateItemAt (index: number, dataItem: ListDataItem, animation?: ListViewAnimationProperties) : void;
 		}
-		export interface ScrollView {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
+		export interface ScrollView extends Titanium.UI.View {
 			canCancelEvents : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
 			contentHeight : any;
 			contentOffset : Dictionary<Object>;
 			contentWidth : any;
 			disableBounce : boolean;
-			focusable : boolean;
-			height : any;
 			horizontalBounce : boolean;
-			horizontalWrap : boolean;
-			keepScreenOn : boolean;
-			layout : string;
-			left : any;
 			maxZoomScale : number;
 			minZoomScale : number;
-			opacity : number;
 			overScrollMode : number;
-			rect : Dimension;
-			right : any;
 			scrollIndicatorStyle : number;
 			scrollType : string;
 			scrollingEnabled : boolean;
 			scrollsToTop : boolean;
 			showHorizontalScrollIndicator : boolean;
 			showVerticalScrollIndicator : boolean;
-			size : Dimension;
-			softKeyboardOnFocus : number;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
 			verticalBounce : boolean;
-			visible : boolean;
-			width : any;
-			zIndex : number;
 			zoomScale : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
 			getCanCancelEvents () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
 			getContentHeight () : any;
 			getContentOffset () : Dictionary<Object>;
 			getContentWidth () : any;
 			getDisableBounce () : boolean;
-			getFocusable () : boolean;
-			getHeight () : any;
 			getHorizontalBounce () : boolean;
-			getHorizontalWrap () : boolean;
-			getKeepScreenOn () : boolean;
-			getLayout () : string;
-			getLeft () : any;
 			getMaxZoomScale () : number;
 			getMinZoomScale () : number;
-			getOpacity () : number;
 			getOverScrollMode () : number;
-			getRect () : Dimension;
-			getRight () : any;
 			getScrollIndicatorStyle () : number;
 			getScrollType () : string;
 			getScrollingEnabled () : boolean;
 			getScrollsToTop () : boolean;
 			getShowHorizontalScrollIndicator () : boolean;
 			getShowVerticalScrollIndicator () : boolean;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
 			getVerticalBounce () : boolean;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
 			getZoomScale () : number;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			scrollTo (x: number, y: number) : void;
 			scrollToBottom () : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setCanCancelEvents (canCancelEvents: boolean) : void;
-			setCenter (center: Point) : void;
 			setContentHeight (contentHeight: number) : void;
 			setContentHeight (contentHeight: string) : void;
 			setContentOffset (contentOffset: Dictionary<Object>, animated?: contentOffsetOption) : void;
 			setContentWidth (contentWidth: number) : void;
 			setContentWidth (contentWidth: string) : void;
 			setDisableBounce (disableBounce: boolean) : void;
-			setFocusable (focusable: boolean) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
 			setHorizontalBounce (horizontalBounce: boolean) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
 			setMaxZoomScale (maxZoomScale: number) : void;
 			setMinZoomScale (minZoomScale: number) : void;
-			setOpacity (opacity: number) : void;
 			setOverScrollMode (overScrollMode: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
 			setScrollIndicatorStyle (scrollIndicatorStyle: number) : void;
 			setScrollingEnabled (scrollingEnabled: boolean) : void;
 			setScrollsToTop (scrollsToTop: boolean) : void;
 			setShowHorizontalScrollIndicator (showHorizontalScrollIndicator: boolean) : void;
 			setShowVerticalScrollIndicator (showVerticalScrollIndicator: boolean) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
 			setVerticalBounce (verticalBounce: boolean) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
 			setZoomScale (zoomScale: number, animated?: zoomScaleOption) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface ListView {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
+		export interface ListView extends Titanium.UI.View {
 			allowsSelection : boolean;
-			anchorPoint : Point;
-			animatedCenter : Point;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
 			canScroll : boolean;
 			caseInsensitiveSearch : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
 			defaultItemTemplate : any;
 			editing : boolean;
-			focusable : boolean;
 			footerTitle : string;
 			footerView : Titanium.UI.View;
 			headerTitle : string;
 			headerView : Titanium.UI.View;
-			height : any;
-			horizontalWrap : boolean;
-			keepScreenOn : boolean;
 			keepSectionsInSearch : boolean;
-			layout : string;
-			left : any;
-			opacity : number;
 			pruneSectionsOnEdit : boolean;
 			pullView : Titanium.UI.View;
-			rect : Dimension;
-			right : any;
 			scrollIndicatorStyle : number;
 			searchText : string;
 			searchView : any;
@@ -5978,74 +1957,25 @@ declare module Titanium {
 			separatorColor : string;
 			separatorStyle : number;
 			showVerticalScrollIndicator : boolean;
-			size : Dimension;
-			softKeyboardOnFocus : number;
 			style : number;
 			templates : Dictionary<Object>;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
-			visible : boolean;
-			width : any;
 			willScrollOnStatusTap : boolean;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
 			appendSection (section: Titanium.UI.ListSection, animation?: ListViewAnimationProperties) : void;
 			appendSection (section: Array<Titanium.UI.ListSection>, animation?: ListViewAnimationProperties) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
 			deleteSectionAt (sectionIndex: number, animation?: ListViewAnimationProperties) : void;
 			deselectItem (sectionIndex: number, itemIndex: number) : void;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
 			getAllowsSelection () : boolean;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
 			getCanScroll () : boolean;
 			getCaseInsensitiveSearch () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
 			getDefaultItemTemplate () : any;
 			getEditing () : boolean;
-			getFocusable () : boolean;
 			getFooterTitle () : string;
 			getFooterView () : Titanium.UI.View;
 			getHeaderTitle () : string;
 			getHeaderView () : Titanium.UI.View;
-			getHeight () : any;
-			getHorizontalWrap () : boolean;
-			getKeepScreenOn () : boolean;
 			getKeepSectionsInSearch () : boolean;
-			getLayout () : string;
-			getLeft () : any;
-			getOpacity () : number;
 			getPruneSectionsOnEdit () : boolean;
 			getPullView () : Titanium.UI.View;
-			getRect () : Dimension;
-			getRight () : any;
 			getScrollIndicatorStyle () : number;
 			getSearchText () : string;
 			getSearchView () : Titanium.UI.SearchBar;
@@ -6055,75 +1985,29 @@ declare module Titanium {
 			getSeparatorColor () : string;
 			getSeparatorStyle () : number;
 			getShowVerticalScrollIndicator () : boolean;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
 			getStyle () : number;
 			getTemplates () : Dictionary<Object>;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
-			getVisible () : boolean;
-			getWidth () : any;
 			getWillScrollOnStatusTap () : boolean;
-			getZIndex () : number;
-			hide () : void;
 			insertSectionAt (sectionIndex: number, section: Titanium.UI.ListSection, animation?: ListViewAnimationProperties) : void;
 			insertSectionAt (sectionIndex: number, section: Array<Titanium.UI.ListSection>, animation?: ListViewAnimationProperties) : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			replaceSectionAt (sectionIndex: number, section: Titanium.UI.ListSection, animation: ListViewAnimationProperties) : void;
 			scrollToItem (sectionIndex: number, itemIndex: number, animation?: ListViewAnimationProperties) : void;
 			selectItem (sectionIndex: number, itemIndex: number) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
 			setAllowsSelection (allowsSelection: boolean) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setCanScroll (canScroll: boolean) : void;
 			setCaseInsensitiveSearch (caseInsensitiveSearch: boolean) : void;
-			setCenter (center: Point) : void;
 			setContentInsets (edgeInsets: ListViewEdgeInsets, animated?: ListViewContentInsetOption) : void;
 			setDefaultItemTemplate (defaultItemTemplate: string) : void;
 			setDefaultItemTemplate (defaultItemTemplate: number) : void;
 			setEditing (editing: boolean) : void;
-			setFocusable (focusable: boolean) : void;
 			setFooterTitle (footerTitle: string) : void;
 			setFooterView (footerView: Titanium.UI.View) : void;
 			setHeaderTitle (headerTitle: string) : void;
 			setHeaderView (headerView: Titanium.UI.View) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
 			setKeepSectionsInSearch (keepSectionsInSearch: boolean) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
 			setMarker (markerProps: ListViewMarkerProps) : void;
-			setOpacity (opacity: number) : void;
 			setPruneSectionsOnEdit (pruneSectionsOnEdit: boolean) : void;
 			setPullView (pullView: Titanium.UI.View) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
 			setScrollIndicatorStyle (scrollIndicatorStyle: number) : void;
 			setSearchText (searchText: string) : void;
 			setSearchView (searchView: Titanium.UI.SearchBar) : void;
@@ -6132,24 +2016,9 @@ declare module Titanium {
 			setSeparatorColor (separatorColor: string) : void;
 			setSeparatorStyle (separatorStyle: number) : void;
 			setShowVerticalScrollIndicator (showVerticalScrollIndicator: boolean) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
 			setWillScrollOnStatusTap (willScrollOnStatusTap: boolean) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface TabGroup {
+		export interface TabGroup extends Titanium.UI.View {
 			activeTab : Titanium.UI.Tab;
 			activeTabBackgroundColor : string;
 			activeTabBackgroundDisabledColor : string;
@@ -6163,15 +2032,10 @@ declare module Titanium {
 			activity : Titanium.Android.Activity;
 			allowUserCustomization : boolean;
 			barColor : string;
-			bubbleParent : boolean;
-			center : Point;
 			editButtonTitle : string;
 			exitOnClose : boolean;
-			keepScreenOn : boolean;
 			navBarHidden : boolean;
-			rect : Dimension;
 			shadowImage : string;
-			size : Dimension;
 			tabDividerColor : string;
 			tabDividerWidth : any;
 			tabHeight : any;
@@ -6186,19 +2050,9 @@ declare module Titanium {
 			tabsBackgroundSelectedColor : string;
 			tabsBackgroundSelectedImage : string;
 			tabsTintColor : any;
-			tintColor : any;
-			touchEnabled : boolean;
-			visible : boolean;
 			windowSoftInputMode : number;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
 			addTab (tab: Titanium.UI.Tab) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			close () : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getActiveTab () : Titanium.UI.Tab;
 			getActiveTabBackgroundColor () : string;
 			getActiveTabBackgroundDisabledColor () : string;
@@ -6212,15 +2066,10 @@ declare module Titanium {
 			getActivity () : Titanium.Android.Activity;
 			getAllowUserCustomization () : boolean;
 			getBarColor () : string;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
 			getEditButtonTitle () : string;
 			getExitOnClose () : boolean;
-			getKeepScreenOn () : boolean;
 			getNavBarHidden () : boolean;
-			getRect () : Dimension;
 			getShadowImage () : string;
-			getSize () : Dimension;
 			getTabDividerColor () : string;
 			getTabDividerWidth () : any;
 			getTabHeight () : any;
@@ -6235,13 +2084,8 @@ declare module Titanium {
 			getTabsBackgroundSelectedColor () : string;
 			getTabsBackgroundSelectedImage () : string;
 			getTabsTintColor () : string;
-			getTintColor () : string;
-			getTouchEnabled () : boolean;
-			getVisible () : boolean;
 			getWindowSoftInputMode () : number;
-			hide () : void;
 			open () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			removeTab (tab: Titanium.UI.Tab) : void;
 			setActiveTab (indexOrObject: number) : void;
 			setActiveTab (indexOrObject: Titanium.UI.Tab) : void;
@@ -6256,10 +2100,7 @@ declare module Titanium {
 			setActiveTabIconTint (activeTabIconTint: string) : void;
 			setAllowUserCustomization (allowUserCustomization: boolean) : void;
 			setBarColor (barColor: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
 			setEditButtonTitle (editButtonTitle: string) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
 			setNavBarHidden (navBarHidden: boolean) : void;
 			setShadowImage (shadowImage: string) : void;
 			setTabDividerColor (tabDividerColor: string) : void;
@@ -6278,66 +2119,27 @@ declare module Titanium {
 			setTabsBackgroundSelectedColor (tabsBackgroundSelectedColor: string) : void;
 			setTabsBackgroundSelectedImage (tabsBackgroundSelectedImage: string) : void;
 			setTabsTintColor (tabsTintColor: string) : void;
-			setTintColor (tintColor: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setVisible (visible: boolean) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface TableView {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
+		export interface TableView extends Titanium.UI.View {
 			allowsSelection : boolean;
 			allowsSelectionDuringEditing : boolean;
-			anchorPoint : Point;
-			animatedCenter : Point;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
 			data : any;
 			editable : boolean;
 			editing : boolean;
 			filterAttribute : string;
 			filterCaseInsensitive : boolean;
-			focusable : boolean;
 			footerTitle : string;
 			footerView : Titanium.UI.View;
 			headerPullView : Titanium.UI.View;
 			headerTitle : string;
 			headerView : Titanium.UI.View;
-			height : any;
 			hideSearchOnSelection : boolean;
-			horizontalWrap : boolean;
 			index : Array<TableViewIndexEntry>;
-			keepScreenOn : boolean;
-			layout : string;
-			left : any;
 			maxRowHeight : number;
 			minRowHeight : number;
 			moveable : boolean;
 			moving : boolean;
-			opacity : number;
 			overScrollMode : number;
-			rect : Dimension;
-			right : any;
 			rowHeight : number;
 			scrollIndicatorStyle : number;
 			scrollable : boolean;
@@ -6350,20 +2152,7 @@ declare module Titanium {
 			separatorColor : string;
 			separatorStyle : number;
 			showVerticalScrollIndicator : boolean;
-			size : Dimension;
-			softKeyboardOnFocus : number;
 			style : number;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
-			visible : boolean;
-			width : any;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
 			appendRow (row: Titanium.UI.TableViewRow, animation?: TableViewAnimationProperties) : void;
 			appendRow (row: Dictionary<Titanium.UI.TableViewRow>, animation?: TableViewAnimationProperties) : void;
 			appendRow (row: Array<Titanium.UI.TableViewRow>, animation?: TableViewAnimationProperties) : void;
@@ -6372,65 +2161,29 @@ declare module Titanium {
 			appendSection (section: Dictionary<Titanium.UI.TableViewSection>, animation?: TableViewAnimationProperties) : void;
 			appendSection (section: Array<Titanium.UI.TableViewSection>, animation?: TableViewAnimationProperties) : void;
 			appendSection (section: Array<Dictionary<Titanium.UI.TableViewSection>>, animation?: TableViewAnimationProperties) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
 			deleteRow (row: number, animation?: TableViewAnimationProperties) : void;
 			deleteRow (row: Titanium.UI.TableViewRow, animation?: TableViewAnimationProperties) : void;
 			deleteSection (section: number, animation?: TableViewAnimationProperties) : void;
 			deselectRow (row: number) : void;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
 			getAllowsSelection () : boolean;
 			getAllowsSelectionDuringEditing () : boolean;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
 			getData () : any;
 			getEditable () : boolean;
 			getEditing () : boolean;
 			getFilterAttribute () : string;
 			getFilterCaseInsensitive () : boolean;
-			getFocusable () : boolean;
 			getFooterTitle () : string;
 			getFooterView () : Titanium.UI.View;
 			getHeaderPullView () : Titanium.UI.View;
 			getHeaderTitle () : string;
 			getHeaderView () : Titanium.UI.View;
-			getHeight () : any;
 			getHideSearchOnSelection () : boolean;
-			getHorizontalWrap () : boolean;
 			getIndex () : Array<TableViewIndexEntry>;
-			getKeepScreenOn () : boolean;
-			getLayout () : string;
-			getLeft () : any;
 			getMaxRowHeight () : number;
 			getMinRowHeight () : number;
 			getMoveable () : boolean;
 			getMoving () : boolean;
-			getOpacity () : number;
 			getOverScrollMode () : number;
-			getRect () : Dimension;
-			getRight () : any;
 			getRowHeight () : number;
 			getScrollIndicatorStyle () : number;
 			getScrollable () : boolean;
@@ -6443,17 +2196,7 @@ declare module Titanium {
 			getSeparatorColor () : string;
 			getSeparatorStyle () : number;
 			getShowVerticalScrollIndicator () : boolean;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
 			getStyle () : number;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
-			hide () : void;
 			insertRowAfter (index: number, row: Titanium.UI.TableViewRow, animation?: TableViewAnimationProperties) : void;
 			insertRowAfter (index: number, row: Dictionary<Titanium.UI.TableViewRow>, animation?: TableViewAnimationProperties) : void;
 			insertRowBefore (index: number, row: Titanium.UI.TableViewRow, animation?: TableViewAnimationProperties) : void;
@@ -6462,36 +2205,11 @@ declare module Titanium {
 			insertSectionAfter (index: number, section: Dictionary<Titanium.UI.TableViewSection>, animation?: TableViewAnimationProperties) : void;
 			insertSectionBefore (index: number, section: Titanium.UI.TableViewSection, animation?: TableViewAnimationProperties) : void;
 			insertSectionBefore (index: number, section: Dictionary<Titanium.UI.TableViewSection>, animation?: TableViewAnimationProperties) : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			scrollToIndex (index: number, animation?: TableViewAnimationProperties) : void;
 			scrollToTop (top: number, animation?: TableViewAnimationProperties) : void;
 			selectRow (row: number) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
 			setAllowsSelection (allowsSelection: boolean) : void;
 			setAllowsSelectionDuringEditing (allowsSelectionDuringEditing: boolean) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
 			setContentInsets (edgeInsets: TableViewEdgeInsets, animated?: TableViewContentInsetOption) : void;
 			setData (data: Array<Titanium.UI.TableViewRow>, animation: TableViewAnimationProperties) : void;
 			setData (data: Array<Dictionary<Titanium.UI.TableViewRow>>, animation: TableViewAnimationProperties) : void;
@@ -6500,29 +2218,18 @@ declare module Titanium {
 			setEditing (editing: boolean) : void;
 			setFilterAttribute (filterAttribute: string) : void;
 			setFilterCaseInsensitive (filterCaseInsensitive: boolean) : void;
-			setFocusable (focusable: boolean) : void;
 			setFooterTitle (footerTitle: string) : void;
 			setFooterView (footerView: Titanium.UI.View) : void;
 			setHeaderPullView (view: Titanium.UI.View) : void;
 			setHeaderTitle (headerTitle: string) : void;
 			setHeaderView (headerView: Titanium.UI.View) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
 			setHideSearchOnSelection (hideSearchOnSelection: boolean) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
 			setIndex (index: Array<TableViewIndexEntry>) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
 			setMaxRowHeight (maxRowHeight: number) : void;
 			setMinRowHeight (minRowHeight: number) : void;
 			setMoveable (moveable: boolean) : void;
 			setMoving (moving: boolean) : void;
-			setOpacity (opacity: number) : void;
 			setOverScrollMode (overScrollMode: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
 			setRowHeight (rowHeight: number) : void;
 			setScrollIndicatorStyle (scrollIndicatorStyle: number) : void;
 			setScrollable (scrollable: boolean) : void;
@@ -6535,214 +2242,47 @@ declare module Titanium {
 			setSeparatorColor (separatorColor: string) : void;
 			setSeparatorStyle (separatorStyle: number) : void;
 			setShowVerticalScrollIndicator (showVerticalScrollIndicator: boolean) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
 			setStyle (style: number) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 			updateRow (index: number, row: Titanium.UI.TableViewRow, animation: TableViewAnimationProperties) : void;
 			updateSection (index: number, section: Titanium.UI.TableViewSection, animation: TableViewAnimationProperties) : void;
 		}
-		export interface Button {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
+		export interface Button extends Titanium.UI.View {
 			color : string;
-			enabled : boolean;
-			focusable : boolean;
 			font : Font;
-			height : any;
-			horizontalWrap : boolean;
 			image : any;
-			keepScreenOn : boolean;
-			layout : string;
-			left : any;
-			opacity : number;
-			rect : Dimension;
-			right : any;
 			selectedColor : string;
-			size : Dimension;
-			softKeyboardOnFocus : number;
 			style : number;
 			systemButton : number;
 			textAlign : any;
-			tintColor : any;
 			title : string;
 			titleid : string;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
 			verticalAlign : any;
-			visible : boolean;
-			width : any;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
 			getColor () : string;
-			getEnabled () : boolean;
-			getFocusable () : boolean;
 			getFont () : Font;
-			getHeight () : any;
-			getHorizontalWrap () : boolean;
 			getImage () : any;
-			getKeepScreenOn () : boolean;
-			getLayout () : string;
-			getLeft () : any;
-			getOpacity () : number;
-			getRect () : Dimension;
-			getRight () : any;
 			getSelectedColor () : string;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
 			getStyle () : number;
 			getSystemButton () : number;
 			getTextAlign () : any;
-			getTintColor () : string;
 			getTitle () : string;
 			getTitleid () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
 			getVerticalAlign () : any;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
 			setColor (color: string) : void;
-			setEnabled (enabled: boolean) : void;
-			setFocusable (focusable: boolean) : void;
 			setFont (font: Font) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
 			setImage (image: string) : void;
 			setImage (image: Titanium.Blob) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
-			setOpacity (opacity: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
 			setSelectedColor (selectedColor: string) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
 			setStyle (style: number) : void;
 			setSystemButton (systemButton: number) : void;
 			setTextAlign (textAlign: string) : void;
 			setTextAlign (textAlign: number) : void;
-			setTintColor (tintColor: string) : void;
 			setTitle (title: string) : void;
 			setTitleid (titleid: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
 			setVerticalAlign (verticalAlign: number) : void;
 			setVerticalAlign (verticalAlign: string) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface OptionDialog {
+		export interface OptionDialog extends Titanium.Proxy {
 			androidView : Titanium.UI.View;
-			bubbleParent : boolean;
 			buttonNames : Array<String>;
 			cancel : number;
 			destructive : number;
@@ -6751,11 +2291,7 @@ declare module Titanium {
 			selectedIndex : number;
 			title : string;
 			titleid : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getAndroidView () : Titanium.UI.View;
-			getBubbleParent () : boolean;
 			getButtonNames () : Array<String>;
 			getCancel () : number;
 			getDestructive () : number;
@@ -6765,156 +2301,32 @@ declare module Titanium {
 			getTitle () : string;
 			getTitleid () : string;
 			hide (params?: hideParams) : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			setAndroidView (androidView: Titanium.UI.View) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setCancel (cancel: number) : void;
 			setPersistent (persistent: boolean) : void;
 			setTitle (title: string) : void;
 			setTitleid (titleid: string) : void;
 			show (params?: showParams) : void;
 		}
-		export interface ButtonBar {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
-			backgroundColor : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
-			height : any;
-			horizontalWrap : boolean;
+		export interface ButtonBar extends Titanium.UI.View {
 			index : number;
 			labels : any;
-			layout : string;
-			left : any;
-			opacity : number;
-			rect : Dimension;
-			right : any;
-			size : Dimension;
 			style : number;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
-			visible : boolean;
-			width : any;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
-			getBackgroundColor () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
-			getHeight () : any;
-			getHorizontalWrap () : boolean;
 			getIndex () : number;
 			getLabels () : any;
-			getLayout () : string;
-			getLeft () : any;
-			getOpacity () : number;
-			getRect () : Dimension;
-			getRight () : any;
-			getSize () : Dimension;
 			getStyle () : number;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
 			setIndex (index: number) : void;
 			setLabels (labels: Array<String>) : void;
 			setLabels (labels: Array<BarItemType>) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
-			setOpacity (opacity: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
 			setStyle (style: number) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface EmailDialog {
+		export interface EmailDialog extends Titanium.Proxy {
 			CANCELLED : number;
 			FAILED : number;
 			SAVED : number;
 			SENT : number;
 			barColor : string;
 			bccRecipients : Array<String>;
-			bubbleParent : boolean;
 			ccRecipients : Array<String>;
 			html : boolean;
 			messageBody : string;
@@ -6922,12 +2334,8 @@ declare module Titanium {
 			toRecipients : Array<String>;
 			addAttachment (attachment: Titanium.Blob) : void;
 			addAttachment (attachment: Titanium.Filesystem.File) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getBarColor () : string;
 			getBccRecipients () : Array<String>;
-			getBubbleParent () : boolean;
 			getCcRecipients () : Array<String>;
 			getHtml () : boolean;
 			getMessageBody () : string;
@@ -6935,122 +2343,19 @@ declare module Titanium {
 			getToRecipients () : Array<String>;
 			isSupported () : boolean;
 			open (properties: any) : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			setBarColor (barColor: string) : void;
 			setBccRecipients (bccRecipients: Array<String>) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setCcRecipients (ccRecipients: Array<String>) : void;
 			setHtml (html: boolean) : void;
 			setMessageBody (messageBody: string) : void;
 			setSubject (subject: string) : void;
 			setToRecipients (toRecipients: Array<String>) : void;
 		}
-		export interface CoverFlowView {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
-			backgroundColor : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
-			height : any;
-			horizontalWrap : boolean;
+		export interface CoverFlowView extends Titanium.UI.View {
 			images : any;
-			layout : string;
-			left : any;
-			opacity : number;
-			rect : Dimension;
-			right : any;
 			selected : number;
-			size : Dimension;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
-			visible : boolean;
-			width : any;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
-			getBackgroundColor () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
-			getHeight () : any;
-			getHorizontalWrap () : boolean;
 			getImages () : any;
-			getLayout () : string;
-			getLeft () : any;
-			getOpacity () : number;
-			getRect () : Dimension;
-			getRight () : any;
 			getSelected () : number;
-			getSize () : Dimension;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
 			setImage (index: number, image: string) : void;
 			setImage (image: Titanium.Blob) : void;
 			setImage (image: Titanium.Filesystem.File) : void;
@@ -7059,537 +2364,94 @@ declare module Titanium {
 			setImages (images: Array<Titanium.Blob>) : void;
 			setImages (images: Array<Titanium.Filesystem.File>) : void;
 			setImages (images: Array<CoverFlowImageType>) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
-			setOpacity (opacity: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
 			setSelected (selected: number) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface ImageView {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
+		export interface ImageView extends Titanium.UI.View {
 			animating : boolean;
 			autorotate : boolean;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
 			decodeRetries : number;
 			defaultImage : string;
 			duration : number;
 			enableZoomControls : boolean;
-			enabled : boolean;
-			focusable : boolean;
-			height : any;
 			hires : boolean;
-			horizontalWrap : boolean;
 			image : any;
 			images : any;
-			keepScreenOn : boolean;
-			layout : string;
-			left : any;
-			opacity : number;
 			paused : boolean;
 			preventDefaultImage : boolean;
-			rect : Dimension;
 			repeatCount : number;
 			reverse : boolean;
-			right : any;
-			size : Dimension;
-			softKeyboardOnFocus : number;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
 			url : string;
-			visible : boolean;
-			width : any;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
 			getAnimating () : boolean;
 			getAutorotate () : boolean;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
 			getDecodeRetries () : number;
 			getDefaultImage () : string;
 			getDuration () : number;
 			getEnableZoomControls () : boolean;
-			getEnabled () : boolean;
-			getFocusable () : boolean;
-			getHeight () : any;
 			getHires () : boolean;
-			getHorizontalWrap () : boolean;
 			getImage () : any;
 			getImages () : any;
-			getKeepScreenOn () : boolean;
-			getLayout () : string;
-			getLeft () : any;
-			getOpacity () : number;
 			getPaused () : boolean;
 			getPreventDefaultImage () : boolean;
-			getRect () : Dimension;
 			getRepeatCount () : number;
 			getReverse () : boolean;
-			getRight () : any;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
 			getUrl () : string;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
-			hide () : void;
 			pause () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			resume () : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
 			setDecodeRetries (decodeRetries: number) : void;
 			setDefaultImage (defaultImage: string) : void;
 			setDuration (duration: number) : void;
 			setEnableZoomControls (enableZoomControls: boolean) : void;
-			setEnabled (enabled: boolean) : void;
-			setFocusable (focusable: boolean) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
 			setHires (hires: boolean) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
 			setImage (image: string) : void;
 			setImage (image: Titanium.Blob) : void;
 			setImage (image: Titanium.Filesystem.File) : void;
 			setImages (images: Array<String>) : void;
 			setImages (images: Array<Titanium.Blob>) : void;
 			setImages (images: Array<Titanium.Filesystem.File>) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
-			setOpacity (opacity: number) : void;
 			setPreventDefaultImage (preventDefaultImage: boolean) : void;
 			setRepeatCount (repeatCount: number) : void;
 			setReverse (reverse: boolean) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
 			setUrl (url: string) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
 			start () : void;
-			startLayout () : void;
 			stop () : void;
 			toBlob () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface MaskedImage {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
-			backgroundColor : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
-			height : any;
-			horizontalWrap : boolean;
+		export interface MaskedImage extends Titanium.UI.View {
 			image : string;
-			layout : string;
-			left : any;
 			mask : string;
 			mode : number;
-			opacity : number;
-			rect : Dimension;
-			right : any;
-			size : Dimension;
 			tint : string;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
-			visible : boolean;
-			width : any;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
-			getBackgroundColor () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
-			getHeight () : any;
-			getHorizontalWrap () : boolean;
 			getImage () : string;
-			getLayout () : string;
-			getLeft () : any;
 			getMask () : string;
 			getMode () : number;
-			getOpacity () : number;
-			getRect () : Dimension;
-			getRight () : any;
-			getSize () : Dimension;
 			getTint () : string;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
 			setImage (image: string) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
 			setMask (mask: string) : void;
 			setMode (mode: number) : void;
-			setOpacity (opacity: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
 			setTint (tint: string) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface ProgressBar {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
+		export interface ProgressBar extends Titanium.UI.View {
 			color : string;
-			enabled : boolean;
-			focusable : boolean;
 			font : Font;
-			height : any;
-			horizontalWrap : boolean;
-			keepScreenOn : boolean;
-			layout : string;
-			left : any;
 			max : number;
 			message : string;
 			min : number;
-			opacity : number;
-			rect : Dimension;
-			right : any;
-			size : Dimension;
-			softKeyboardOnFocus : number;
 			style : number;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
 			value : number;
-			visible : boolean;
-			width : any;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
 			getColor () : string;
-			getEnabled () : boolean;
-			getFocusable () : boolean;
 			getFont () : Font;
-			getHeight () : any;
-			getHorizontalWrap () : boolean;
-			getKeepScreenOn () : boolean;
-			getLayout () : string;
-			getLeft () : any;
 			getMax () : number;
 			getMessage () : string;
 			getMin () : number;
-			getOpacity () : number;
-			getRect () : Dimension;
-			getRight () : any;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
 			getStyle () : number;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
 			getValue () : number;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
 			setColor (color: string) : void;
-			setEnabled (enabled: boolean) : void;
-			setFocusable (focusable: boolean) : void;
 			setFont (font: Font) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
 			setMax (max: number) : void;
 			setMessage (message: string) : void;
 			setMin (min: number) : void;
-			setOpacity (opacity: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
 			setStyle (style: number) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
 			setValue (value: number) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
 		export module MobileWeb {
 			export function addEventListener (name: string, callback: (...args : any[]) => any) : void;
@@ -7597,531 +2459,129 @@ declare module Titanium {
 			export function createNavigationGroup (parameters?: Dictionary<Titanium.UI.MobileWeb.NavigationGroup>) : Titanium.UI.MobileWeb.NavigationGroup;
 			export function fireEvent (name: string, event: Dictionary<Object>) : void;
 			export function removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			export interface TableViewSeparatorStyle {
-				NONE : number;
-				SINGLE_LINE : number;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
+			export enum TableViewSeparatorStyle {
+				NONE,
+				SINGLE_LINE
 			}
-			export interface NavigationGroup {
-				backgroundColor : string;
-				backgroundGradient : Gradient;
-				backgroundImage : string;
-				backgroundSelectedColor : string;
-				backgroundSelectedImage : string;
-				borderColor : string;
-				borderRadius : number;
-				borderWidth : number;
-				bottom : any;
-				center : Point;
-				children : Array<Titanium.UI.View>;
-				height : any;
-				horizontalWrap : boolean;
-				layout : string;
-				left : any;
+			export interface NavigationGroup extends Titanium.UI.View {
 				navBarAtTop : boolean;
-				opacity : number;
-				rect : Dimension;
-				right : any;
-				size : Dimension;
-				top : any;
-				touchEnabled : boolean;
-				transform : any;
-				visible : boolean;
-				width : any;
 				window : Titanium.UI.Window;
-				zIndex : number;
-				add (view: Titanium.UI.View) : void;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-				animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
 				close (window: Titanium.UI.Window, options: Dictionary<Object>) : void;
-				convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-				finishLayout () : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBackgroundColor () : string;
-				getBackgroundGradient () : Gradient;
-				getBackgroundImage () : string;
-				getBackgroundSelectedColor () : string;
-				getBackgroundSelectedImage () : string;
-				getBorderColor () : string;
-				getBorderRadius () : number;
-				getBorderWidth () : number;
-				getBottom () : any;
-				getCenter () : Point;
-				getChildren () : Array<Titanium.UI.View>;
-				getHeight () : any;
-				getHorizontalWrap () : boolean;
-				getLayout () : string;
-				getLeft () : any;
 				getNavBarAtTop () : boolean;
-				getOpacity () : number;
-				getRect () : Dimension;
-				getRight () : any;
-				getSize () : Dimension;
-				getTop () : any;
-				getTouchEnabled () : boolean;
-				getTransform () : any;
-				getVisible () : boolean;
-				getWidth () : any;
 				getWindow () : Titanium.UI.Window;
-				getZIndex () : number;
-				hide () : void;
 				open (window: Titanium.UI.Window, options: Dictionary<Object>) : void;
-				remove (view: Titanium.UI.View) : void;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBackgroundColor (backgroundColor: string) : void;
-				setBackgroundGradient (backgroundGradient: Gradient) : void;
-				setBackgroundImage (backgroundImage: string) : void;
-				setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-				setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-				setBorderColor (borderColor: string) : void;
-				setBorderRadius (borderRadius: number) : void;
-				setBorderWidth (borderWidth: number) : void;
-				setBottom (bottom: number) : void;
-				setBottom (bottom: string) : void;
-				setCenter (center: Point) : void;
-				setHeight (height: number) : void;
-				setHeight (height: string) : void;
-				setHorizontalWrap (horizontalWrap: boolean) : void;
-				setLayout (layout: string) : void;
-				setLeft (left: number) : void;
-				setLeft (left: string) : void;
 				setNavBarAtTop (navBarAtTop: boolean) : void;
-				setOpacity (opacity: number) : void;
-				setRight (right: number) : void;
-				setRight (right: string) : void;
-				setTop (top: number) : void;
-				setTop (top: string) : void;
-				setTouchEnabled (touchEnabled: boolean) : void;
-				setTransform (transform: Titanium.UI._2DMatrix) : void;
-				setTransform (transform: Titanium.UI._3DMatrix) : void;
-				setVisible (visible: boolean) : void;
-				setWidth (width: number) : void;
-				setWidth (width: string) : void;
-				setZIndex (zIndex: number) : void;
-				show () : void;
-				startLayout () : void;
-				updateLayout (params: Dictionary<Object>) : void;
 			}
 		}
-		export interface Label {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
+		export interface Label extends Titanium.UI.View {
 			autoLink : number;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
 			backgroundPaddingBottom : number;
 			backgroundPaddingLeft : number;
 			backgroundPaddingRight : number;
 			backgroundPaddingTop : number;
-			backgroundRepeat : boolean;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
 			color : string;
 			ellipsize : boolean;
-			enabled : boolean;
-			focusable : boolean;
 			font : Font;
-			height : any;
 			highlightedColor : string;
-			horizontalWrap : boolean;
 			html : string;
-			keepScreenOn : boolean;
-			layout : string;
-			left : any;
 			minimumFontSize : number;
-			opacity : number;
-			rect : Dimension;
-			right : any;
 			shadowColor : string;
 			shadowOffset : any;
-			size : Dimension;
-			softKeyboardOnFocus : number;
 			text : string;
 			textAlign : any;
 			textid : string;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
 			verticalAlign : any;
-			visible : boolean;
-			width : any;
 			wordWrap : boolean;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
 			getAutoLink () : number;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
 			getBackgroundPaddingBottom () : number;
 			getBackgroundPaddingLeft () : number;
 			getBackgroundPaddingRight () : number;
 			getBackgroundPaddingTop () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
 			getColor () : string;
 			getEllipsize () : boolean;
-			getEnabled () : boolean;
-			getFocusable () : boolean;
 			getFont () : Font;
-			getHeight () : any;
 			getHighlightedColor () : string;
-			getHorizontalWrap () : boolean;
 			getHtml () : string;
-			getKeepScreenOn () : boolean;
-			getLayout () : string;
-			getLeft () : any;
 			getMinimumFontSize () : number;
-			getOpacity () : number;
-			getRect () : Dimension;
-			getRight () : any;
 			getShadowColor () : string;
 			getShadowOffset () : any;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
 			getText () : string;
 			getTextAlign () : any;
 			getTextid () : string;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
 			getVerticalAlign () : any;
-			getVisible () : boolean;
-			getWidth () : any;
 			getWordWrap () : boolean;
-			getZIndex () : number;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
 			setAutoLink (autoLink: number) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
 			setBackgroundPaddingBottom (backgroundPaddingBottom: number) : void;
 			setBackgroundPaddingLeft (backgroundPaddingLeft: number) : void;
 			setBackgroundPaddingRight (backgroundPaddingRight: number) : void;
 			setBackgroundPaddingTop (backgroundPaddingTop: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
 			setColor (color: string) : void;
 			setEllipsize (ellipsize: boolean) : void;
-			setEnabled (enabled: boolean) : void;
-			setFocusable (focusable: boolean) : void;
 			setFont (font: Font) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
 			setHighlightedColor (highlightedColor: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
 			setHtml (html: string) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
 			setMinimumFontSize (minimumFontSize: number) : void;
-			setOpacity (opacity: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
 			setShadowColor (shadowColor: string) : void;
 			setShadowOffset (shadowOffset: any) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
 			setText (text: string) : void;
 			setTextAlign (textAlign: string) : void;
 			setTextAlign (textAlign: number) : void;
 			setTextid (textid: string) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
 			setVerticalAlign (verticalAlign: number) : void;
 			setVerticalAlign (verticalAlign: string) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
 			setWordWrap (wordWrap: boolean) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface SearchBar {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
+		export interface SearchBar extends Titanium.UI.View {
 			autocapitalization : number;
 			autocorrect : boolean;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
-			backgroundTopCap : number;
 			barColor : string;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
-			enabled : boolean;
-			focusable : boolean;
-			height : any;
 			hintText : string;
 			hinttextid : string;
-			horizontalWrap : boolean;
-			keepScreenOn : boolean;
 			keyboardType : number;
-			layout : string;
-			left : any;
-			opacity : number;
 			prompt : string;
 			promptid : string;
-			rect : Dimension;
-			right : any;
 			showBookmark : boolean;
 			showCancel : boolean;
-			size : Dimension;
-			softKeyboardOnFocus : number;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
 			value : string;
-			visible : boolean;
-			width : any;
-			zIndex : number;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			blur () : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			focus () : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
 			getAutocapitalization () : number;
 			getAutocorrect () : boolean;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
-			getBackgroundTopCap () : number;
 			getBarColor () : string;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
-			getEnabled () : boolean;
-			getFocusable () : boolean;
-			getHeight () : any;
 			getHintText () : string;
 			getHinttextid () : string;
-			getHorizontalWrap () : boolean;
-			getKeepScreenOn () : boolean;
 			getKeyboardType () : number;
-			getLayout () : string;
-			getLeft () : any;
-			getOpacity () : number;
 			getPrompt () : string;
 			getPromptid () : string;
-			getRect () : Dimension;
-			getRight () : any;
 			getShowBookmark () : boolean;
 			getShowCancel () : boolean;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
 			getValue () : string;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
 			setAutocapitalization (autocapitalization: number) : void;
 			setAutocorrect (autocorrect: boolean) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
 			setBarColor (barColor: string) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
-			setEnabled (enabled: boolean) : void;
-			setFocusable (focusable: boolean) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
 			setHintText (hintText: string) : void;
 			setHinttextid (hinttextid: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
 			setKeyboardType (keyboardType: number) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
-			setOpacity (opacity: number) : void;
 			setPrompt (prompt: string) : void;
 			setPromptid (promptid: string) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
 			setShowBookmark (showBookmark: boolean) : void;
 			setShowCancel (showCancel: boolean, animated?: Dictionary<Object>) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
 			setValue (value: string) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface SMSDialog {
+		export interface SMSDialog extends Titanium.Proxy {
 			CANCELLED : number;
 			FAILED : number;
 			SENT : number;
 			messageBody : string;
 			toRecipients : Array<String>;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getMessageBody () : string;
 			getToRecipients () : Array<String>;
 			isSupported () : boolean;
 			open () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			setMessageBody (messageBody: string) : void;
 			setToRecipients (toRecipients: Array<String>) : void;
 		}
-		export interface TableViewSection {
-			bubbleParent : boolean;
+		export interface TableViewSection extends Titanium.Proxy {
 			footerTitle : string;
 			footerView : Titanium.UI.View;
 			headerTitle : string;
@@ -8129,10 +2589,6 @@ declare module Titanium {
 			rowCount : number;
 			rows : Array<Titanium.UI.TableViewRow>;
 			add (row: Titanium.UI.TableViewRow) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getFooterTitle () : string;
 			getFooterView () : Titanium.UI.View;
 			getHeaderTitle () : string;
@@ -8140,170 +2596,14 @@ declare module Titanium {
 			getRowCount () : number;
 			getRows () : Array<Titanium.UI.TableViewRow>;
 			remove (row: Titanium.UI.TableViewRow) : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			rowAtIndex (index: number) : Titanium.UI.TableViewRow;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setFooterTitle (footerTitle: string) : void;
 			setFooterView (footerView: Titanium.UI.View) : void;
 			setHeaderTitle (headerTitle: string) : void;
 			setHeaderView (headerView: Titanium.UI.View) : void;
 		}
-		export interface View {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
+		export interface ActivityIndicator extends Titanium.Proxy {
 			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
-			enabled : boolean;
-			focusable : boolean;
-			height : any;
-			horizontalWrap : boolean;
-			keepScreenOn : boolean;
-			layout : string;
-			left : any;
-			opacity : number;
-			rect : Dimension;
-			right : any;
-			size : Dimension;
-			softKeyboardOnFocus : number;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
-			visible : boolean;
-			width : any;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
-			getEnabled () : boolean;
-			getFocusable () : boolean;
-			getHeight () : any;
-			getHorizontalWrap () : boolean;
-			getKeepScreenOn () : boolean;
-			getLayout () : string;
-			getLeft () : any;
-			getOpacity () : number;
-			getRect () : Dimension;
-			getRight () : any;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
-			setEnabled (enabled: boolean) : void;
-			setFocusable (focusable: boolean) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
-			setOpacity (opacity: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
-		}
-		export interface ActivityIndicator {
-			bottom : any;
-			bubbleParent : boolean;
 			color : string;
 			font : Font;
 			height : string;
@@ -8317,11 +2617,7 @@ declare module Titanium {
 			top : any;
 			width : string;
 			add () : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getBottom () : any;
-			getBubbleParent () : boolean;
 			getColor () : string;
 			getFont () : Font;
 			getHeight () : string;
@@ -8336,10 +2632,8 @@ declare module Titanium {
 			getWidth () : string;
 			hide () : void;
 			remove () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			setBottom (bottom: number) : void;
 			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setColor (color: string) : void;
 			setFont (font: Font) : void;
 			setHeight (height: string) : void;
@@ -8357,12 +2651,11 @@ declare module Titanium {
 			setWidth (width: string) : void;
 			show () : void;
 		}
-		export interface Animation {
+		export interface Animation extends Titanium.Proxy {
 			anchorPoint : Point;
 			autoreverse : boolean;
 			backgroundColor : string;
 			bottom : number;
-			bubbleParent : boolean;
 			center : any;
 			color : string;
 			curve : number;
@@ -8381,14 +2674,10 @@ declare module Titanium {
 			visible : boolean;
 			width : number;
 			zIndex : number;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getAnchorPoint () : Point;
 			getAutoreverse () : boolean;
 			getBackgroundColor () : string;
 			getBottom () : number;
-			getBubbleParent () : boolean;
 			getCenter () : any;
 			getColor () : string;
 			getCurve () : number;
@@ -8407,12 +2696,10 @@ declare module Titanium {
 			getVisible () : boolean;
 			getWidth () : number;
 			getZIndex () : number;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			setAnchorPoint (anchorPoint: Point) : void;
 			setAutoreverse (autoreverse: boolean) : void;
 			setBackgroundColor (backgroundColor: string) : void;
 			setBottom (bottom: number) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setCenter (center: any) : void;
 			setColor (color: string) : void;
 			setCurve (curve: number) : void;
@@ -8433,447 +2720,55 @@ declare module Titanium {
 			setWidth (width: number) : void;
 			setZIndex (zIndex: number) : void;
 		}
-		export interface Toolbar {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
+		export interface Toolbar extends Titanium.UI.View {
 			barColor : string;
 			borderBottom : boolean;
-			borderColor : string;
-			borderRadius : number;
 			borderTop : boolean;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
-			height : any;
-			horizontalWrap : boolean;
 			items : Array<Titanium.UI.View>;
-			left : any;
-			opacity : number;
-			rect : Dimension;
-			right : any;
-			size : Dimension;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
 			translucent : boolean;
-			visible : boolean;
-			width : any;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
 			getBarColor () : string;
 			getBorderBottom () : boolean;
-			getBorderColor () : string;
-			getBorderRadius () : number;
 			getBorderTop () : boolean;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
-			getHeight () : any;
-			getHorizontalWrap () : boolean;
 			getItems () : Array<Titanium.UI.View>;
-			getLeft () : any;
-			getOpacity () : number;
-			getRect () : Dimension;
-			getRight () : any;
-			getSize () : Dimension;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
 			getTranslucent () : boolean;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
 			setBarColor (barColor: string) : void;
 			setBorderBottom (borderBottom: boolean) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
 			setBorderTop (borderTop: boolean) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
 			setItems (items: Array<Titanium.UI.View>) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
-			setOpacity (opacity: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
 			setTranslucent (translucent: boolean) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface Notification {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundRepeat : boolean;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
+		export interface Notification extends Titanium.UI.View {
 			duration : number;
-			enabled : boolean;
-			focusable : boolean;
-			height : any;
 			horizontalMargin : number;
-			horizontalWrap : boolean;
-			keepScreenOn : boolean;
-			layout : string;
-			left : any;
 			message : string;
-			opacity : number;
-			rect : Dimension;
-			right : any;
-			size : Dimension;
-			softKeyboardOnFocus : number;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
 			verticalMargin : number;
-			visible : boolean;
-			width : any;
 			xOffset : number;
 			yOffset : number;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundRepeat () : boolean;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
 			getDuration () : number;
-			getEnabled () : boolean;
-			getFocusable () : boolean;
-			getHeight () : any;
 			getHorizontalMargin () : number;
-			getHorizontalWrap () : boolean;
-			getKeepScreenOn () : boolean;
-			getLayout () : string;
-			getLeft () : any;
 			getMessage () : string;
-			getOpacity () : number;
-			getRect () : Dimension;
-			getRight () : any;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
 			getVerticalMargin () : number;
-			getVisible () : boolean;
-			getWidth () : any;
 			getXOffset () : number;
 			getYOffset () : number;
-			getZIndex () : number;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
 			setDuration (duration: number) : void;
-			setEnabled (enabled: boolean) : void;
-			setFocusable (focusable: boolean) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
 			setHorizontalMargin (horizontalMargin: number) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
 			setMessage (message: string) : void;
-			setOpacity (opacity: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
 			setVerticalMargin (verticalMargin: number) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
 			setXOffset (xOffset: number) : void;
 			setYOffset (yOffset: number) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface PickerColumn {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
-			focusable : boolean;
-			height : any;
-			horizontalWrap : boolean;
-			keepScreenOn : boolean;
-			layout : string;
-			left : any;
-			opacity : number;
-			rect : Dimension;
-			right : any;
+		export interface PickerColumn extends Titanium.UI.View {
 			rowCount : number;
 			rows : Array<Titanium.UI.PickerRow>;
 			selectedRow : Titanium.UI.PickerRow;
-			size : Dimension;
-			softKeyboardOnFocus : number;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
-			visible : boolean;
-			width : any;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
 			addRow (row: Titanium.UI.PickerRow) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
-			getFocusable () : boolean;
-			getHeight () : any;
-			getHorizontalWrap () : boolean;
-			getKeepScreenOn () : boolean;
-			getLayout () : string;
-			getLeft () : any;
-			getOpacity () : number;
-			getRect () : Dimension;
-			getRight () : any;
 			getRowCount () : number;
 			getRows () : Array<Titanium.UI.PickerRow>;
 			getSelectedRow () : Titanium.UI.PickerRow;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			removeRow (row: Titanium.UI.PickerRow) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
-			setFocusable (focusable: boolean) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
-			setOpacity (opacity: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
 			setSelectedRow (selectedRow: Titanium.UI.PickerRow) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface Picker {
-			bubbleParent : boolean;
+		export interface Picker extends Titanium.Proxy {
 			calendarViewShown : boolean;
 			columns : Array<Titanium.UI.PickerColumn>;
 			countDownDuration : number;
@@ -8891,10 +2786,6 @@ declare module Titanium {
 			add (data: Titanium.UI.PickerRow) : void;
 			add (data: Array<Titanium.UI.PickerColumn>) : void;
 			add (data: Titanium.UI.PickerColumn) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getCalendarViewShown () : boolean;
 			getColumns () : Array<Titanium.UI.PickerColumn>;
 			getCountDownDuration () : number;
@@ -8910,8 +2801,6 @@ declare module Titanium {
 			getValue () : Date;
 			getVisibleItems () : number;
 			reloadColumn (column: Titanium.UI.PickerColumn) : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setCalendarViewShown (calendarViewShown: boolean) : void;
 			setColumns (columns: Array<Titanium.UI.PickerColumn>) : void;
 			setCountDownDuration (countDownDuration: number) : void;
@@ -8930,22 +2819,18 @@ declare module Titanium {
 			showTimePickerDialog (dictObj: any) : void;
 		}
 	}
-	export interface API {
-		bubbleParent : boolean;
-		addEventListener (name: string, callback: (...args : any[]) => any) : void;
-		applyProperties (props: Dictionary<Object>) : void;
+	export enum Module {
+
+	}
+	export interface API  {
 		debug (message: Array<String>) : void;
 		debug (message: string) : void;
 		error (message: Array<String>) : void;
 		error (message: string) : void;
-		fireEvent (name: string, event: Dictionary<Object>) : void;
-		getBubbleParent () : boolean;
 		info (message: Array<String>) : void;
 		info (message: string) : void;
 		log (level: string, message: Array<String>) : void;
 		log (level: string, message: string) : void;
-		removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-		setBubbleParent (bubbleParent: boolean) : void;
 		timestamp (message: Array<String>) : void;
 		timestamp (message: string) : void;
 		trace (message: Array<String>) : void;
@@ -9048,67 +2933,58 @@ declare module Titanium {
 			export function removeLocationRule (rule: Titanium.Geolocation.Android.LocationRule) : void;
 			export function setBubbleParent (bubbleParent: boolean) : void;
 			export function setManualMode (manualMode: boolean) : void;
-			export interface LocationProvider {
-				bubbleParent : boolean;
+			export interface LocationProvider extends Titanium.Proxy {
 				minUpdateDistance : number;
 				minUpdateTime : number;
 				name : string;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
 				getMinUpdateDistance () : number;
 				getMinUpdateTime () : number;
 				getName () : string;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
 				setMinUpdateDistance (minUpdateDistance: number) : void;
 				setMinUpdateTime (minUpdateTime: number) : void;
 				setName (name: string) : void;
 			}
-			export interface LocationRule {
+			export interface LocationRule extends Titanium.Proxy {
 				accuracy : number;
-				bubbleParent : boolean;
 				maxAge : number;
 				minAge : number;
 				name : string;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
 				getAccuracy () : number;
-				getBubbleParent () : boolean;
 				getMaxAge () : number;
 				getMinAge () : number;
 				getName () : string;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 				setAccuracy (accuracy: number) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
 				setMaxAge (maxAge: number) : void;
 				setMinAge (minAge: number) : void;
 				setName (name: string) : void;
 			}
 		}
-		export interface MobileWeb {
+		export interface MobileWeb  {
 			forwardGeocoderTimeout : number;
 			locationTimeout : number;
 			maximumHeadingAge : number;
 			maximumLocationAge : number;
 			reverseGeocoderTimeout : number;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getForwardGeocoderTimeout () : number;
 			getLocationTimeout () : number;
 			getMaximumHeadingAge () : number;
 			getMaximumLocationAge () : number;
 			getReverseGeocoderTimeout () : number;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			setForwardGeocoderTimeout (forwardGeocoderTimeout: number) : void;
 			setLocationTimeout (locationTimeout: number) : void;
 			setMaximumHeadingAge (maximumHeadingAge: number) : void;
 			setMaximumLocationAge (maximumLocationAge: number) : void;
 			setReverseGeocoderTimeout (reverseGeocoderTimeout: number) : void;
 		}
+	}
+	export interface Proxy  {
+		bubbleParent : boolean;
+		addEventListener (name: string, callback: (...args : any[]) => any) : void;
+		applyProperties (props: Dictionary<Object>) : void;
+		fireEvent (name: string, event: Dictionary<Object>) : void;
+		getBubbleParent () : boolean;
+		removeEventListener (name: string, callback: (...args : any[]) => any) : void;
+		setBubbleParent (bubbleParent: boolean) : void;
 	}
 	export module Cloud {
 		export var accessToken : string;
@@ -9137,75 +3013,48 @@ declare module Titanium {
 		export function setOnsendstream (onsendstream: (...args : any[]) => any) : void;
 		export function setSessionId (sessionId: string) : void;
 		export function setUseSecure (useSecure: boolean) : void;
-		export interface Objects {
-			bubbleParent : boolean;
-			applyProperties (props: Dictionary<Object>) : void;
+		export interface Objects  {
 			create (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			getBubbleParent () : boolean;
 			query (parameters?: Dictionary<Object>, callback?: (...args : any[]) => any) : void;
 			remove (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			show (parameters?: Dictionary<Object>, callback?: (...args : any[]) => any) : void;
 			update (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 		}
-		export interface Files {
-			bubbleParent : boolean;
-			applyProperties (props: Dictionary<Object>) : void;
+		export interface Files  {
 			create (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			getBubbleParent () : boolean;
 			query (parameters?: Dictionary<Object>, callback?: (...args : any[]) => any) : void;
 			remove (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			show (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			update (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 		}
-		export interface SocialIntegrations {
-			bubbleParent : boolean;
-			applyProperties (props: Dictionary<Object>) : void;
+		export interface SocialIntegrations  {
 			externalAccountLink (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			externalAccountLogin (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			externalAccountUnlink (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			getBubbleParent () : boolean;
 			searchFacebookFriends (callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 		}
-		export interface PushNotifications {
-			bubbleParent : boolean;
-			applyProperties (props: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
+		export interface PushNotifications  {
 			notify (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			notifyTokens (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			subscribe (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			subscribeToken (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			unsubscribe (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			unsubscribeToken (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 		}
-		export interface Clients {
-			bubbleParent : boolean;
-			applyProperties (props: Dictionary<Object>) : void;
+		export interface Clients  {
 			geolocate (parameters?: Dictionary<Object>, callback?: (...args : any[]) => any) : void;
-			getBubbleParent () : boolean;
-			setBubbleParent (bubbleParent: boolean) : void;
 		}
-		export interface ACLs {
-			bubbleParent : boolean;
+		export interface ACLs  {
 			addUser (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			checkUser (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			create (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			getBubbleParent () : boolean;
 			remove (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			removeUser (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			show (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			update (parameters?: Dictionary<Object>, callback?: (...args : any[]) => any) : void;
 		}
-		export interface Users {
-			bubbleParent : boolean;
-			applyProperties (props: Dictionary<Object>) : void;
+		export interface Users  {
 			create (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			getBubbleParent () : boolean;
 			login (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			logout (callback: (...args : any[]) => any) : void;
 			query (parameters?: Dictionary<Object>, callback?: (...args : any[]) => any) : void;
@@ -9215,160 +3064,106 @@ declare module Titanium {
 			secureCreate (parameters?: Dictionary<CloudUsersSecureDialog>, callback?: (...args : any[]) => any) : void;
 			secureLogin (parameters?: Dictionary<CloudUsersSecureDialog>, callback?: (...args : any[]) => any) : void;
 			secureStatus () : boolean;
-			setBubbleParent (bubbleParent: boolean) : void;
 			show (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			showMe (callback: (...args : any[]) => any) : void;
 			update (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 		}
-		export interface Messages {
-			bubbleParent : boolean;
-			applyProperties (props: Dictionary<Object>) : void;
+		export interface Messages  {
 			create (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			getBubbleParent () : boolean;
 			remove (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			removeThread (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			reply (parameters?: Dictionary<Object>, callback?: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			show (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			showInbox (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			showSent (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			showThread (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			showThreads (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 		}
-		export interface Events {
-			bubbleParent : boolean;
-			applyProperties (props: Dictionary<Object>) : void;
+		export interface Events  {
 			create (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			getBubbleParent () : boolean;
 			query (parameters?: Dictionary<Object>, callback?: (...args : any[]) => any) : void;
 			queryOccurrences (parameters?: Dictionary<Object>, callback?: (...args : any[]) => any) : void;
 			remove (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			search (parameters?: Dictionary<Object>, callback?: (...args : any[]) => any) : void;
 			searchOccurrences (parameters?: Dictionary<Object>, callback?: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			show (parameters?: Dictionary<Object>, callback?: (...args : any[]) => any) : void;
 			showOccurrences (parameters?: Dictionary<Object>, callback?: (...args : any[]) => any) : void;
 			update (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 		}
-		export interface Reviews {
-			bubbleParent : boolean;
-			applyProperties (props: Dictionary<Object>) : void;
+		export interface Reviews  {
 			create (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			getBubbleParent () : boolean;
 			query (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			remove (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			show (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			update (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 		}
-		export interface Chats {
-			bubbleParent : boolean;
-			applyProperties (props: Dictionary<Object>) : void;
+		export interface Chats  {
 			create (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			getBubbleParent () : boolean;
 			getChatGroups (parameters?: Dictionary<Object>, callback?: (...args : any[]) => any) : void;
 			query (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 		}
-		export interface KeyValues {
-			bubbleParent : boolean;
+		export interface KeyValues  {
 			append (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			get (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			getBubbleParent () : boolean;
 			increment (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			remove (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			set (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 		}
-		export interface Checkins {
-			bubbleParent : boolean;
-			applyProperties (props: Dictionary<Object>) : void;
+		export interface Checkins  {
 			create (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			getBubbleParent () : boolean;
 			query (parameters?: Dictionary<Object>, callback?: (...args : any[]) => any) : void;
 			remove (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			show (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 		}
-		export interface Friends {
-			bubbleParent : boolean;
+		export interface Friends  {
 			add (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			approve (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			getBubbleParent () : boolean;
 			remove (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			requests (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			search (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 		}
-		export interface Photos {
-			bubbleParent : boolean;
-			applyProperties (props: Dictionary<Object>) : void;
+		export interface Photos  {
 			create (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			getBubbleParent () : boolean;
 			query (parameters?: Dictionary<Object>, callback?: (...args : any[]) => any) : void;
 			remove (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			search (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			show (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			update (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 		}
-		export interface Statuses {
-			bubbleParent : boolean;
-			applyProperties (props: Dictionary<Object>) : void;
+		export interface Statuses  {
 			create (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			getBubbleParent () : boolean;
 			query (parameters?: Dictionary<Object>, callback?: (...args : any[]) => any) : void;
 			search (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 		}
-		export interface PhotoCollections {
-			bubbleParent : boolean;
-			applyProperties (props: Dictionary<Object>) : void;
+		export interface PhotoCollections  {
 			create (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			getBubbleParent () : boolean;
 			remove (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			search (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			show (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			showPhotos (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			showSubCollections (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			update (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 		}
-		export interface Posts {
-			bubbleParent : boolean;
-			applyProperties (props: Dictionary<Object>) : void;
+		export interface Posts  {
 			create (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			getBubbleParent () : boolean;
 			query (parameters?: Dictionary<Object>, callback?: (...args : any[]) => any) : void;
 			remove (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			show (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			update (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 		}
-		export interface Emails {
-			bubbleParent : boolean;
-			applyProperties (props: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
+		export interface Emails  {
 			send (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 		}
-		export interface Places {
-			bubbleParent : boolean;
-			applyProperties (props: Dictionary<Object>) : void;
+		export interface Places  {
 			create (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
-			getBubbleParent () : boolean;
 			query (parameters?: Dictionary<Object>, callback?: (...args : any[]) => any) : void;
 			remove (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			search (parameters?: Dictionary<Object>, callback?: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			show (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 			update (parameters: Dictionary<Object>, callback: (...args : any[]) => any) : void;
 		}
 	}
-	export interface Blob {
-		bubbleParent : boolean;
+	export interface Blob extends Titanium.Proxy {
 		file : Titanium.Filesystem.File;
 		height : number;
 		length : number;
@@ -9377,11 +3172,7 @@ declare module Titanium {
 		size : number;
 		text : string;
 		width : number;
-		addEventListener (name: string, callback: (...args : any[]) => any) : void;
 		append (blob: Titanium.Blob) : void;
-		applyProperties (props: Dictionary<Object>) : void;
-		fireEvent (name: string, event: Dictionary<Object>) : void;
-		getBubbleParent () : boolean;
 		getFile () : Titanium.Filesystem.File;
 		getHeight () : number;
 		getLength () : number;
@@ -9396,11 +3187,9 @@ declare module Titanium {
 		imageWithAlpha () : Titanium.Blob;
 		imageWithRoundedCorner (cornerSize: number, borderSize?: number) : Titanium.Blob;
 		imageWithTransparentBorder (size: number) : Titanium.Blob;
-		removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-		setBubbleParent (bubbleParent: boolean) : void;
 		toString () : string;
 	}
-	export interface Codec {
+	export interface Codec  {
 		BIG_ENDIAN : number;
 		CHARSET_ASCII : string;
 		CHARSET_ISO_LATIN_1 : string;
@@ -9415,29 +3204,17 @@ declare module Titanium {
 		TYPE_INT : string;
 		TYPE_LONG : string;
 		TYPE_SHORT : string;
-		bubbleParent : boolean;
-		addEventListener (name: string, callback: (...args : any[]) => any) : void;
-		applyProperties (props: Dictionary<Object>) : void;
 		decodeNumber (options: DecodeNumberDict) : number;
 		decodeString (options: DecodeStringDict) : string;
 		encodeNumber (options: EncodeNumberDict) : number;
 		encodeString (options: Dictionary<EncodeStringDict>) : number;
-		fireEvent (name: string, event: Dictionary<Object>) : void;
-		getBubbleParent () : boolean;
 		getNativeByteOrder () : number;
-		removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-		setBubbleParent (bubbleParent: boolean) : void;
 	}
-	export interface Locale {
-		bubbleParent : boolean;
+	export interface Locale  {
 		currentCountry : string;
 		currentLanguage : string;
 		currentLocale : string;
-		addEventListener (name: string, callback: (...args : any[]) => any) : void;
-		applyProperties (props: Dictionary<Object>) : void;
-		fireEvent (name: string, event: Dictionary<Object>) : void;
 		formatTelephoneNumber (number: string) : string;
-		getBubbleParent () : boolean;
 		getCurrencyCode (locale: string) : string;
 		getCurrencySymbol (currencyCode: string) : string;
 		getCurrentCountry () : string;
@@ -9445,17 +3222,6 @@ declare module Titanium {
 		getCurrentLocale () : string;
 		getLocaleCurrencySymbol (locale: string) : string;
 		getString (key: string, hint?: string) : string;
-		removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-		setBubbleParent (bubbleParent: boolean) : void;
-	}
-	export interface Proxy {
-		bubbleParent : boolean;
-		addEventListener (name: string, callback: (...args : any[]) => any) : void;
-		applyProperties (props: Dictionary<Object>) : void;
-		fireEvent (name: string, event: Dictionary<Object>) : void;
-		getBubbleParent () : boolean;
-		removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-		setBubbleParent (bubbleParent: boolean) : void;
 	}
 	export module App {
 		export var EVENT_ACCESSIBILITY_ANNOUNCEMENT : string;
@@ -9508,24 +3274,8 @@ declare module Titanium {
 		export function setDisableNetworkActivityIndicator (disableNetworkActivityIndicator: boolean) : void;
 		export function setIdleTimerDisabled (idleTimerDisabled: boolean) : void;
 		export function setProximityDetection (proximityDetection: boolean) : void;
-		export module Android {
-			export var R : Titanium.App.Android.R;
-			export var bubbleParent : boolean;
-			export function addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			export function applyProperties (props: Dictionary<Object>) : void;
-			export function fireEvent (name: string, event: Dictionary<Object>) : void;
-			export function getBubbleParent () : boolean;
-			export function removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			export function setBubbleParent (bubbleParent: boolean) : void;
-			export interface R {
-				bubbleParent : boolean;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
-			}
+		export enum Android {
+			R
 		}
 		export module iOS {
 			export var EVENT_ACCESSIBILITY_LAYOUT_CHANGED : string;
@@ -9542,37 +3292,18 @@ declare module Titanium {
 			export function removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			export function scheduleLocalNotification (params: Dictionary<NotificationParams>) : Titanium.App.iOS.LocalNotification;
 			export function setBubbleParent (bubbleParent: boolean) : void;
-			export interface LocalNotification {
-				bubbleParent : boolean;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
+			export interface LocalNotification extends Titanium.Proxy {
 				cancel () : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
 			}
-			export interface BackgroundService {
-				bubbleParent : boolean;
+			export interface BackgroundService extends Titanium.Proxy {
 				url : string;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
 				getUrl () : string;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
 				stop () : void;
 				unregister () : void;
 			}
 		}
-		export interface Properties {
-			bubbleParent : boolean;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
+		export interface Properties  {
 			getBool (property: string, _default?: boolean) : boolean;
-			getBubbleParent () : boolean;
 			getDouble (property: string, _default?: number) : number;
 			getInt (property: string, _default?: number) : number;
 			getList (property: string, _default?: Array<Object>) : Array<Object>;
@@ -9580,17 +3311,15 @@ declare module Titanium {
 			getString (property: string, _default?: string) : string;
 			hasProperty (property: string) : boolean;
 			listProperties () : Array<Object>;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			removeProperty (property: string) : void;
 			setBool (property: string, value: boolean) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setDouble (property: string, value: number) : void;
 			setInt (property: string, value: number) : void;
 			setList (property: string, value: Array<Object>) : void;
 			setObject (property: string, value: any) : void;
 			setString (property: string, value: string) : void;
 		}
-		export interface Tizen {
+		export interface Tizen  {
 			categories : Array<String>;
 			iconPath : string;
 			id : string;
@@ -9598,10 +3327,7 @@ declare module Titanium {
 			name : string;
 			show : boolean;
 			size : number;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			exit () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getCategories () : Array<String>;
 			getIconPath () : string;
 			getId () : string;
@@ -9610,7 +3336,6 @@ declare module Titanium {
 			getShow () : boolean;
 			getSize () : number;
 			hide () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 		}
 	}
 	export module Android {
@@ -9828,9 +3553,8 @@ declare module Titanium {
 		export function startService (intent: Titanium.Android.Intent) : void;
 		export function stopService (intent: Titanium.Android.Intent) : void;
 		export function unregisterBroadcastReceiver (broadcastReceiver: Titanium.Android.BroadcastReceiver) : void;
-		export interface Intent {
+		export interface Intent extends Titanium.Proxy {
 			action : string;
-			bubbleParent : boolean;
 			className : string;
 			data : string;
 			flags : number;
@@ -9838,14 +3562,10 @@ declare module Titanium {
 			type : string;
 			url : string;
 			addCategory (name: string) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
 			addFlags (flags: number) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getAction () : string;
 			getBlobExtra (name: string) : Titanium.Blob;
 			getBooleanExtra (name: string) : boolean;
-			getBubbleParent () : boolean;
 			getClassName () : string;
 			getData () : string;
 			getDoubleExtra (name: string) : number;
@@ -9859,33 +3579,24 @@ declare module Titanium {
 			hasExtra (name: string) : boolean;
 			putExtra (name: string, value: any) : void;
 			putExtraUri (name: string, value: string) : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setFlags (flags: number) : void;
 		}
-		export interface Activity {
+		export interface Activity extends Titanium.Proxy {
 			actionBar : Titanium.Android.ActionBar;
-			bubbleParent : boolean;
 			intent : Titanium.Android.Intent;
 			onCreateOptionsMenu : (...args : any[]) => any;
 			onPrepareOptionsMenu : (...args : any[]) => any;
 			requestedOrientation : number;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			finish () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getActionBar () : Titanium.Android.ActionBar;
-			getBubbleParent () : boolean;
 			getIntent () : Titanium.Android.Intent;
 			getOnCreateOptionsMenu () : (...args : any[]) => any;
 			getOnPrepareOptionsMenu () : (...args : any[]) => any;
 			getString (resourceId: number, format: any) : string;
 			invalidateOptionsMenu () : void;
 			openOptionsMenu () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			sendBroadcast (intent: Titanium.Android.Intent) : void;
 			sendBroadcastWithPermission (intent: Titanium.Android.Intent, receiverPermission?: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setOnCreateOptionsMenu (onCreateOptionsMenu: (...args : any[]) => any) : void;
 			setOnPrepareOptionsMenu (onPrepareOptionsMenu: (...args : any[]) => any) : void;
 			setRequestedOrientation (orientation: number) : void;
@@ -9893,9 +3604,8 @@ declare module Titanium {
 			startActivity (intent: Titanium.Android.Intent) : void;
 			startActivityForResult (intent: Titanium.Android.Intent, callback: (...args : any[]) => any) : void;
 		}
-		export interface Notification {
+		export interface Notification extends Titanium.Proxy {
 			audioStreamType : number;
-			bubbleParent : boolean;
 			contentIntent : Titanium.Android.PendingIntent;
 			contentText : string;
 			contentTitle : string;
@@ -9911,11 +3621,7 @@ declare module Titanium {
 			sound : string;
 			tickerText : string;
 			when : any;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getAudioStreamType () : number;
-			getBubbleParent () : boolean;
 			getContentIntent () : Titanium.Android.PendingIntent;
 			getContentText () : string;
 			getContentTitle () : string;
@@ -9930,9 +3636,7 @@ declare module Titanium {
 			getSound () : string;
 			getTickerText () : string;
 			getWhen () : any;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			setAudioStreamType (audioStreamType: number) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setContentIntent (contentIntent: Titanium.Android.PendingIntent) : void;
 			setContentText (contentText: string) : void;
 			setContentTitle (contentTitle: string) : void;
@@ -9981,11 +3685,10 @@ declare module Titanium {
 			export function getSelectableCalendars () : Array<Titanium.Android.Calendar.Calendar>;
 			export function removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			export function setBubbleParent (bubbleParent: boolean) : void;
-			export interface Event {
+			export interface Event extends Titanium.Proxy {
 				alerts : Array<Titanium.Android.Calendar.Alert>;
 				allDay : boolean;
 				begin : Date;
-				bubbleParent : boolean;
 				description : string;
 				end : Date;
 				extendedProperties : Dictionary<Object>;
@@ -9997,15 +3700,11 @@ declare module Titanium {
 				status : number;
 				title : string;
 				visibility : number;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
 				createAlert (data: Dictionary<Titanium.Android.Calendar.Alert>) : Titanium.Android.Calendar.Alert;
 				createReminder (data: Dictionary<Titanium.Android.Calendar.Reminder>) : Titanium.Android.Calendar.Reminder;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
 				getAlerts () : Array<Titanium.Android.Calendar.Alert>;
 				getAllDay () : boolean;
 				getBegin () : Date;
-				getBubbleParent () : boolean;
 				getDescription () : string;
 				getEnd () : Date;
 				getExtendedProperties () : Dictionary<Object>;
@@ -10018,36 +3717,22 @@ declare module Titanium {
 				getStatus () : number;
 				getTitle () : string;
 				getVisibility () : number;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
 				setExtendedProperty (name: string, value: string) : void;
 			}
-			export interface Reminder {
-				bubbleParent : boolean;
+			export interface Reminder extends Titanium.Proxy {
 				id : string;
 				method : number;
 				minutes : number;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
 				getId () : string;
 				getMethod () : number;
 				getMinutes () : number;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
 			}
-			export interface Calendar {
-				bubbleParent : boolean;
+			export interface Calendar extends Titanium.Proxy {
 				hidden : boolean;
 				id : string;
 				name : string;
 				selected : boolean;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
 				createEvent (properties: Dictionary<Titanium.Android.Calendar.Event>) : Titanium.Android.Calendar.Event;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
-				getBubbleParent () : boolean;
 				getEventById (id: number) : Titanium.Android.Calendar.Event;
 				getEventsBetweenDates (date1: Date, date2: Date) : Array<Titanium.Android.Calendar.Event>;
 				getEventsInDate (year: number, month: number, day: number) : Array<Titanium.Android.Calendar.Event>;
@@ -10057,37 +3742,27 @@ declare module Titanium {
 				getId () : string;
 				getName () : string;
 				getSelected () : boolean;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
 			}
-			export interface Alert {
+			export interface Alert extends Titanium.Proxy {
 				alarmTime : Date;
 				begin : Date;
-				bubbleParent : boolean;
 				end : Date;
 				eventId : number;
 				id : string;
 				minutes : number;
 				state : number;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
 				getAlarmTime () : Date;
 				getBegin () : Date;
-				getBubbleParent () : boolean;
 				getEnd () : Date;
 				getEventId () : number;
 				getId () : string;
 				getMinutes () : number;
 				getState () : number;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
 			}
 		}
-		export interface MenuItem {
+		export interface MenuItem extends Titanium.Proxy {
 			actionView : Titanium.UI.View;
 			actionViewExpanded : boolean;
-			bubbleParent : boolean;
 			checkable : boolean;
 			checked : boolean;
 			enabled : boolean;
@@ -10099,13 +3774,9 @@ declare module Titanium {
 			title : string;
 			titleCondensed : string;
 			visible : boolean;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			collapseActionView () : void;
 			expandActionView () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getActionView () : Titanium.UI.View;
-			getBubbleParent () : boolean;
 			getGroupId () : number;
 			getItemId () : number;
 			getOrder () : number;
@@ -10116,9 +3787,7 @@ declare module Titanium {
 			isChecked () : boolean;
 			isEnabled () : boolean;
 			isVisible () : boolean;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			setActionView (actionView: Titanium.UI.View) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setCheckable (checkable: boolean) : void;
 			setChecked (enabled: boolean) : void;
 			setEnabled (enabled: boolean) : void;
@@ -10129,7 +3798,7 @@ declare module Titanium {
 			setTitleCondensed (titleCondensed: string) : void;
 			setVisible (visible: boolean) : void;
 		}
-		export interface NotificationManager {
+		export interface NotificationManager  {
 			DEFAULT_ALL : number;
 			DEFAULT_LIGHTS : number;
 			DEFAULT_SOUND : number;
@@ -10141,22 +3810,14 @@ declare module Titanium {
 			FLAG_ONLY_ALERT_ONCE : number;
 			FLAG_SHOW_LIGHTS : number;
 			STREAM_DEFAULT : number;
-			bubbleParent : boolean;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			cancel (id: number) : void;
 			cancelAll () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			notify (id: number, notification: Titanium.Android.Notification) : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 		}
-		export interface R {
+		export interface R extends Titanium.Proxy {
 			anim : any;
 			array : any;
 			attr : any;
-			bubbleParent : boolean;
 			color : any;
 			dimen : any;
 			drawable : any;
@@ -10166,32 +3827,19 @@ declare module Titanium {
 			string : any;
 			style : any;
 			styleable : any;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 		}
-		export interface ActionBar {
+		export interface ActionBar extends Titanium.Proxy {
 			backgroundImage : string;
-			bubbleParent : boolean;
 			displayHomeAsUp : boolean;
 			icon : string;
 			logo : string;
 			navigationMode : number;
 			onHomeIconItemSelected : (...args : any[]) => any;
 			title : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getNavigationMode () : number;
 			getTitle () : string;
 			hide () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			setBackgroundImage (backgroundImage: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setDisplayHomeAsUp (displayHomeAsUp: boolean) : void;
 			setIcon (icon: string) : void;
 			setLogo (logo: string) : void;
@@ -10200,72 +3848,44 @@ declare module Titanium {
 			setTitle (title: string) : void;
 			show () : void;
 		}
-		export interface BroadcastReceiver {
-			bubbleParent : boolean;
+		export interface BroadcastReceiver extends Titanium.Proxy {
 			onReceived : (...args : any[]) => any;
 			url : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getOnReceived () : (...args : any[]) => any;
 			getUrl () : string;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setOnReceived (onReceived: (...args : any[]) => any) : void;
 			setUrl (url: string) : void;
 		}
-		export interface Menu {
-			bubbleParent : boolean;
+		export interface Menu extends Titanium.Proxy {
 			items : Array<Titanium.Android.MenuItem>;
 			add (options: any) : Titanium.Android.MenuItem;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			clear () : void;
 			close () : void;
 			findItem (item: number) : Titanium.Android.MenuItem;
 			findItem (item: Titanium.Android.MenuItem) : Titanium.Android.MenuItem;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getItem (index: number) : Titanium.Android.MenuItem;
 			getItems () : Array<Titanium.Android.MenuItem>;
 			hasVisibleItems () : boolean;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			removeGroup (groupId: number) : void;
 			removeItem (itemId: number) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setGroupEnabled (groupId: number, enabled: boolean) : void;
 			setGroupVisible (groupId: number, visible: boolean) : void;
 			size () : number;
 		}
-		export interface Service {
-			bubbleParent : boolean;
+		export interface Service extends Titanium.Proxy {
 			intent : Titanium.Android.Intent;
 			serviceInstanceId : number;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getIntent () : Titanium.Android.Intent;
 			getServiceInstanceId () : number;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			start () : void;
 			stop () : void;
 		}
-		export interface RemoteViews {
-			bubbleParent : boolean;
+		export interface RemoteViews extends Titanium.Proxy {
 			layoutId : number;
 			packageName : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getLayoutId () : number;
 			getPackageName () : string;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			setBoolean (viewId: number, methodName: string, value: boolean) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setChronometer (viewId: number, base: Date, format: string, started: boolean) : void;
 			setDouble (viewId: number, methodName: string, value: number) : void;
 			setImageViewResource (viewId: number, srcId: number) : void;
@@ -10279,20 +3899,13 @@ declare module Titanium {
 			setUri (viewId: number, methodName: string, value: string) : void;
 			setViewVisibility (viewId: number, visibility: number) : void;
 		}
-		export interface PendingIntent {
-			bubbleParent : boolean;
+		export interface PendingIntent extends Titanium.Proxy {
 			flags : number;
 			intent : Titanium.Android.Intent;
 			updateCurrentIntent : boolean;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getFlags () : number;
 			getIntent () : Titanium.Android.Intent;
 			getUpdateCurrentIntent () : boolean;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 		}
 	}
 	export module Database {
@@ -10309,68 +3922,40 @@ declare module Titanium {
 		export function open (dbName: string) : Titanium.Database.DB;
 		export function removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 		export function setBubbleParent (bubbleParent: boolean) : void;
-		export interface ResultSet {
-			bubbleParent : boolean;
+		export interface ResultSet extends Titanium.Proxy {
 			rowCount : number;
 			validRow : boolean;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			close () : void;
 			field (index: number, type?: number) : any;
 			fieldByName (name: string, type?: number) : any;
 			fieldCount () : number;
 			fieldName (index: number) : string;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getFieldCount () : number;
 			getFieldName (index: number) : string;
 			getRowCount () : number;
 			getValidRow () : boolean;
 			isValidRow () : boolean;
 			next () : boolean;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 		}
-		export interface DB {
-			bubbleParent : boolean;
+		export interface DB extends Titanium.Proxy {
 			file : Titanium.Filesystem.File;
 			lastInsertRowId : number;
 			name : string;
 			rowsAffected : number;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			close () : void;
 			execute (sql: string, vararg?: string) : Titanium.Database.ResultSet;
 			execute (vararg?: Array<String>) : Titanium.Database.ResultSet;
 			execute (vararg?: any) : Titanium.Database.ResultSet;
 			execute (sql: string, vararg?: Array<Object>) : Titanium.Database.ResultSet;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getFile () : Titanium.Filesystem.File;
 			getLastInsertRowId () : number;
 			getName () : string;
 			getRowsAffected () : number;
 			remove () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setLastInsertRowId (lastInsertRowId: number) : void;
 			setName (name: string) : void;
 			setRowsAffected (rowsAffected: number) : void;
 		}
-	}
-	export interface IOStream {
-		bubbleParent : boolean;
-		addEventListener (name: string, callback: (...args : any[]) => any) : void;
-		applyProperties (props: Dictionary<Object>) : void;
-		close () : void;
-		fireEvent (name: string, event: Dictionary<Object>) : void;
-		getBubbleParent () : boolean;
-		isReadable () : boolean;
-		isWriteable () : boolean;
-		read (buffer: Titanium.Buffer, offset?: number, length?: number) : number;
-		removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-		setBubbleParent (bubbleParent: boolean) : void;
-		write (buffer: Titanium.Buffer, offset?: number, length?: number) : number;
 	}
 	export module Contacts {
 		export var AUTHORIZATION_AUTHORIZED : number;
@@ -10410,38 +3995,26 @@ declare module Titanium {
 			export function getAllPeople (callback: (...args : any[]) => any) : void;
 			export function getPeopleWithName (name: string, callback: (...args : any[]) => any) : void;
 			export function removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			export interface Group {
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
+			export interface Group  {
 				members (group: Titanium.Contacts.Group, callback: (...args : any[]) => any) : void;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 				sortedMembers (sortBy: number, group: Titanium.Contacts.Group, callback: (...args : any[]) => any) : void;
 			}
 		}
-		export interface Group {
-			bubbleParent : boolean;
+		export interface Group extends Titanium.Proxy {
 			name : string;
 			recordId : number;
 			add (person: Titanium.Contacts.Person) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getName () : string;
 			getRecordId () : number;
 			members () : Array<Titanium.Contacts.Person>;
 			remove (person: Titanium.Contacts.Person) : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setName (name: string) : void;
 			setRecordId (recordId: number) : void;
 			sortedMembers (sortBy: number) : Array<Titanium.Contacts.Person>;
 		}
-		export interface Person {
+		export interface Person extends Titanium.Proxy {
 			address : Dictionary<Object>;
 			birthday : string;
-			bubbleParent : boolean;
 			created : string;
 			date : Dictionary<Object>;
 			department : string;
@@ -10468,12 +4041,8 @@ declare module Titanium {
 			relatedNames : Dictionary<Object>;
 			suffix : string;
 			url : Dictionary<Object>;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getAddress () : Dictionary<Object>;
 			getBirthday () : string;
-			getBubbleParent () : boolean;
 			getCreated () : string;
 			getDate () : Dictionary<Object>;
 			getDepartment () : string;
@@ -10500,10 +4069,8 @@ declare module Titanium {
 			getRelatedNames () : Dictionary<Object>;
 			getSuffix () : string;
 			getUrl () : Dictionary<Object>;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			setAddress (address: Dictionary<Object>) : void;
 			setBirthday (birthday: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setDate (date: Dictionary<Object>) : void;
 			setDepartment (department: string) : void;
 			setEmail (email: Dictionary<Object>) : void;
@@ -10526,28 +4093,21 @@ declare module Titanium {
 			setUrl (url: Dictionary<Object>) : void;
 		}
 	}
-	export interface CloudPush {
-		bubbleParent : boolean;
+	export interface CloudPush  {
 		enabled : boolean;
 		focusAppOnPush : boolean;
 		showAppOnTrayClick : boolean;
 		showTrayNotification : boolean;
 		showTrayNotificationsWhenFocused : boolean;
 		singleCallback : boolean;
-		addEventListener (name: string, callback: (...args : any[]) => any) : void;
-		applyProperties (props: Dictionary<Object>) : void;
 		clearStatus () : void;
-		fireEvent (name: string, event: Dictionary<Object>) : void;
-		getBubbleParent () : boolean;
 		getEnabled () : boolean;
 		getFocusAppOnPush () : boolean;
 		getShowAppOnTrayClick () : boolean;
 		getShowTrayNotification () : boolean;
 		getShowTrayNotificationsWhenFocused () : boolean;
 		getSingleCallback () : boolean;
-		removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 		retrieveDeviceToken (config: CloudPushNotificationConfig) : void;
-		setBubbleParent (bubbleParent: boolean) : void;
 		setEnabled (enabled: boolean) : void;
 		setFocusAppOnPush (focusAppOnPush: boolean) : void;
 		setShowAppOnTrayClick (showAppOnTrayClick: boolean) : void;
@@ -10722,9 +4282,8 @@ declare module Titanium {
 		export function takePicture () : void;
 		export function takeScreenshot (callback: (...args : any[]) => any) : void;
 		export function vibrate (pattern?: Array<Number>) : void;
-		export interface Sound {
+		export interface Sound extends Titanium.Proxy {
 			allowBackground : boolean;
-			bubbleParent : boolean;
 			duration : number;
 			looping : boolean;
 			paused : boolean;
@@ -10732,10 +4291,6 @@ declare module Titanium {
 			time : number;
 			url : string;
 			volume : number;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getDuration () : number;
 			getTime () : number;
 			getUrl () : string;
@@ -10746,9 +4301,7 @@ declare module Titanium {
 			pause () : void;
 			play () : void;
 			release () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			reset () : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setLooping (looping: boolean) : void;
 			setPaused (paused: boolean) : void;
 			setTime (time: number) : void;
@@ -10756,39 +4309,31 @@ declare module Titanium {
 			setVolume (volume: number) : void;
 			stop () : void;
 		}
-		export interface AudioRecorder {
-			bubbleParent : boolean;
+		export interface AudioRecorder extends Titanium.Proxy {
 			compression : number;
 			format : number;
 			paused : boolean;
 			recording : boolean;
 			stopped : boolean;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getCompression () : number;
 			getFormat () : number;
 			getPaused () : boolean;
 			getRecording () : boolean;
 			getStopped () : boolean;
 			pause () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			resume () : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setCompression (compression: number) : void;
 			setFormat (format: number) : void;
 			start () : void;
 			stop () : Titanium.Filesystem.File;
 		}
-		export interface Item {
+		export interface Item extends Titanium.Proxy {
 			albumArtist : string;
 			albumTitle : string;
 			albumTrackCount : number;
 			albumTrackNumber : number;
 			artist : string;
 			artwork : Titanium.Blob;
-			bubbleParent : boolean;
 			composer : string;
 			discCount : number;
 			discNumber : number;
@@ -10802,16 +4347,12 @@ declare module Titanium {
 			rating : number;
 			skipCount : number;
 			title : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getAlbumArtist () : string;
 			getAlbumTitle () : string;
 			getAlbumTrackCount () : number;
 			getAlbumTrackNumber () : number;
 			getArtist () : string;
 			getArtwork () : Titanium.Blob;
-			getBubbleParent () : boolean;
 			getComposer () : string;
 			getDiscCount () : number;
 			getDiscNumber () : number;
@@ -10825,199 +4366,67 @@ declare module Titanium {
 			getRating () : number;
 			getSkipCount () : number;
 			getTitle () : string;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 		}
-		export interface VideoPlayer {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
+		export interface VideoPlayer extends Titanium.UI.View {
 			allowsAirPlay : boolean;
-			anchorPoint : Point;
-			animatedCenter : Point;
 			autoplay : boolean;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
 			contentURL : string;
 			currentPlaybackTime : number;
 			duration : number;
 			endPlaybackTime : number;
-			focusable : boolean;
 			fullscreen : boolean;
-			height : any;
-			horizontalWrap : boolean;
 			initialPlaybackTime : number;
-			keepScreenOn : boolean;
-			layout : string;
-			left : any;
 			loadState : number;
 			media : any;
 			mediaControlStyle : number;
 			mediaTypes : number;
 			movieControlMode : number;
 			naturalSize : MovieSize;
-			opacity : number;
 			playableDuration : number;
 			playbackState : number;
 			playing : boolean;
-			rect : Dimension;
 			repeatMode : number;
-			right : any;
 			scalingMode : number;
-			size : Dimension;
-			softKeyboardOnFocus : number;
 			sourceType : number;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
 			url : any;
 			useApplicationAudioSession : boolean;
-			visible : boolean;
 			volume : number;
-			width : any;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			cancelAllThumbnailImageRequests () : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
 			getAllowsAirPlay () : boolean;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
 			getAutoplay () : boolean;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
 			getContentURL () : string;
 			getCurrentPlaybackTime () : number;
 			getDuration () : number;
 			getEndPlaybackTime () : number;
-			getFocusable () : boolean;
 			getFullscreen () : boolean;
-			getHeight () : any;
-			getHorizontalWrap () : boolean;
 			getInitialPlaybackTime () : number;
-			getKeepScreenOn () : boolean;
-			getLayout () : string;
-			getLeft () : any;
 			getLoadState () : number;
 			getMediaControlStyle () : number;
 			getMediaTypes () : number;
 			getMovieControlMode () : number;
 			getNaturalSize () : MovieSize;
-			getOpacity () : number;
 			getPlayableDuration () : number;
 			getPlaybackState () : number;
 			getPlaying () : boolean;
-			getRect () : Dimension;
 			getRepeatMode () : number;
-			getRight () : any;
 			getScalingMode () : number;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
 			getSourceType () : number;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
 			getUrl () : any;
 			getUseApplicationAudioSession () : boolean;
-			getVisible () : boolean;
 			getVolume () : number;
-			getWidth () : any;
-			getZIndex () : number;
-			hide () : void;
 			pause () : void;
 			play () : void;
 			release () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			requestThumbnailImagesAtTimes (times: Array<Number>, option: number, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
 			setAllowsAirPlay (allowsAirPlay: boolean) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
 			setAutoplay (autoplay: boolean) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
 			setBackgroundView (view: Titanium.UI.View) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
 			setContentURL (contentURL: string) : void;
 			setCurrentPlaybackTime (currentPlaybackTime: number) : void;
 			setDuration (duration: number) : void;
 			setEndPlaybackTime (endPlaybackTime: number) : void;
-			setFocusable (focusable: boolean) : void;
 			setFullscreen (fullscreen: boolean) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
 			setInitialPlaybackTime (initialPlaybackTime: number) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
 			setMedia (media: Titanium.Blob) : void;
 			setMedia (media: Titanium.Filesystem.File) : void;
 			setMedia (media: string) : void;
@@ -11025,46 +4434,23 @@ declare module Titanium {
 			setMediaTypes (mediaTypes: number) : void;
 			setMovieControlMode (movieControlMode: number) : void;
 			setNaturalSize (naturalSize: MovieSize) : void;
-			setOpacity (opacity: number) : void;
 			setRepeatMode (repeatMode: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
 			setScalingMode (scalingMode: number) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
 			setSourceType (sourceType: number) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
 			setUrl (url: string) : void;
 			setUrl (url: Array<String>) : void;
 			setUseApplicationAudioSession (useApplicationAudioSession: boolean) : void;
-			setVisible (visible: boolean) : void;
 			setVolume (volume: number) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
 			stop () : void;
 			thumbnailImageAtTime (time: number, option: number) : Titanium.Blob;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
-		export interface MusicPlayer {
-			bubbleParent : boolean;
+		export interface MusicPlayer extends Titanium.Proxy {
 			currentPlaybackTime : number;
 			nowPlaying : Titanium.Media.Item;
 			playbackState : number;
 			repeatMode : number;
 			shuffleMode : number;
 			volume : number;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getCurrentPlaybackTime () : number;
 			getNowPlaying () : Titanium.Media.Item;
 			getPlaybackState () : number;
@@ -11073,10 +4459,8 @@ declare module Titanium {
 			getVolume () : number;
 			pause () : void;
 			play () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			seekBackward () : void;
 			seekForward () : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setCurrentPlaybackTime (currentPlaybackTime: number) : void;
 			setQueue (queue: Titanium.Media.Item) : void;
 			setQueue (queue: Array<Titanium.Media.Item>) : void;
@@ -11090,7 +4474,7 @@ declare module Titanium {
 			stop () : void;
 			stopSeeking () : void;
 		}
-		export interface AudioPlayer {
+		export interface AudioPlayer extends Titanium.Proxy {
 			STATE_BUFFERING : number;
 			STATE_INITIALIZED : number;
 			STATE_PAUSED : number;
@@ -11103,7 +4487,6 @@ declare module Titanium {
 			allowBackground : boolean;
 			autoplay : boolean;
 			bitRate : number;
-			bubbleParent : boolean;
 			bufferSize : number;
 			idle : boolean;
 			paused : boolean;
@@ -11113,13 +4496,9 @@ declare module Titanium {
 			url : string;
 			volume : number;
 			waiting : boolean;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getAllowBackground () : boolean;
 			getAutoplay () : boolean;
 			getBitRate () : number;
-			getBubbleParent () : boolean;
 			getBufferSize () : number;
 			getIdle () : boolean;
 			getPaused () : boolean;
@@ -11134,9 +4513,7 @@ declare module Titanium {
 			pause () : void;
 			play () : void;
 			release () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			setBitRate (bitRate: number) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setBufferSize (bufferSize: number) : void;
 			setPaused (paused: boolean) : void;
 			setUrl (url: string) : void;
@@ -11145,15 +4522,8 @@ declare module Titanium {
 			stateDescription (state: number) : string;
 			stop () : void;
 		}
-		export interface Android {
-			bubbleParent : boolean;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
+		export interface Android  {
 			scanMediaFiles (paths: Array<String>, mimeTypes: Array<String>, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setSystemWallpaper (image: Titanium.Blob, scale: boolean) : void;
 		}
 	}
@@ -11226,22 +4596,15 @@ declare module Titanium {
 			export function getBubbleParent () : boolean;
 			export function removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			export function setBubbleParent (bubbleParent: boolean) : void;
-			export interface UDP {
+			export interface UDP extends Titanium.IOStream {
 				data : (...args : any[]) => any;
 				error : (...args : any[]) => any;
 				port : number;
 				started : (...args : any[]) => any;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				close () : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
 				getData () : (...args : any[]) => any;
 				getError () : (...args : any[]) => any;
 				getPort () : number;
 				getStarted () : (...args : any[]) => any;
-				isReadable () : boolean;
-				isWriteable () : boolean;
-				read (buffer: Titanium.Buffer, offset?: number, length?: number) : number;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 				sendBytes (port: number, host: string, data: Array<Number>) : void;
 				sendString (port: number, host: string, data: string) : void;
 				setData (data: (...args : any[]) => any) : void;
@@ -11250,11 +4613,9 @@ declare module Titanium {
 				setStarted (started: (...args : any[]) => any) : void;
 				start (port: number) : void;
 				stop () : void;
-				write (buffer: Titanium.Buffer, offset?: number, length?: number) : number;
 			}
-			export interface TCP {
+			export interface TCP extends Titanium.IOStream {
 				accepted : (...args : any[]) => any;
-				bubbleParent : boolean;
 				connected : (...args : any[]) => any;
 				error : (...args : any[]) => any;
 				host : string;
@@ -11263,13 +4624,8 @@ declare module Titanium {
 				state : number;
 				timeout : number;
 				accept (options: AcceptDict) : void;
-				addEventListener (name: string, callback: (...args : any[]) => any) : void;
-				applyProperties (props: Dictionary<Object>) : void;
-				close () : void;
 				connect () : void;
-				fireEvent (name: string, event: Dictionary<Object>) : void;
 				getAccepted () : (...args : any[]) => any;
-				getBubbleParent () : boolean;
 				getConnected () : (...args : any[]) => any;
 				getError () : (...args : any[]) => any;
 				getHost () : string;
@@ -11277,43 +4633,30 @@ declare module Titanium {
 				getPort () : number;
 				getState () : number;
 				getTimeout () : number;
-				isReadable () : boolean;
-				isWriteable () : boolean;
 				listen () : void;
-				read (buffer: Titanium.Buffer, offset?: number, length?: number) : number;
-				removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 				setAccepted (accepted: (...args : any[]) => any) : void;
-				setBubbleParent (bubbleParent: boolean) : void;
 				setConnected (connected: (...args : any[]) => any) : void;
 				setError (error: (...args : any[]) => any) : void;
 				setHost (host: string) : void;
 				setListenQueueSize (listenQueueSize: number) : void;
 				setPort (port: number) : void;
 				setTimeout (timeout: number) : void;
-				write (buffer: Titanium.Buffer, offset?: number, length?: number) : number;
 			}
 		}
-		export interface TCPSocket {
-			bubbleParent : boolean;
+		export interface TCPSocket extends Titanium.Proxy {
 			hostName : string;
 			isValid : boolean;
 			mode : number;
 			port : number;
 			stripTerminator : boolean;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			close () : void;
 			connect () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getHostName () : string;
 			getIsValid () : boolean;
 			getMode () : number;
 			getPort () : number;
 			getStripTerminator () : boolean;
 			listen () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setHostName (hostName: string) : void;
 			setIsValid (isValid: boolean) : void;
 			setMode (mode: number) : void;
@@ -11322,26 +4665,19 @@ declare module Titanium {
 			write (data: any, sendTo: number) : void;
 			write (data: string, sendTo: number) : void;
 		}
-		export interface BonjourService {
-			bubbleParent : boolean;
+		export interface BonjourService extends Titanium.Proxy {
 			domain : string;
 			isLocal : boolean;
 			name : string;
 			socket : any;
 			type : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getDomain () : string;
 			getIsLocal () : boolean;
 			getName () : string;
 			getSocket () : any;
 			getType () : string;
 			publish (socket: any) : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			resolve (timeout: number) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setDomain (domain: string) : void;
 			setIsLocal (isLocal: boolean) : void;
 			setName (name: string) : void;
@@ -11349,7 +4685,7 @@ declare module Titanium {
 			setType (type: string) : void;
 			stop () : void;
 		}
-		export interface HTTPClient {
+		export interface HTTPClient extends Titanium.Proxy {
 			DONE : number;
 			HEADERS_RECEIVED : number;
 			LOADING : number;
@@ -11358,7 +4694,6 @@ declare module Titanium {
 			allResponseHeaders : string;
 			autoEncodeUrl : boolean;
 			autoRedirect : boolean;
-			bubbleParent : boolean;
 			cache : boolean;
 			connected : boolean;
 			connectionType : string;
@@ -11385,16 +4720,12 @@ declare module Titanium {
 			withCredentials : boolean;
 			abort () : void;
 			addAuthFactory (scheme: string, factory: any) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
 			addKeyManager (X509KeyManager: any) : void;
 			addTrustManager (X509TrustManager: any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			clearCookies (host: string) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getAllResponseHeaders () : string;
 			getAutoEncodeUrl () : boolean;
 			getAutoRedirect () : boolean;
-			getBubbleParent () : boolean;
 			getCache () : boolean;
 			getConnected () : boolean;
 			getConnectionType () : string;
@@ -11421,14 +4752,12 @@ declare module Titanium {
 			getValidatesSecureCertificate () : boolean;
 			getWithCredentials () : boolean;
 			open (method: string, url: string, async?: boolean) : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			send (data?: any) : void;
 			send (data?: string) : void;
 			send (data?: Titanium.Filesystem.File) : void;
 			send (data?: Titanium.Blob) : void;
 			setAutoEncodeUrl (autoEncodeUrl: boolean) : void;
 			setAutoRedirect (autoRedirect: boolean) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setCache (cache: boolean) : void;
 			setDomain (domain: string) : void;
 			setEnableKeepAlive (enableKeepAlive: boolean) : void;
@@ -11446,21 +4775,14 @@ declare module Titanium {
 			setValidatesSecureCertificate (validatesSecureCertificate: boolean) : void;
 			setWithCredentials (withCredentials: boolean) : void;
 		}
-		export interface BonjourBrowser {
-			bubbleParent : boolean;
+		export interface BonjourBrowser extends Titanium.Proxy {
 			domain : string;
 			isSearching : boolean;
 			serviceType : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getDomain () : string;
 			getIsSearching () : boolean;
 			getServiceType () : string;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			search () : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setDomain (domain: string) : void;
 			setIsSearching (isSearching: boolean) : void;
 			setServiceType (serviceType: string) : void;
@@ -11524,8 +4846,7 @@ declare module Titanium {
 		export function removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 		export function setBatteryMonitoring (batteryMonitoring: boolean) : void;
 		export function setBubbleParent (bubbleParent: boolean) : void;
-		export interface DisplayCaps {
-			bubbleParent : boolean;
+		export interface DisplayCaps extends Titanium.Proxy {
 			density : string;
 			dpi : number;
 			logicalDensityFactor : number;
@@ -11533,10 +4854,6 @@ declare module Titanium {
 			platformWidth : number;
 			xdpi : number;
 			ydpi : number;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getDensity () : string;
 			getDpi () : number;
 			getLogicalDensityFactor () : number;
@@ -11544,8 +4861,6 @@ declare module Titanium {
 			getPlatformWidth () : number;
 			getXdpi () : number;
 			getYdpi () : number;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setDensity (density: string) : void;
 			setDpi (dpi: number) : void;
 			setLogicalDensityFactor (logicalDensityFactor: number) : void;
@@ -11554,64 +4869,39 @@ declare module Titanium {
 			setXdpi (xdpi: number) : void;
 			setYdpi (ydpi: number) : void;
 		}
-		export interface Android {
+		export interface Android  {
 			API_LEVEL : number;
 			PHYSICAL_SIZE_CATEGORY_LARGE : number;
 			PHYSICAL_SIZE_CATEGORY_NORMAL : number;
 			PHYSICAL_SIZE_CATEGORY_SMALL : number;
 			PHYSICAL_SIZE_CATEGORY_UNDEFINED : number;
 			PHYSICAL_SIZE_CATEGORY_XLARGE : number;
-			bubbleParent : boolean;
 			physicalSizeCategory : number;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getPhysicalSizeCategory () : number;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 		}
 	}
-	export interface Buffer {
-		bubbleParent : boolean;
+	export interface Buffer extends Titanium.Proxy {
 		byteOrder : number;
 		length : number;
 		type : string;
 		value : any;
-		addEventListener (name: string, callback: (...args : any[]) => any) : void;
 		append (sourceBuffer: Titanium.Buffer, sourceOffset?: number, sourceLength?: number) : number;
-		applyProperties (props: Dictionary<Object>) : void;
 		clear () : void;
 		clone (offset?: number, length?: number) : Titanium.Buffer;
 		copy (sourceBuffer: Titanium.Buffer, offset: number, sourceOffset?: number, sourceLength?: number) : number;
 		fill (fillByte: number, offset?: number, length?: number) : void;
-		fireEvent (name: string, event: Dictionary<Object>) : void;
-		getBubbleParent () : boolean;
 		getByteOrder () : number;
 		getLength () : number;
 		getType () : string;
 		getValue () : any;
 		insert (sourceBuffer: Titanium.Buffer, offset: number, sourceOffset?: number, sourceLength?: number) : number;
 		release () : void;
-		removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-		setBubbleParent (bubbleParent: boolean) : void;
 		setLength (length: number) : void;
 		toBlob () : Titanium.Blob;
 		toString () : string;
 	}
-	export interface BufferStream {
-		bubbleParent : boolean;
-		addEventListener (name: string, callback: (...args : any[]) => any) : void;
-		applyProperties (props: Dictionary<Object>) : void;
-		close () : void;
-		fireEvent (name: string, event: Dictionary<Object>) : void;
-		getBubbleParent () : boolean;
-		isReadable () : boolean;
-		isWriteable () : boolean;
-		read (buffer: Titanium.Buffer, offset?: number, length?: number) : number;
-		removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-		setBubbleParent (bubbleParent: boolean) : void;
-		write (buffer: Titanium.Buffer, offset?: number, length?: number) : number;
+	export enum BufferStream {
+
 	}
 	export module Calendar {
 		export var AUTHORIZATION_AUTHORIZED : number;
@@ -11665,17 +4955,12 @@ declare module Titanium {
 		export function removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 		export function requestEventsAuthorization (callback: (...args : any[]) => any) : void;
 		export function setBubbleParent (bubbleParent: boolean) : void;
-		export interface Calendar {
-			bubbleParent : boolean;
+		export interface Calendar extends Titanium.Proxy {
 			hidden : boolean;
 			id : string;
 			name : string;
 			selected : boolean;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			createEvent (properties: Dictionary<Titanium.Calendar.Event>) : Titanium.Calendar.Event;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getEventById (id: number) : Titanium.Calendar.Event;
 			getEventsBetweenDates (date1: Date, date2: Date) : Array<Titanium.Calendar.Event>;
 			getEventsInDate (year: number, month: number, day: number) : Array<Titanium.Calendar.Event>;
@@ -11685,30 +4970,20 @@ declare module Titanium {
 			getId () : string;
 			getName () : string;
 			getSelected () : boolean;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 		}
-		export interface Reminder {
-			bubbleParent : boolean;
+		export interface Reminder extends Titanium.Proxy {
 			id : string;
 			method : number;
 			minutes : number;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getId () : string;
 			getMethod () : number;
 			getMinutes () : number;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 		}
-		export interface Event {
+		export interface Event extends Titanium.Proxy {
 			alerts : Array<Titanium.Calendar.Alert>;
 			allDay : boolean;
 			availability : number;
 			begin : Date;
-			bubbleParent : boolean;
 			description : string;
 			end : Date;
 			extendedProperties : Dictionary<Object>;
@@ -11723,18 +4998,14 @@ declare module Titanium {
 			status : number;
 			title : string;
 			visibility : number;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
 			addRecurrenceRule (rule: Titanium.Calendar.RecurrenceRule) : void;
-			applyProperties (props: Dictionary<Object>) : void;
 			createAlert (data: Dictionary<Titanium.Calendar.Alert>) : Titanium.Calendar.Alert;
 			createRecurenceRule (data: Dictionary<Titanium.Calendar.RecurrenceRule>) : Titanium.Calendar.RecurrenceRule;
 			createReminder (data: Dictionary<Titanium.Calendar.Reminder>) : Titanium.Calendar.Reminder;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getAlerts () : Array<Titanium.Calendar.Alert>;
 			getAllDay () : boolean;
 			getAvailability () : number;
 			getBegin () : Date;
-			getBubbleParent () : boolean;
 			getDescription () : string;
 			getEnd () : Date;
 			getExtendedProperties () : Dictionary<Object>;
@@ -11752,13 +5023,11 @@ declare module Titanium {
 			getVisibility () : number;
 			refresh () : boolean;
 			remove (span: number) : boolean;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			removeRecurenceRule (rule: Titanium.Calendar.RecurrenceRule) : void;
 			save (span: number) : boolean;
 			setAlerts (alerts: Array<Titanium.Calendar.Alert>) : void;
 			setAllDay (allDay: boolean) : void;
 			setBegin (begin: Date) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setEnd (end: Date) : void;
 			setExtendedProperty (name: string, value: string) : void;
 			setLocation (location: string) : void;
@@ -11767,8 +5036,7 @@ declare module Titanium {
 			setRecurenceRules (recurenceRules: Array<Titanium.Calendar.RecurrenceRule>) : void;
 			setTitle (title: string) : void;
 		}
-		export interface RecurrenceRule {
-			bubbleParent : boolean;
+		export interface RecurrenceRule extends Titanium.Proxy {
 			calendarID : string;
 			daysOfTheMonth : Array<Number>;
 			daysOfTheWeek : daysOfTheWeekDictionary;
@@ -11779,10 +5047,6 @@ declare module Titanium {
 			monthsOfTheYear : Array<Number>;
 			setPositions : Array<Number>;
 			weeksOfTheYear : Array<Number>;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getCalendarID () : string;
 			getDaysOfTheMonth () : Array<Number>;
 			getDaysOfTheWeek () : daysOfTheWeekDictionary;
@@ -11793,36 +5057,27 @@ declare module Titanium {
 			getMonthsOfTheYear () : Array<Number>;
 			getSetPositions () : Array<Number>;
 			getWeeksOfTheYear () : Array<Number>;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 		}
-		export interface Alert {
+		export interface Alert extends Titanium.Proxy {
 			absoluteDate : Date;
 			alarmTime : Date;
 			begin : Date;
-			bubbleParent : boolean;
 			end : Date;
 			eventId : number;
 			id : string;
 			minutes : number;
 			relativeOffset : number;
 			state : number;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getAbsoluteDate () : Date;
 			getAlarmTime () : Date;
 			getBegin () : Date;
-			getBubbleParent () : boolean;
 			getEnd () : Date;
 			getEventId () : number;
 			getId () : string;
 			getMinutes () : number;
 			getRelativeOffset () : number;
 			getState () : number;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			setAbsoluteDate (absoluteDate: Date) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setRelativeOffset (relativeOffset: number) : void;
 		}
 	}
@@ -11848,203 +5103,54 @@ declare module Titanium {
 		export function getBubbleParent () : boolean;
 		export function removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 		export function setBubbleParent (bubbleParent: boolean) : void;
-		export interface View {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
+		export interface View extends Titanium.UI.View {
 			animated : boolean;
-			animatedCenter : Point;
 			annotations : Array<Titanium.Map.Annotation>;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
-			focusable : boolean;
-			height : any;
 			hideAnnotationWhenTouchMap : boolean;
-			horizontalWrap : boolean;
-			keepScreenOn : boolean;
 			latitudeDelta : number;
-			layout : string;
-			left : any;
 			longitudeDelta : number;
 			mapType : number;
-			opacity : number;
-			rect : Dimension;
 			region : MapRegionType;
 			regionFit : boolean;
-			right : any;
-			size : Dimension;
-			softKeyboardOnFocus : number;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
 			userLocation : boolean;
-			visible : boolean;
-			width : any;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
 			addAnnotation (annotation: Dictionary<Titanium.Map.Annotation>) : void;
 			addAnnotation (annotation: Titanium.Map.Annotation) : void;
 			addAnnotations (annotations: Array<Titanium.Map.Annotation>) : void;
 			addAnnotations (annotations: Array<Dictionary<Titanium.Map.Annotation>>) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
 			addRoute (route: MapRouteType) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
 			deselectAnnotation (annotation: string) : void;
 			deselectAnnotation (annotation: Titanium.Map.Annotation) : void;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
 			getAnimate () : boolean;
 			getAnimated () : boolean;
-			getAnimatedCenter () : Point;
 			getAnnotations () : Array<Titanium.Map.Annotation>;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
-			getFocusable () : boolean;
-			getHeight () : any;
 			getHideAnnotationWhenTouchMap () : boolean;
-			getHorizontalWrap () : boolean;
-			getKeepScreenOn () : boolean;
 			getLatitudeDelta () : number;
-			getLayout () : string;
-			getLeft () : any;
 			getLongitudeDelta () : number;
 			getMapType () : number;
-			getOpacity () : number;
-			getRect () : Dimension;
 			getRegion () : MapRegionType;
 			getRegionFit () : boolean;
-			getRight () : any;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
 			getUserLocation () : boolean;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
 			removeAllAnnotations () : void;
-			removeAllChildren () : void;
 			removeAnnotation (annotation: string) : void;
 			removeAnnotation (annotation: Titanium.Map.Annotation) : void;
 			removeAnnotations (annotations: Array<String>) : void;
 			removeAnnotations (annotations: Array<Titanium.Map.Annotation>) : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			removeRoute (route: MapRouteType) : void;
 			selectAnnotation (annotation: string) : void;
 			selectAnnotation (annotation: Titanium.Map.Annotation) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
 			setAnimate (animate: boolean) : void;
 			setAnimated (animated: boolean) : void;
 			setAnnotations (annotations: Array<Titanium.Map.Annotation>) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
-			setFocusable (focusable: boolean) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
 			setHideAnnotationWhenTouchMap (hideAnnotationWhenTouchMap: boolean) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
 			setLocation (location: MapLocationType) : void;
 			setMapType (mapType: number) : void;
-			setOpacity (opacity: number) : void;
 			setRegion (region: MapRegionType) : void;
 			setRegionFit (regionFit: boolean) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
 			setUserLocation (userLocation: boolean) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 			zoom (level: number) : void;
 		}
-		export interface Annotation {
+		export interface Annotation extends Titanium.Proxy {
 			animate : boolean;
-			bubbleParent : boolean;
 			canShowCallout : boolean;
 			centerOffset : Point;
 			customView : Titanium.UI.View;
@@ -12062,11 +5168,7 @@ declare module Titanium {
 			subtitleid : string;
 			title : string;
 			titleid : string;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
 			getAnimate () : boolean;
-			getBubbleParent () : boolean;
 			getCanShowCallout () : boolean;
 			getCenterOffset () : Point;
 			getCustomView () : Titanium.UI.View;
@@ -12084,9 +5186,7 @@ declare module Titanium {
 			getSubtitleid () : string;
 			getTitle () : string;
 			getTitleid () : string;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			setAnimate (animate: boolean) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setCanShowCallout (canShowCallout: boolean) : void;
 			setCenterOffset (centerOffset: Point) : void;
 			setCustomView (customView: Titanium.UI.View) : void;
@@ -12108,15 +5208,6 @@ declare module Titanium {
 			setTitle (title: string) : void;
 			setTitleid (titleid: string) : void;
 		}
-	}
-	export interface Module {
-		bubbleParent : boolean;
-		addEventListener (name: string, callback: (...args : any[]) => any) : void;
-		applyProperties (props: Dictionary<Object>) : void;
-		fireEvent (name: string, event: Dictionary<Object>) : void;
-		getBubbleParent () : boolean;
-		removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-		setBubbleParent (bubbleParent: boolean) : void;
 	}
 	export module Filesystem {
 		export var MODE_APPEND : number;
@@ -12154,8 +5245,7 @@ declare module Titanium {
 		export function openStream (mode: number, path: string) : Titanium.Filesystem.FileStream;
 		export function removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 		export function setBubbleParent (bubbleParent: boolean) : void;
-		export interface File {
-			bubbleParent : boolean;
+		export interface File extends Titanium.Proxy {
 			executable : boolean;
 			hidden : boolean;
 			name : string;
@@ -12167,11 +5257,9 @@ declare module Titanium {
 			symbolicLink : boolean;
 			writable : boolean;
 			writeable : boolean;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
 			append (data: string) : boolean;
 			append (data: Titanium.Blob) : boolean;
 			append (data: Titanium.Filesystem.File) : boolean;
-			applyProperties (props: Dictionary<Object>) : void;
 			copy (destinationPath: string) : boolean;
 			createDirectory () : boolean;
 			createFile () : boolean;
@@ -12180,8 +5268,6 @@ declare module Titanium {
 			deleteFile () : boolean;
 			exists () : boolean;
 			extension () : string;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
 			getDirectoryListing () : Array<String>;
 			getExecutable () : boolean;
 			getHidden () : boolean;
@@ -12200,10 +5286,8 @@ declare module Titanium {
 			move (newpath: string) : boolean;
 			open (mode: number) : Titanium.Filesystem.FileStream;
 			read () : Titanium.Blob;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
 			rename (newname: string) : boolean;
 			resolve () : string;
-			setBubbleParent (bubbleParent: boolean) : void;
 			setHidden (hidden: boolean) : void;
 			setRemoteBackup (remoteBackup: boolean) : void;
 			spaceAvailable () : number;
@@ -12211,40 +5295,17 @@ declare module Titanium {
 			write (data: Titanium.Filesystem.File, append?: boolean) : boolean;
 			write (data: Titanium.Blob, append?: boolean) : boolean;
 		}
-		export interface FileStream {
-			bubbleParent : boolean;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			close () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getBubbleParent () : boolean;
-			isReadable () : boolean;
-			isWriteable () : boolean;
-			read (buffer: Titanium.Buffer, offset?: number, length?: number) : number;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			write (buffer: Titanium.Buffer, offset?: number, length?: number) : number;
+		export enum FileStream {
+
 		}
 	}
-	export interface Yahoo {
-		bubbleParent : boolean;
-		addEventListener (name: string, callback: (...args : any[]) => any) : void;
-		applyProperties (props: Dictionary<Object>) : void;
-		fireEvent (name: string, event: Dictionary<Object>) : void;
-		getBubbleParent () : boolean;
-		removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-		setBubbleParent (bubbleParent: boolean) : void;
+	export interface Yahoo  {
 		yql (yql: string, callback: (...args : any[]) => any) : void;
 	}
-	export interface Gesture {
-		bubbleParent : boolean;
+	export interface Gesture  {
 		landscape : boolean;
 		orientation : number;
 		portrait : boolean;
-		addEventListener (name: string, callback: (...args : any[]) => any) : void;
-		applyProperties (props: Dictionary<Object>) : void;
-		fireEvent (name: string, event: Dictionary<Object>) : void;
-		getBubbleParent () : boolean;
 		getLandscape () : boolean;
 		getOrientation () : number;
 		getPortrait () : boolean;
@@ -12252,18 +5313,13 @@ declare module Titanium {
 		isFaceUp () : boolean;
 		isLandscape () : boolean;
 		isPortrait () : boolean;
-		removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-		setBubbleParent (bubbleParent: boolean) : void;
 	}
-	export interface Analytics {
-		bubbleParent : boolean;
+	export interface Analytics  {
 		lastEvent : string;
 		addEvent (type: string, name: string, data?: any) : void;
 		featureEvent (name: string, data?: any) : void;
-		getBubbleParent () : boolean;
 		getLastEvent () : string;
 		navEvent (from: string, to: string, name?: string, data?: any) : void;
-		setBubbleParent (bubbleParent: boolean) : void;
 		settingsEvent (name: string, data?: any) : void;
 		timedEvent (name: string, start: Date, stop: Date, duration: number, data?: any) : void;
 		userEvent (name: string, data?: any) : void;
@@ -12305,222 +5361,51 @@ declare module Titanium {
 		export function setLoggedIn (loggedIn: boolean) : void;
 		export function setPermissions (permissions: Array<String>) : void;
 		export function setUid (uid: string) : void;
-		export interface LoginButton {
-			accessibilityHidden : boolean;
-			accessibilityHint : string;
-			accessibilityLabel : string;
-			accessibilityValue : string;
-			anchorPoint : Point;
-			animatedCenter : Point;
-			backgroundColor : string;
-			backgroundDisabledColor : string;
-			backgroundDisabledImage : string;
-			backgroundFocusedColor : string;
-			backgroundFocusedImage : string;
-			backgroundGradient : Gradient;
-			backgroundImage : string;
-			backgroundLeftCap : number;
-			backgroundRepeat : boolean;
-			backgroundSelectedColor : string;
-			backgroundSelectedImage : string;
-			backgroundTopCap : number;
-			borderColor : string;
-			borderRadius : number;
-			borderWidth : number;
-			bottom : any;
-			bubbleParent : boolean;
-			center : Point;
-			children : Array<Titanium.UI.View>;
-			enabled : boolean;
-			focusable : boolean;
-			height : any;
-			horizontalWrap : boolean;
-			keepScreenOn : boolean;
-			layout : string;
-			left : any;
-			opacity : number;
-			rect : Dimension;
-			right : any;
-			size : Dimension;
-			softKeyboardOnFocus : number;
+		export interface LoginButton extends Titanium.UI.View {
 			style : string;
-			tintColor : any;
-			top : any;
-			touchEnabled : boolean;
-			transform : any;
-			visible : boolean;
-			width : any;
-			zIndex : number;
-			add (view: Titanium.UI.View) : void;
-			addEventListener (name: string, callback: (...args : any[]) => any) : void;
-			animate (animation: Titanium.UI.Animation, callback: (...args : any[]) => any) : void;
-			animate (animation: Dictionary<Titanium.UI.Animation>, callback: (...args : any[]) => any) : void;
-			applyProperties (props: Dictionary<Object>) : void;
-			convertPointToView (point: Point, destinationView: Titanium.UI.View) : Point;
-			finishLayout () : void;
-			fireEvent (name: string, event: Dictionary<Object>) : void;
-			getAccessibilityHidden () : boolean;
-			getAccessibilityHint () : string;
-			getAccessibilityLabel () : string;
-			getAccessibilityValue () : string;
-			getAnchorPoint () : Point;
-			getAnimatedCenter () : Point;
-			getBackgroundColor () : string;
-			getBackgroundDisabledColor () : string;
-			getBackgroundDisabledImage () : string;
-			getBackgroundFocusedColor () : string;
-			getBackgroundFocusedImage () : string;
-			getBackgroundGradient () : Gradient;
-			getBackgroundImage () : string;
-			getBackgroundLeftCap () : number;
-			getBackgroundRepeat () : boolean;
-			getBackgroundSelectedColor () : string;
-			getBackgroundSelectedImage () : string;
-			getBackgroundTopCap () : number;
-			getBorderColor () : string;
-			getBorderRadius () : number;
-			getBorderWidth () : number;
-			getBottom () : any;
-			getBubbleParent () : boolean;
-			getCenter () : Point;
-			getChildren () : Array<Titanium.UI.View>;
-			getEnabled () : boolean;
-			getFocusable () : boolean;
-			getHeight () : any;
-			getHorizontalWrap () : boolean;
-			getKeepScreenOn () : boolean;
-			getLayout () : string;
-			getLeft () : any;
-			getOpacity () : number;
-			getRect () : Dimension;
-			getRight () : any;
-			getSize () : Dimension;
-			getSoftKeyboardOnFocus () : number;
 			getStyle () : string;
-			getTintColor () : string;
-			getTop () : any;
-			getTouchEnabled () : boolean;
-			getTransform () : any;
-			getVisible () : boolean;
-			getWidth () : any;
-			getZIndex () : number;
-			hide () : void;
-			remove (view: Titanium.UI.View) : void;
-			removeAllChildren () : void;
-			removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-			setAccessibilityHidden (accessibilityHidden: boolean) : void;
-			setAccessibilityHint (accessibilityHint: string) : void;
-			setAccessibilityLabel (accessibilityLabel: string) : void;
-			setAccessibilityValue (accessibilityValue: string) : void;
-			setAnchorPoint (anchorPoint: Point) : void;
-			setBackgroundColor (backgroundColor: string) : void;
-			setBackgroundDisabledColor (backgroundDisabledColor: string) : void;
-			setBackgroundDisabledImage (backgroundDisabledImage: string) : void;
-			setBackgroundFocusedColor (backgroundFocusedColor: string) : void;
-			setBackgroundFocusedImage (backgroundFocusedImage: string) : void;
-			setBackgroundGradient (backgroundGradient: Gradient) : void;
-			setBackgroundImage (backgroundImage: string) : void;
-			setBackgroundLeftCap (backgroundLeftCap: number) : void;
-			setBackgroundRepeat (backgroundRepeat: boolean) : void;
-			setBackgroundSelectedColor (backgroundSelectedColor: string) : void;
-			setBackgroundSelectedImage (backgroundSelectedImage: string) : void;
-			setBackgroundTopCap (backgroundTopCap: number) : void;
-			setBorderColor (borderColor: string) : void;
-			setBorderRadius (borderRadius: number) : void;
-			setBorderWidth (borderWidth: number) : void;
-			setBottom (bottom: number) : void;
-			setBottom (bottom: string) : void;
-			setBubbleParent (bubbleParent: boolean) : void;
-			setCenter (center: Point) : void;
-			setEnabled (enabled: boolean) : void;
-			setFocusable (focusable: boolean) : void;
-			setHeight (height: number) : void;
-			setHeight (height: string) : void;
-			setHorizontalWrap (horizontalWrap: boolean) : void;
-			setKeepScreenOn (keepScreenOn: boolean) : void;
-			setLayout (layout: string) : void;
-			setLeft (left: number) : void;
-			setLeft (left: string) : void;
-			setOpacity (opacity: number) : void;
-			setRight (right: number) : void;
-			setRight (right: string) : void;
-			setSoftKeyboardOnFocus (softKeyboardOnFocus: number) : void;
 			setStyle (style: string) : void;
-			setTintColor (tintColor: string) : void;
-			setTop (top: number) : void;
-			setTop (top: string) : void;
-			setTouchEnabled (touchEnabled: boolean) : void;
-			setTransform (transform: Titanium.UI._2DMatrix) : void;
-			setTransform (transform: Titanium.UI._3DMatrix) : void;
-			setVisible (visible: boolean) : void;
-			setWidth (width: number) : void;
-			setWidth (width: string) : void;
-			setZIndex (zIndex: number) : void;
-			show () : void;
-			startLayout () : void;
-			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
-			updateLayout (params: Dictionary<Object>) : void;
 		}
 	}
-	export interface Accelerometer {
-		bubbleParent : boolean;
-		addEventListener (name: string, callback: (...args : any[]) => any) : void;
-		applyProperties (props: Dictionary<Object>) : void;
-		fireEvent (name: string, event: Dictionary<Object>) : void;
-		getBubbleParent () : boolean;
-		removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-		setBubbleParent (bubbleParent: boolean) : void;
+	export enum Accelerometer {
+
 	}
-	export interface Utils {
-		bubbleParent : boolean;
-		addEventListener (name: string, callback: (...args : any[]) => any) : void;
-		applyProperties (props: Dictionary<Object>) : void;
+	export interface Utils  {
 		base64decode (obj: string) : Titanium.Blob;
 		base64decode (obj: Titanium.Blob) : Titanium.Blob;
 		base64encode (obj: string) : Titanium.Blob;
 		base64encode (obj: Titanium.Blob) : Titanium.Blob;
-		fireEvent (name: string, event: Dictionary<Object>) : void;
-		getBubbleParent () : boolean;
 		md5HexDigest (obj: string) : string;
 		md5HexDigest (obj: Titanium.Blob) : string;
-		removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-		setBubbleParent (bubbleParent: boolean) : void;
 		sha1 (obj: string) : string;
 		sha1 (obj: Titanium.Blob) : string;
 		sha256 (obj: string) : string;
 		sha256 (obj: Titanium.Blob) : string;
 	}
-	export interface Event {
+	export interface Event  {
 		bubbles : boolean;
 		cancelBubble : boolean;
 		source : any;
 		type : string;
 	}
-	export interface Stream {
+	export interface Stream  {
 		MODE_APPEND : number;
 		MODE_READ : number;
 		MODE_WRITE : number;
-		bubbleParent : boolean;
-		addEventListener (name: string, callback: (...args : any[]) => any) : void;
-		applyProperties (props: Dictionary<Object>) : void;
 		createStream (params: CreateStreamArgs) : Titanium.IOStream;
-		fireEvent (name: string, event: Dictionary<Object>) : void;
-		getBubbleParent () : boolean;
 		pump (inputStream: Titanium.IOStream, handler: (...args : any[]) => any, maxChunkSize: number, isAsync?: boolean) : void;
 		read (sourceStream: Titanium.IOStream, buffer: Titanium.Buffer, offset?: number, length?: number, resultsCallback?: (...args : any[]) => any) : void;
 		readAll (sourceStream: Titanium.IOStream, buffer?: Titanium.Buffer, resultsCallback?: (...args : any[]) => any) : any;
-		removeEventListener (name: string, callback: (...args : any[]) => any) : void;
-		setBubbleParent (bubbleParent: boolean) : void;
 		write (outputStream: Titanium.IOStream, buffer: Titanium.Buffer, offset?: number, length?: number, resultsCallback?: (...args : any[]) => any) : void;
 		writeStream (inputStream: Titanium.IOStream, outputStream: Titanium.IOStream, maxChunkSize: number, resultsCallback?: (...args : any[]) => any) : void;
 	}
 }
 
-declare class Dictionary<Object> {
+declare class Dictionary<Object>  {
 
 }
 
-declare class BarItemType {
+declare class BarItemType  {
 	accessibilityLabel : string;
 	enabled : boolean;
 	image : any;
@@ -12528,47 +5413,54 @@ declare class BarItemType {
 	width : number;
 }
 
-declare class MatrixCreationDict {
+declare class MatrixCreationDict  {
 	anchorPoint : Dictionary<Object>;
 	rotate : number;
 	scale : number;
 }
 
-declare class TableViewIndexEntry {
+declare class TableViewIndexEntry  {
 	index : number;
 	title : string;
 }
 
-declare class FacebookRESTResponsev1 {
+declare class FacebookRESTResponsev1  {
 	error : string;
 	method : string;
 	result : string;
 	success : boolean;
 }
 
-declare class MapRegionType {
+declare class MapRegionType  {
 	latitude : number;
 	latitudeDelta : number;
 	longitude : number;
 	longitudeDelta : number;
 }
 
-declare class CropRectType {
+declare class CropRectType  {
 	height : number;
 	width : number;
 	x : number;
 	y : number;
 }
 
-declare class LocationResults {
-	code : number;
+declare class LocationResults extends ErrorResponse {
 	coords : LocationCoordinates;
-	error : string;
 	provider : LocationProviderDict;
+}
+
+declare class ErrorResponse  {
+	code : number;
+	error : string;
 	success : boolean;
 }
 
-declare class CloudPushNotificationsResponse {
+declare enum CloudPushNotificationsResponse {
+
+}
+
+declare class CloudResponse  {
 	code : number;
 	error : boolean;
 	message : string;
@@ -12576,7 +5468,7 @@ declare class CloudPushNotificationsResponse {
 	success : boolean;
 }
 
-declare class recurrenceEndDictionary {
+declare class recurrenceEndDictionary  {
 	endDate : Date;
 	occurrenceCount : number;
 }
@@ -12591,14 +5483,14 @@ declare module Global {
 	export function require (moduleId: string) : any;
 	export function setInterval (_function: (...args : any[]) => any, delay: number) : number;
 	export function setTimeout (_function: (...args : any[]) => any, delay: number) : number;
-	export interface console {
+	export interface console  {
 		debug (message: any) : void;
 		error (message: any) : void;
 		info (message: any) : void;
 		log (message: any) : void;
 		warn (message: any) : void;
 	}
-	export interface String {
+	export interface String  {
 		format (formatString: string, value: string) : string;
 		format (formatString: string, value: number) : string;
 		formatCurrency (value: number) : string;
@@ -12606,7 +5498,7 @@ declare module Global {
 		formatDecimal (value: number, locale?: string, pattern?: string) : string;
 		formatTime (date: Date, format?: string) : string;
 	}
-	export interface JSON {
+	export interface JSON  {
 		parse (text: string, reviver: (...args : any[]) => any) : any;
 		stringify (value: any, replacer?: (...args : any[]) => any, space?: number) : string;
 		stringify (value: any, replacer?: Array<String>, space?: string) : string;
@@ -12615,17 +5507,17 @@ declare module Global {
 	}
 }
 
-declare class ServiceIntentOptions {
+declare class ServiceIntentOptions  {
 	startMode : number;
 	url : string;
 }
 
-declare class AcceptedCallbackArgs {
+declare class AcceptedCallbackArgs  {
 	inbound : Titanium.Network.Socket.TCP;
 	socket : Titanium.Network.Socket.TCP;
 }
 
-declare class HeadingData {
+declare class HeadingData  {
 	accuracy : number;
 	magneticHeading : number;
 	timestamp : number;
@@ -12635,53 +5527,42 @@ declare class HeadingData {
 	z : number;
 }
 
-declare class FacebookGraphResponsev1 {
+declare class FacebookGraphResponsev1  {
 	error : string;
 	path : string;
 	result : string;
 	success : boolean;
 }
 
-declare class textAreaSelectedParams {
+declare class textAreaSelectedParams  {
 	length : number;
 	location : number;
 }
 
-declare class ThumbnailResponse {
-	code : number;
-	error : string;
+declare class ThumbnailResponse extends ErrorResponse {
 	image : Titanium.Blob;
-	success : boolean;
 	time : number;
 }
 
-declare class Dimension {
+declare class Dimension  {
 	height : number;
 	width : number;
 	x : number;
 	y : number;
 }
 
-declare class ReadCallbackArgs {
+declare class ReadCallbackArgs extends ErrorResponse {
 	bytesProcessed : number;
-	code : number;
-	error : string;
 	errorDescription : string;
 	errorState : number;
 	source : Titanium.IOStream;
-	success : boolean;
 }
 
-declare class CloudACLsCheckResponse {
-	code : number;
-	error : boolean;
-	message : string;
-	meta : Dictionary<Object>;
+declare class CloudACLsCheckResponse extends CloudResponse {
 	permission : Dictionary<Object>;
-	success : boolean;
 }
 
-declare class ViewTemplate {
+declare class ViewTemplate  {
 	bindId : string;
 	childTemplates : Array<ViewTemplate>;
 	events : Dictionary<Object>;
@@ -12689,16 +5570,11 @@ declare class ViewTemplate {
 	type : string;
 }
 
-declare class CloudChatsResponse {
+declare class CloudChatsResponse extends CloudResponse {
 	chats : Array<Dictionary<Object>>;
-	code : number;
-	error : boolean;
-	message : string;
-	meta : Dictionary<Object>;
-	success : boolean;
 }
 
-declare class MediaQueryType {
+declare class MediaQueryType  {
 	albumArtist : any;
 	albumTitle : any;
 	artist : any;
@@ -12710,62 +5586,51 @@ declare class MediaQueryType {
 	title : any;
 }
 
-declare class WebAPIError {
+declare class WebAPIError  {
 	code : number;
 	message : string;
 	name : string;
 }
 
-declare class DocumentViewerOptions {
+declare class DocumentViewerOptions  {
 	animated : boolean;
 	view : Titanium.UI.View;
 }
 
-declare class ListViewAnimationProperties {
+declare class ListViewAnimationProperties  {
 	animated : boolean;
 	animationStyle : number;
 	position : number;
 }
 
-declare class DataCallbackArgs {
+declare class DataCallbackArgs  {
 	address : string;
 	bytesData : Array<Number>;
 	port : string;
 	stringData : string;
 }
 
-declare class CloudPushNotificationErrorArg {
+declare class CloudPushNotificationErrorArg  {
 	error : string;
 }
 
-declare class ScreenshotResult {
+declare class ScreenshotResult  {
 	media : Titanium.Blob;
 }
 
-declare class YQLResponse {
-	code : number;
+declare class YQLResponse extends ErrorResponse {
 	data : any;
-	error : string;
 	message : string;
-	success : boolean;
 }
 
-declare class ErrorResponse {
-	code : number;
-	error : string;
-	success : boolean;
-}
-
-declare class ForwardGeocodeResponse {
+declare class ForwardGeocodeResponse extends ErrorResponse {
 	accuracy : number;
 	address : string;
 	city : string;
-	code : number;
 	country : string;
 	countryCode : string;
 	country_code : string;
 	displayAddress : string;
-	error : string;
 	latitude : string;
 	longitude : string;
 	postalCode : string;
@@ -12773,41 +5638,33 @@ declare class ForwardGeocodeResponse {
 	region2 : string;
 	street : string;
 	street1 : string;
-	success : boolean;
 }
 
-declare class CloudEventsResponse {
-	code : number;
-	error : boolean;
+declare class CloudEventsResponse extends CloudResponse {
 	events : Array<Dictionary<Object>>;
-	message : string;
-	meta : Dictionary<Object>;
-	success : boolean;
 }
 
-declare class ErrorCallbackArgs {
-	code : number;
-	error : string;
+declare class ErrorCallbackArgs  {
 	errorCode : number;
 	socket : Titanium.Network.Socket.TCP;
-	success : boolean;
 }
 
-declare class WriteCallbackArgs {
+declare enum FailureResponse {
+
+}
+
+declare class WriteCallbackArgs extends ErrorResponse {
 	bytesProcessed : number;
-	code : number;
-	error : string;
 	errorDescription : string;
 	errorState : number;
 	source : Titanium.IOStream;
-	success : boolean;
 }
 
-declare class CloudPushNotificationSuccessArg {
+declare class CloudPushNotificationSuccessArg  {
 	deviceToken : string;
 }
 
-declare class MapLocationType {
+declare class MapLocationType  {
 	animate : boolean;
 	latitude : number;
 	latitudeDelta : number;
@@ -12816,118 +5673,90 @@ declare class MapLocationType {
 	regionFit : boolean;
 }
 
-declare class DecodeStringDict {
+declare class DecodeStringDict  {
 	charset : string;
 	length : number;
 	position : number;
 	source : Titanium.Buffer;
 }
 
-declare class ListViewContentInsetOption {
+declare class ListViewContentInsetOption  {
 	animated : boolean;
 	duration : number;
 }
 
-declare class CreateStreamArgs {
+declare class CreateStreamArgs  {
 	mode : number;
 	source : any;
 }
 
-declare class ContactsAuthorizationResponse {
-	code : number;
-	error : string;
-	success : boolean;
+declare enum ContactsAuthorizationResponse {
+
 }
 
-declare class CloudCheckinsResponse {
+declare class CloudCheckinsResponse extends CloudResponse {
 	checkins : Array<Dictionary<Object>>;
-	code : number;
-	error : boolean;
-	message : string;
-	meta : Dictionary<Object>;
-	success : boolean;
 }
 
-declare class CreateBufferArgs {
+declare class CreateBufferArgs  {
 	byteOrder : number;
 	length : number;
 	type : string;
 	value : any;
 }
 
-declare class CloudPushNotificationConfig {
+declare class CloudPushNotificationConfig  {
 	error : (...args : any[]) => any;
 	success : (...args : any[]) => any;
 }
 
-declare class CloudReviewsResponse {
-	code : number;
-	error : boolean;
-	message : string;
-	meta : Dictionary<Object>;
+declare class CloudReviewsResponse extends CloudResponse {
 	reviews : Array<Dictionary<Object>>;
-	success : boolean;
 }
 
-declare class Point {
+declare class Point  {
 	x : number;
 	y : number;
 }
 
-declare class CloudPhotosResponse {
-	code : number;
-	error : boolean;
-	message : string;
-	meta : Dictionary<Object>;
+declare class CloudPhotosResponse extends CloudResponse {
 	photos : Array<Dictionary<Object>>;
-	success : boolean;
 }
 
-declare class PushNotificationConfig {
+declare class PushNotificationConfig  {
 	callback : (...args : any[]) => any;
 	error : (...args : any[]) => any;
 	success : (...args : any[]) => any;
 	types : Array<Number>;
 }
 
-declare class MapRouteType {
+declare class MapRouteType  {
 	color : string;
 	name : string;
 	points : Array<MapPointType>;
 	width : number;
 }
 
-declare class AcceptDict {
+declare class AcceptDict  {
 	error : (...args : any[]) => any;
 	timeout : number;
 }
 
-declare class MediaQueryInfoType {
+declare class MediaQueryInfoType  {
 	exact : boolean;
 	value : any;
 }
 
-declare class CloudResponse {
-	code : number;
-	error : boolean;
-	message : string;
-	meta : Dictionary<Object>;
-	success : boolean;
-}
-
-declare class PumpCallbackArgs {
+declare class PumpCallbackArgs extends ErrorResponse {
 	buffer : Titanium.Buffer;
 	bytesProcessed : number;
-	code : number;
-	error : string;
 	errorDescription : string;
 	errorState : number;
 	source : Titanium.IOStream;
-	success : boolean;
 	totalBytesProcessed : number;
 }
 
-declare class MusicLibraryOptionsType {
+declare class MusicLibraryOptionsType  {
 	allowMultipleSelections : boolean;
 	animated : boolean;
 	autohide : boolean;
@@ -12937,100 +5766,61 @@ declare class MusicLibraryOptionsType {
 	success : (...args : any[]) => any;
 }
 
-declare class launchOptions {
+declare class launchOptions  {
 	launchOptionsLocationKey : boolean;
 	source : string;
 	url : string;
 }
 
-declare class WriteStreamCallbackArgs {
+declare class WriteStreamCallbackArgs extends ErrorResponse {
 	bytesProcessed : number;
-	code : number;
-	error : string;
 	errorDescription : string;
 	errorState : number;
 	fromStream : Titanium.IOStream;
-	success : boolean;
 	toStream : Titanium.IOStream;
 }
 
-declare class CloudChatGroupsResponse {
+declare class CloudChatGroupsResponse extends CloudResponse {
 	chat_groups : Array<Dictionary<Object>>;
-	code : number;
-	error : boolean;
-	message : string;
-	meta : Dictionary<Object>;
-	success : boolean;
 }
 
-declare class CloudPhotoCollectionsPhotosResponse {
-	code : number;
-	error : boolean;
-	message : string;
-	meta : Dictionary<Object>;
+declare class CloudPhotoCollectionsPhotosResponse extends CloudResponse {
 	photos : Array<Dictionary<Object>>;
-	success : boolean;
 }
 
-declare class DecodeNumberDict {
+declare class DecodeNumberDict  {
 	byteOrder : number;
 	position : number;
 	source : Titanium.Buffer;
 	type : string;
 }
 
-declare class FailureResponse {
-	code : number;
-	error : string;
-	success : boolean;
-}
-
-declare class ConnectedCallbackArgs {
+declare class ConnectedCallbackArgs  {
 	socket : Titanium.Network.Socket.TCP;
 }
 
-declare class CloudPhotoCollectionsResponse {
-	code : number;
+declare class CloudPhotoCollectionsResponse extends CloudResponse {
 	collections : Array<Dictionary<Object>>;
-	error : boolean;
-	message : string;
-	meta : Dictionary<Object>;
-	success : boolean;
 }
 
-declare class CloudObjectsResponse {
+declare class CloudObjectsResponse extends CloudResponse {
 	classname : Array<Dictionary<Object>>;
-	code : number;
-	error : boolean;
-	message : string;
-	meta : Dictionary<Object>;
-	success : boolean;
 }
 
-declare class MediaScannerResponse {
+declare class MediaScannerResponse  {
 	path : string;
 	uri : string;
 }
 
-declare class CloudPostsResponse {
-	code : number;
-	error : boolean;
-	message : string;
-	meta : Dictionary<Object>;
+declare class CloudPostsResponse extends CloudResponse {
 	posts : Array<Dictionary<Object>>;
-	success : boolean;
 }
 
-declare class CloudSocialIntegrationsResponse {
-	code : number;
-	error : boolean;
-	message : string;
-	meta : Dictionary<Object>;
-	success : boolean;
+declare class CloudSocialIntegrationsResponse extends CloudResponse {
 	users : Array<Dictionary<Object>>;
 }
 
-declare class CameraOptionsType {
+declare class CameraOptionsType  {
 	allowEditing : boolean;
 	animated : boolean;
 	arrowDirection : number;
@@ -13049,85 +5839,65 @@ declare class CameraOptionsType {
 	videoQuality : number;
 }
 
-declare class ListViewIndexEntry {
+declare class ListViewIndexEntry  {
 	index : number;
 	title : string;
 }
 
-declare class CloudStreamProgress {
+declare class CloudStreamProgress  {
 	progress : number;
 	url : string;
 }
 
-declare class MusicLibraryResponseType {
+declare class MusicLibraryResponseType  {
 	items : Array<Titanium.Media.Item>;
 	representative : Titanium.Media.Item;
 	types : number;
 }
 
-declare class CloudEventOccurrencesResponse {
-	code : number;
-	error : boolean;
+declare class CloudEventOccurrencesResponse extends CloudResponse {
 	event_occurrences : Array<Dictionary<Object>>;
-	message : string;
-	meta : Dictionary<Object>;
-	success : boolean;
 }
 
-declare class CloudUsersResponse {
-	code : number;
-	error : boolean;
-	message : string;
-	meta : Dictionary<Object>;
-	success : boolean;
+declare class CloudUsersResponse extends CloudResponse {
 	users : Array<Dictionary<Object>>;
 }
 
-declare class TableViewContentInsetOption {
+declare class TableViewContentInsetOption  {
 	animated : boolean;
 	duration : number;
 }
 
-declare class CloudFriendRequestsResponse {
-	code : number;
-	error : boolean;
+declare class CloudFriendRequestsResponse extends CloudResponse {
 	friend_requests : Array<Dictionary<Object>>;
-	message : string;
-	meta : Dictionary<Object>;
-	success : boolean;
 }
 
-declare class CloudACLsResponse {
+declare class CloudACLsResponse extends CloudResponse {
 	acls : Array<Dictionary<Object>>;
-	code : number;
-	error : boolean;
-	message : string;
-	meta : Dictionary<Object>;
-	success : boolean;
 }
 
-declare class ListViewMarkerProps {
+declare class ListViewMarkerProps  {
 	itemIndex : number;
 	sectionIndex : number;
 }
 
-declare class EventsAuthorizationResponse {
+declare class EventsAuthorizationResponse  {
 	code : number;
 	error : string;
 	success : boolean;
 }
 
-declare class PlayerQueue {
+declare class PlayerQueue  {
 	items : Array<Titanium.Media.Item>;
 }
 
-declare class CoverFlowImageType {
+declare class CoverFlowImageType  {
 	height : number;
 	image : any;
 	width : number;
 }
 
-declare class BroadcastIntentOptions {
+declare class BroadcastIntentOptions  {
 	action : string;
 	className : string;
 	data : string;
@@ -13136,50 +5906,32 @@ declare class BroadcastIntentOptions {
 	url : string;
 }
 
-declare class CloudUsersSecureResponse {
+declare class CloudUsersSecureResponse extends CloudResponse {
 	accessToken : string;
-	code : number;
-	error : boolean;
 	expiresIn : number;
-	message : string;
-	meta : Dictionary<Object>;
-	success : boolean;
 }
 
-declare class CloudClientsResponse {
-	code : number;
-	error : boolean;
+declare class CloudClientsResponse extends CloudResponse {
 	ip_address : string;
 	location : Dictionary<Object>;
-	message : string;
-	meta : Dictionary<Object>;
-	success : boolean;
 }
 
-declare class PushNotificationErrorArg {
-	code : number;
-	error : string;
-	success : boolean;
+declare class PushNotificationErrorArg  {
 	type : string;
 }
 
-declare class CloudStatusesResponse {
-	code : number;
-	error : boolean;
-	message : string;
-	meta : Dictionary<Object>;
+declare class CloudStatusesResponse extends CloudResponse {
 	statuses : Array<Dictionary<Object>>;
-	success : boolean;
 }
 
-declare class windowToolbarParam {
+declare class windowToolbarParam  {
 	animated : boolean;
 	barColor : string;
 	tintColor : string;
 	translucent : boolean;
 }
 
-declare class GeocodedAddress {
+declare class GeocodedAddress  {
 	address : string;
 	city : string;
 	country : string;
@@ -13196,18 +5948,15 @@ declare class GeocodedAddress {
 	zipcode : string;
 }
 
-declare class ContactsCallbackArgs {
-	code : number;
+declare class ContactsCallbackArgs extends ErrorResponse {
 	data : Array<Titanium.Contacts.Person>;
-	error : string;
-	success : boolean;
 }
 
-declare class zoomScaleOption {
+declare class zoomScaleOption  {
 	animated : boolean;
 }
 
-declare class LocationCoordinates {
+declare class LocationCoordinates  {
 	accuracy : number;
 	altitude : number;
 	altitudeAccuracy : number;
@@ -13218,26 +5967,21 @@ declare class LocationCoordinates {
 	timestamp : number;
 }
 
-declare class ActivityResult {
+declare class ActivityResult  {
 	intent : Titanium.Android.Intent;
 	requestCode : number;
 	resultCode : number;
 }
 
-declare class CloudUsersSecureDialog {
+declare class CloudUsersSecureDialog  {
 	title : string;
 }
 
-declare class CloudFriendsResponse {
-	code : number;
-	error : boolean;
-	message : string;
-	meta : Dictionary<Object>;
-	success : boolean;
+declare class CloudFriendsResponse extends CloudResponse {
 	users : Array<Dictionary<Object>>;
 }
 
-declare class PhotoGalleryOptionsType {
+declare class PhotoGalleryOptionsType  {
 	allowEditing : boolean;
 	animated : boolean;
 	arrowDirection : number;
@@ -13249,7 +5993,7 @@ declare class PhotoGalleryOptionsType {
 	success : (...args : any[]) => any;
 }
 
-declare class NotificationParams {
+declare class NotificationParams  {
 	alertAction : string;
 	alertBody : string;
 	alertLaunchImage : string;
@@ -13261,95 +6005,78 @@ declare class NotificationParams {
 	userInfo : Dictionary<Object>;
 }
 
-declare class SuccessResponse {
-	code : number;
-	error : string;
-	success : boolean;
+declare enum SuccessResponse {
+
 }
 
-declare class daysOfTheWeekDictionary {
+declare class daysOfTheWeekDictionary  {
 	daysOfWeek : number;
 	week : number;
 }
 
-declare class Modules {
+declare class Modules  {
 
 }
 
-declare class hideStatusBarParams {
+declare class hideStatusBarParams  {
 	animated : boolean;
 	animationStyle : number;
 }
 
-declare class ListDataItem {
+declare class ListDataItem  {
 	properties : Dictionary<Titanium.UI.ListItem>;
 	template : any;
 }
 
-declare class ItemTemplate {
+declare class ItemTemplate  {
 	childTemplates : Array<ViewTemplate>;
 	events : Dictionary<Object>;
 	properties : Dictionary<Titanium.UI.ListItem>;
 }
 
-declare class MovieSize {
+declare class MovieSize  {
 	height : number;
 	width : number;
 }
 
-declare class CameraMediaItemType {
-	code : number;
+declare class CameraMediaItemType  {
 	cropRect : CropRectType;
-	error : string;
 	media : Titanium.Blob;
 	mediaType : string;
-	success : boolean;
 }
 
-declare class HeadingResponse {
-	code : number;
-	error : string;
+declare class HeadingResponse extends ErrorResponse {
 	heading : HeadingData;
-	success : boolean;
 }
 
-declare class ListViewEdgeInsets {
+declare class ListViewEdgeInsets  {
 	bottom : number;
 	left : number;
 	right : number;
 	top : number;
 }
 
-declare class CloudEmailsResponse {
-	code : number;
-	error : boolean;
-	message : string;
-	meta : Dictionary<Object>;
-	success : boolean;
+declare enum CloudEmailsResponse {
+
 }
 
-declare class GradientColorRef {
+declare class GradientColorRef  {
 	color : string;
 	offset : number;
 }
 
-declare class Font {
+declare class Font  {
 	fontFamily : string;
 	fontSize : any;
 	fontStyle : string;
 	fontWeight : string;
 }
 
-declare class CloudPlacesResponse {
-	code : number;
-	error : boolean;
-	message : string;
-	meta : Dictionary<Object>;
+declare class CloudPlacesResponse extends CloudResponse {
 	places : Array<Dictionary<Object>>;
-	success : boolean;
 }
 
-declare class EncodeNumberDict {
+declare class EncodeNumberDict  {
 	byteOrder : number;
 	dest : Titanium.Buffer;
 	position : number;
@@ -13357,7 +6084,7 @@ declare class EncodeNumberDict {
 	type : string;
 }
 
-declare class showContactsParams {
+declare class showContactsParams  {
 	animated : boolean;
 	cancel : (...args : any[]) => any;
 	fields : Array<String>;
@@ -13365,33 +6092,28 @@ declare class showContactsParams {
 	selectedProperty : (...args : any[]) => any;
 }
 
-declare class LocationProviderDict {
+declare class LocationProviderDict  {
 	accuracy : number;
 	name : string;
 	power : number;
 }
 
-declare class FacebookDialogResponsev1 {
+declare class FacebookDialogResponsev1  {
 	cancelled : boolean;
 	error : string;
 	result : string;
 	success : boolean;
 }
 
-declare class CloudFilesResponse {
-	code : number;
-	error : boolean;
+declare class CloudFilesResponse extends CloudResponse {
 	files : Array<Dictionary<Object>>;
-	message : string;
-	meta : Dictionary<Object>;
-	success : boolean;
 }
 
-declare class hideParams {
+declare class hideParams  {
 	animated : boolean;
 }
 
-declare class openWindowParams {
+declare class openWindowParams  {
 	activityEnterAnimation : number;
 	activityExitAnimation : number;
 	animated : boolean;
@@ -13409,7 +6131,7 @@ declare class openWindowParams {
 	width : any;
 }
 
-declare class Gradient {
+declare class Gradient  {
 	backfillEnd : boolean;
 	backfillStart : boolean;
 	colors : any;
@@ -13420,110 +6142,89 @@ declare class Gradient {
 	type : string;
 }
 
-declare class showStatusBarParams {
+declare class showStatusBarParams  {
 	animated : boolean;
 	animationStyle : number;
 }
 
-declare class MapPointType {
+declare class MapPointType  {
 	latitude : number;
 	longitude : number;
 }
 
-declare class CloudKeyValuesResponse {
-	code : number;
-	error : boolean;
+declare class CloudKeyValuesResponse extends CloudResponse {
 	keyvalues : Array<Dictionary<Object>>;
-	message : string;
-	meta : Dictionary<Object>;
-	success : boolean;
 }
 
-declare class TableViewEdgeInsets {
+declare class TableViewEdgeInsets  {
 	bottom : number;
 	left : number;
 	right : number;
 	top : number;
 }
 
-declare class ReverseGeocodeResponse {
-	code : number;
-	error : string;
+declare class ReverseGeocodeResponse extends ErrorResponse {
 	places : Array<GeocodedAddress>;
-	success : boolean;
 }
 
-declare class PushNotificationSuccessArg {
-	code : number;
+declare class PushNotificationSuccessArg  {
 	deviceToken : string;
-	error : string;
-	success : boolean;
 	type : string;
 }
 
-declare class PushNotificationData {
+declare class PushNotificationData  {
 	data : Dictionary<Object>;
 	inBackground : boolean;
 }
 
-declare class closeWindowParams {
+declare class closeWindowParams  {
 	activityEnterAnimation : number;
 	activityExitAnimation : number;
 	animated : boolean;
 }
 
-declare class showParams {
+declare class showParams  {
 	animated : boolean;
 	rect : Dictionary<Object>;
 	view : Titanium.UI.View;
 }
 
-declare class PreviewImageError {
-	code : number;
-	error : string;
+declare class PreviewImageError  {
 	message : string;
-	success : boolean;
 }
 
-declare class CloudMessagesResponse {
-	code : number;
-	error : boolean;
-	message : string;
+declare class CloudMessagesResponse extends CloudResponse {
 	messages : Array<Dictionary<Object>>;
-	meta : Dictionary<Object>;
-	success : boolean;
 }
 
-declare class ImageAsCroppedDict {
+declare class ImageAsCroppedDict  {
 	height : number;
 	width : number;
 	x : number;
 	y : number;
 }
 
-declare class PreviewImageOptions {
+declare class PreviewImageOptions  {
 	error : (...args : any[]) => any;
 	image : Titanium.Blob;
 	success : (...args : any[]) => any;
 }
 
-declare class contentOffsetOption {
+declare class contentOffsetOption  {
 	animated : boolean;
 }
 
-declare class TableViewAnimationProperties {
+declare class TableViewAnimationProperties  {
 	animated : boolean;
 	animationStyle : number;
 	position : number;
 }
 
-declare class MediaAuthorizationResponse {
-	code : number;
-	error : string;
-	success : boolean;
+declare enum MediaAuthorizationResponse {
+
 }
 
-declare class EncodeStringDict {
+declare class EncodeStringDict  {
 	charset : string;
 	dest : Titanium.Buffer;
 	destPosition : number;
