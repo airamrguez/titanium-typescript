@@ -6,9 +6,10 @@
 /// node Generator.js api.json > titanium.d.ts
 
 /// <reference path='References.ts' />
-
+/// <reference path='Util.ts' />
 import fs = require('fs');
-import _= require('underscore');
+import _  = require('underscore');
+import _s = require('underscore.string')
 
 module Generator {
 	interface String  {
@@ -32,7 +33,7 @@ module Generator {
 		}
 		fmtMessage += message;
 		return fmtMessage;
-	}
+	};
 
 	interface TiParameter {
 		name     : string;
@@ -89,7 +90,9 @@ module Generator {
 		                                                '{{moduleContent}}' + Module.NEWLINE;
 		/// <b>INTERFACE_TEMPLATE</b>
 		/// Interface representation inside a Typescript module.
-		static INTERFACE_TEMPLATE            : string = '{{entityType}} {{name}} {' + Module.NEWLINE +
+		static INTERFACE_TEMPLATE            : string = '{{entityType}} {{name}} {{inheritsFrom}} {' + Module.NEWLINE +
+		                                                '{{moduleContent}}' + Module.NEWLINE;
+		static ENUM_TEMPLATE                 : string = '{{enumModifier}} enum {{name}} {' + Module.NEWLINE +
 		                                                '{{moduleContent}}' + Module.NEWLINE;
 
 		/// All the submodules.
@@ -99,6 +102,7 @@ module Generator {
 		private identifiers  : Array<string>;
 		private inheritsFrom : string;
 		private isGeneric    : boolean;
+		private extendsFrom  : Module;
 
 		constructor (public Name: string, inheritsFrom : string = 'Object', isGeneric: boolean = false) {
 			this.modules = [];
@@ -106,23 +110,50 @@ module Generator {
 			this.methods = [];
 			this.identifiers = [];
 			this.isGeneric = isGeneric;
+			this.extendsFrom = null;
 		}
 
 		/// Getters
-		get Properties   () : Array<string>         { return this.properties;   }
-		get Methods      () : Array<string>         { return this.methods;      }
-		get Identifiers  () : Array<string>         { return this.identifiers;  }
-		get Modules      () : Array<Module>         { return this.modules;      }
-		get InheritsFrom () : string                { return this.inheritsFrom; }
-		get IsGeneric    () : boolean               { return this.isGeneric;    }
+		get Properties   () : Array<string>              { return this.properties;   }
+		get Methods      () : Array<string>              { return this.methods;      }
+		get Identifiers  () : Array<string>              { return this.identifiers;  }
+		get Modules      () : Array<Module>              { return this.modules;      }
+		get InheritsFrom () : string                     { return this.inheritsFrom; }
+		get IsGeneric    () : boolean                    { return this.isGeneric;    }
+		get ExtendsFrom  () : Module                     { return this.extendsFrom;  }
 
 		/// Setters
-		set InheritsFrom (parentModuleName: string) { this.inheritsFrom = parentModuleName; }
-		set IsGeneric    (generic: boolean)         { this.isGeneric = generic; }
+		set InheritsFrom (extendsFromModuleName: string) { this.inheritsFrom = extendsFromModuleName; }
+		set IsGeneric    (generic: boolean)              { this.isGeneric = generic; }
+		set ExtendsFrom  (module: Module)                { this.extendsFrom = module; }
 
 		/// Tells whether the current representation is a Typescript Module or not.
 		public IsModule (): boolean {
 			return (!_.isEmpty(this.Modules));
+		}
+
+		public IsEnum (): boolean {
+			if (_.isEmpty(this.Properties)) {
+				return false;
+			}
+			var flag: boolean = false;
+			for (var i: number = 0; i < this.Methods.length; i++) {
+				if (!this.IsInherited(this.Methods[i])) {
+					return false;
+				}
+			}
+			for (i = 0; i < this.Properties.length; i++) {
+				if (!this.IsInherited(this.Properties[i])) {
+					var match = this.Properties[i].split(':').slice(0, 1);
+					if (!_.isNull(match)) {
+						match = _.first(match).match(/[a-z]/);
+						if (!_.isNull(match)) {
+							return false;
+						}
+					}
+				};
+			}
+			return true;
 		}
 
 		/// <b>DoRender</b>
@@ -141,7 +172,9 @@ module Generator {
 		private DoRender (level : number, definitions: string) : string {
 			var subModulesRender : string = '';
 			var template = _.template (Module.MODULE_TEMPLATE);
-			if (!this.IsModule()) {
+			if (this.IsEnum()) {
+				definitions += this.RenderEnum(level) + '}'.Indent(level) + Module.NEWLINE;
+			} else if (!this.IsModule()) {
 				definitions += this.RenderInterface(level) + '}'.Indent(level) + Module.NEWLINE;
 			} else {
 				var subModulesDefs: string = '';
@@ -186,8 +219,47 @@ module Generator {
 			return template ({
 								entityType: entityType,
 								name: name + generic,
+								inheritsFrom: this.RenderInterfaceInheritsPart(),
 								moduleContent: content
 							}).Indent(level);
+		}
+
+		private RenderInterfaceInheritsPart(): string {
+			var parentIsEnum: boolean = false;
+			if (!_.isNull(this.ExtendsFrom)) {
+				parentIsEnum = this.ExtendsFrom.IsEnum();
+			}
+			if (parentIsEnum || this.InheritsFrom === 'Object') {
+				return '';
+			}
+			return 'extends ' + this.InheritsFrom;
+		}
+
+		private RenderEnum (level: number): string {
+			var template: Function = _.template(Module.ENUM_TEMPLATE);
+			var content: string = this.RenderEnumEntries(level + 1);
+			var moduleRoute : Array<string> = this.Name.split('.');
+			var name: string = _.last (moduleRoute);
+			var enumModifier: string = level === 0 ? 'declare' : 'export';
+			return template ({
+								enumModifier: enumModifier,
+								name: name,
+								moduleContent: content
+							}).Indent(level);
+		}
+
+		private RenderEnumEntries (level: number): string {
+			var sep: string = '';
+			var content: string = '';
+			var that = this;
+			var nonInheritedProperties = _.select(this.Properties, (property: string) => {
+				return !that.IsInherited(property);
+			});
+			_.each(nonInheritedProperties, (property: string) => {
+				content += sep + _s.trim(_.first(property.split(':'))).Indent(level);
+				sep = ',' + Module.NEWLINE;
+			});
+			return content;
 		}
 
 		/// <b>RenderPropertiesAndMethods</b>
@@ -200,17 +272,40 @@ module Generator {
 		private RenderPropertiesAndMethods (level: number, propertyTemplate: Function, methodTemplate: Function): string {
 			var content: string = '';
 			var lineSep: string = '';
+			var isInterface: boolean = !this.IsModule();
 			_.each (this.Properties, (property: string) => {
-				var renderedProperty: string = propertyTemplate({declaration: property});
-				content += lineSep + renderedProperty.Indent(level);
-				lineSep = Module.NEWLINE;
+				if (!this.IsInherited(property) && isInterface || !isInterface) {
+					var renderedProperty: string = propertyTemplate({declaration: property});
+					content += lineSep + renderedProperty.Indent(level);
+					lineSep = Module.NEWLINE;
+				}
 			});
+
+
+			// TODO There is a problem when a subinterface override a method
+			// adding more parameters. For instance, DocumentView extends Titanium.UI.View
+			// adding parameters to the method show (). The way to make this work is to add
+			// ... args to the parent show method. :S
+
 			_.each (this.Methods, (method: string) => {
-				var renderedMethod: string = methodTemplate({declaration: method});
-				content += lineSep + renderedMethod.Indent(level);
-				lineSep = Module.NEWLINE;
+				if (!this.IsInherited(method) && isInterface || !isInterface) {
+					var renderedMethod: string = methodTemplate({declaration: method});
+					content += lineSep + renderedMethod.Indent(level);
+					lineSep = Module.NEWLINE;
+				}
 			});
 			return content;
+		}
+
+		private IsInherited (identifier: string): boolean {
+			var iterator: Module = this.extendsFrom;
+			while (iterator !== null) {
+				if (_.contains(iterator.Properties, identifier) || _.contains(iterator.Methods, identifier)) {
+					return true;
+				}
+				iterator = iterator.extendsFrom;
+			}
+			return false;
 		}
 	}
 
@@ -276,6 +371,9 @@ module Generator {
 				}
 			});
 			atModule.InheritsFrom = tiObject.extends;
+			if (atModule.InheritsFrom !== 'Object') {
+				atModule.ExtendsFrom = Mapper.ComputeModule (atModule.InheritsFrom);
+			}
 		}
 
 		/// <b>ComputeModule</b>
@@ -579,7 +677,7 @@ module Generator {
 		/// <b>GetModuleByNameFromModule</b>
 		/// @brief Given a module name, returns the logical module object.
 		/// @param[in] name the module name.
-		/// @param[in] rootModule the parent module where this module is located.
+		/// @param[in] rootModule the extendsFrom module where this module is located.
 		/// @return the module that contains the module with name <i>name</i>.
 		private static GetModuleByNameFromModule (name: string, rootModule: Module) : Module {
 			return _.first(_.where (rootModule.Modules, {Name: name})) || null;

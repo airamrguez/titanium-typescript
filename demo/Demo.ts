@@ -28,6 +28,21 @@ function main () {
     }
     
     tableView.data = dataSource;
+
+
+
+    var animation: Titanium.UI.Animation = Titanium.UI.createAnimation({
+        curve: Titanium.UI.ANIMATION_CURVE_EASE_OUT
+    });
+    animation.curve = Titanium.UI.ANIMATION_CURVE_EASE_IN;
+
+    Titanium.UI.iPhone.statusBarStyle = Titanium.UI.iPhone.StatusBar.GRAY;
+
+
+
+    button.addEventListener('singletap', function(){});
+
+    
 }
 
 main();

@@ -664,7 +664,7 @@ declare module Titanium {
 			setWidth (width: number) : void;
 			setWidth (width: string) : void;
 			setZIndex (zIndex: number) : void;
-			show (...args: Array<any>) : void;
+			show () : void;
 			startLayout () : void;
 			toImage (callback?: (...args : any[]) => any, honorScaleFactor?: boolean) : Titanium.Blob;
 			updateLayout (params: Dictionary<Object>) : void;
