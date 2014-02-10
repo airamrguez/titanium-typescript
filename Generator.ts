@@ -5,36 +5,12 @@
 /// tsc -m commonjs -t ES5 -sourcemap References.ts
 /// node Generator.js api.json > titanium.d.ts
 
-/// <reference path='References.ts' />
 /// <reference path='Util.ts' />
 import fs = require('fs');
 import _  = require('underscore');
 import _s = require('underscore.string')
 
 module Generator {
-	interface String  {
-		Join (separator: string, ...args: string[]): string;
-		Indent (level: number): string;
-	}
-
-	String.prototype.Join = function (separator, args) {
-		var argsArray = Array.prototype.slice.call(arguments, 1);
-		if (separator == null) separator = '';
-		return argsArray.join(separator);
-	};
-
-	/// <b>Indent</b>
-	/// @brief Attach tabs to prettify the output.
-	String.prototype.Indent = function (level: number): string {
-		var message: string = this.toString();
-		var fmtMessage : string = '';
-		for (var i : number = 0; i < level; i++) {
-			fmtMessage += '\t';
-		}
-		fmtMessage += message;
-		return fmtMessage;
-	};
-
 	interface TiParameter {
 		name     : string;
 		type     : any;
@@ -79,7 +55,7 @@ module Generator {
 		/// Variable representation inside a Typescript module.
 		static MODULE_PROPERTY_TEMPLATE      : string = 'export var {{declaration}}';
 		/// <b>INTERFACE_FUNCTION_TEMPLATE</b>
-		/// Interface functions representation inside a Typescript module.	
+		/// Interface functions representation inside a Typescript module.
 		static INTERFACE_FUNCTION_TEMPLATE   : string = '{{declaration}}';
 		/// <b>INTERFACE_PROPERTY_TEMPLATE</b>
 		/// Interface properties representation inside a Typescript module.
@@ -164,7 +140,7 @@ module Generator {
 		}
 
 		/// <b>DoRender</b>
-		/// @brief Do the render of the current module using a level of indentations and 
+		/// @brief Do the render of the current module using a level of indentations and
 		///        all the submodules definitions.
 		/// @param[in] level that will be used to indent the rendered output.
 		/// @param[in] definitions of the submodules already renderized.
@@ -320,7 +296,7 @@ module Generator {
 		/// <b>RootModule</b>
 		/// @brief A logical representation of a module (module, interface or class).
 		private static RootModule : Module = new Module ('Root');
-	
+
 		/// <b>Map</b>
 		/// @brief Parse a Titanium JSON specification and convert it to Typescript ambient declarations.
 		/// @param[in] path where the file with the JSON specification is located.
@@ -402,7 +378,7 @@ module Generator {
 		/// @param[in] tiMethod is the JSON method representation.
 		/// @return a Typescript representation of the tiMethod method.
 		private static ComputeTiMethod (atModule: Module, tiMethod: TiMethod) : Array<string> {
-			var methodOverloads : Array<string> = []; 
+			var methodOverloads : Array<string> = [];
 			var name : string = tiMethod.name;
 			atModule.Identifiers.push(name);
 			var methodGenericTemplate = _.template (Mapper.METHOD_GENERIC_TEMPLATE);
@@ -472,7 +448,7 @@ module Generator {
 
 		/// <b>ComputeMethodSignature</b>
 		/// @brief Compute all the method overload signatures without the return types.
-		/// @param tiParameterList all the parameters on the signature. 
+		/// @param tiParameterList all the parameters on the signature.
 		/// @return a list with all the method overload signatures without the return types.
 		private static ComputeMethodSignature (tiParameterList: Array<TiParameter>) : Array<string> {
 			var signatures : Array<string> = [''];
@@ -493,7 +469,7 @@ module Generator {
 		private static Replicate (replicationVector : Array<string>, replicateSamples : Array<string>, separator : string) {
 			var newReplicationVectorSize = replicationVector.length * replicateSamples.length;
 			var startIndex = replicationVector.length;
-			// Initialize the capacity of signatures when an overload has taken place to allocate 
+			// Initialize the capacity of signatures when an overload has taken place to allocate
 			// all new signature combinations.
 			for (var i : number = startIndex; i < newReplicationVectorSize; i++) {
 				replicationVector [i] = replicationVector [newReplicationVectorSize - 1 - i] || '';
@@ -574,7 +550,7 @@ module Generator {
 		}
 
 		/// <b>ComputeListOfTypes</b>
-		/// @brief Given a collection of types this method returns a list with 
+		/// @brief Given a collection of types this method returns a list with
 		///        all these types sanitized.
 		/// @param[in] type a list or just a single type.
 		/// @return a vector of sanitized types.

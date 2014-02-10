@@ -3,7 +3,7 @@ interface String  {
 	Indent (level: number): string;
 }
 
-String.prototype.Join = function (separator, args) {
+String.prototype.Join = function (separator, ...args) {
 	var argsArray = Array.prototype.slice.call(arguments, 1);
 	if (separator == null) separator = '';
 	return argsArray.join(separator);
