@@ -41,3 +41,6 @@ The above command line generates the file Generator.js. To generate the _Titaniu
 
 For future work, it would be interesting to implement **interface inheritance** in order to avoid
 repeated inherited methods or properties in subclasses.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/airamrguez/titanium-typescript/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
